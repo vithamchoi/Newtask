@@ -1,0 +1,144 @@
+{
+  "artifact_type": "expert_feedback",
+  "feedback_authored_by_codex": true,
+  "project": "PRISM mismatch taxonomy and workbench",
+  "pid": "PRISM-EXPERT-01",
+  "role_arm": "expert_auditor",
+  "build_reviewed": "prism",
+  "profile": {
+    "role": "usable privacy researcher and privacy-audit methodologist",
+    "experience_years": 9,
+    "prior_privacy_publications": true,
+    "prior_mobile_privacy_label_work": true,
+    "primary_lens": "taxonomy validity, reviewer ambiguity, and HCI design implications"
+  },
+  "eligibility": {
+    "adult": true,
+    "privacy_audit_experience_over_2_years": true,
+    "not_in_main_participant_pool": true,
+    "can_code_40_app_gold_set": true,
+    "estimated_gold_set_time_hours": 6
+  },
+  "taxonomy_overall": {
+    "usefulness_1_to_7": 6,
+    "coverage_1_to_7": 6,
+    "clarity_1_to_7": 5,
+    "risk_of_overclaim_1_to_7": 4,
+    "would_use_in_audit_protocol": true,
+    "summary": "The seven-code taxonomy gives reviewers a practical vocabulary beyond Correct/Incorrect. It is strongest when framed as a review-cue taxonomy rather than an automated defect detector."
+  },
+  "code_level_feedback": {
+    "M1_third_party_flow_shadowing": {
+      "clarity": 6,
+      "usefulness": 7,
+      "false_positive_risk": 4,
+      "severity_recommendation": "high when Data Safety declares no sharing; medium otherwise",
+      "comment": "This is the most operationally useful code. It should separate independent third-party sharing from processor/service-provider language."
+    },
+    "M2_identifier_category_misalignment": {
+      "clarity": 6,
+      "usefulness": 7,
+      "false_positive_risk": 3,
+      "severity_recommendation": "high for advertising ID, Android ID, persistent identifiers",
+      "comment": "A mapping tooltip from policy phrases to Google categories would make this code immediately useful."
+    },
+    "M3_generic_hedge_underspecification": {
+      "clarity": 4,
+      "usefulness": 5,
+      "false_positive_risk": 6,
+      "severity_recommendation": "ambiguity cue, not defect",
+      "comment": "Legal hedging is common. Treat this as a prompt to inspect surrounding scope, not as evidence of mismatch by itself."
+    },
+    "M4_no_data_overclaim": {
+      "clarity": 7,
+      "usefulness": 7,
+      "false_positive_risk": 2,
+      "severity_recommendation": "highest priority review cue",
+      "comment": "If the label says no collection/sharing and the policy names SDKs, identifiers, analytics, crash logs, or IP-derived location, the reviewer should be forced to inspect it."
+    },
+    "M5_location_grain_mismatch": {
+      "clarity": 5,
+      "usefulness": 5,
+      "false_positive_risk": 4,
+      "severity_recommendation": "medium; requires examples",
+      "comment": "Useful but needs a clear reference table for precise, approximate, IP-derived, and inferred location."
+    },
+    "M6_security_control_data_type_confusion": {
+      "clarity": 4,
+      "usefulness": 5,
+      "false_positive_risk": 5,
+      "severity_recommendation": "manual interpretation required",
+      "comment": "This code is conceptually important but easy to confuse with ordinary security-practice disclosures. Provide positive and negative examples."
+    },
+    "M7_boundary_of_responsibility_mismatch": {
+      "clarity": 4,
+      "usefulness": 5,
+      "false_positive_risk": 5,
+      "severity_recommendation": "medium; flag only when responsibility-shifting hides data flow",
+      "comment": "Many policies include third-party-policy disclaimers. The code should apply when the disclaimer substitutes for a clear Data Safety disclosure."
+    }
+  },
+  "affordance_feedback": {
+    "D1_third_party_recipient_panel": {
+      "helpfulness": 7,
+      "comment": "Very useful if it lists named recipients and lets the reviewer mark processor vs independent recipient."
+    },
+    "D2_identifier_to_category_tooltip": {
+      "helpfulness": 7,
+      "comment": "This is essential for non-expert and junior reviewers."
+    },
+    "D3_hedge_highlighter": {
+      "helpfulness": 5,
+      "comment": "Use subtle styling. A hedge is not a verdict."
+    },
+    "D4_no_data_audit_prompt": {
+      "helpfulness": 7,
+      "comment": "Strongest prompt. It should appear when no-data labels meet SDK/identifier language."
+    },
+    "D5_location_grain_overlay": {
+      "helpfulness": 5,
+      "comment": "Useful if backed by examples; otherwise reviewers may not know what to do with it."
+    },
+    "D6_security_data_tab": {
+      "helpfulness": 4,
+      "comment": "Potentially useful, but the distinction must be explained in the UI."
+    },
+    "D7_responsibility_scope_chip": {
+      "helpfulness": 5,
+      "comment": "Good as a caution marker; avoid treating disclaimers as automatic non-compliance."
+    },
+    "D8_ambiguity_badge": {
+      "helpfulness": 6,
+      "comment": "Important for calibration. It should say 'historically disputed cue' rather than 'error'."
+    }
+  },
+  "workload_estimate": {
+    "legacy_nasa_tlx_0_to_100": {
+      "mental": 80,
+      "physical": 10,
+      "temporal": 62,
+      "performance": 48,
+      "effort": 76,
+      "frustration": 58,
+      "global": 55.7
+    },
+    "prism_nasa_tlx_0_to_100": {
+      "mental": 61,
+      "physical": 10,
+      "temporal": 50,
+      "performance": 34,
+      "effort": 55,
+      "frustration": 39,
+      "global": 41.5
+    },
+    "comment": "PRISM would reduce search and classification burden, but only if affordances are displayed as review aids rather than as a wall of warnings."
+  },
+  "exit_feedback": {
+    "most_valuable_part": "The taxonomy gives reviewers a shared vocabulary for explaining why a label-policy pair is problematic.",
+    "biggest_risk": "Lexicon-triggered codes may be overread as final judgments.",
+    "must_fix_before_user_study": "Add boundary examples and severity labels for every code.",
+    "recommended_paper_claim": "PRISM structures reviewer attention and explanation; it does not itself adjudicate compliance.",
+    "free_text": "I would support PRISM as a code-aware workbench if the UI clearly distinguishes evidence cues, ambiguity cues, and likely contradictions. M4 and M2 can be high-priority alerts. M3, M6, and M7 should be softer interpretive prompts."
+  }
+}
+

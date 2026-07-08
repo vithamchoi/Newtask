@@ -1,0 +1,42 @@
+\begin{figure}[!htbp]
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}
+\begin{axis}[
+    xbar,
+    width=125mm, height=78mm,
+    scale only axis,
+    xmin=2.4, xmax=3.9,
+    enlarge x limits={upper, value=0.04},
+    xlabel={Mean necessity (1\,=\,very unnecessary, 5\,=\,very necessary)},
+    symbolic y coords={Calendar,Files/docs,Web browsing,Health/fit.,
+                       Audio files,Contacts,Device IDs,Messages,Location,
+                       Personal info,Financial info,App activity,
+                       App info/perf.,Photos/videos},
+    ytick=data, y dir=normal,
+    xtick={2.4,2.6,2.8,3.0,3.2,3.4,3.6,3.8},
+    nodes near coords, point meta=x,
+    nodes near coords={\pgfmathprintnumber[fixed,precision=2]{\pgfplotspointmeta}},
+    every node near coord/.append style={font=\footnotesize, color=ngSlate},
+    y tick label style={font=\footnotesize},
+    x tick label style={font=\footnotesize},
+    bar width=6pt, enlarge y limits=0.04,
+    axis line style={ngSlate}, tick style={ngSlate},
+    grid=major, grid style={ngSlate!18}
+]
+\addplot+[draw=ngGreen, fill=ngGreen!70, line width=0.4pt] coordinates {
+   (2.60,Calendar) (2.74,Files/docs) (2.95,Web browsing)
+   (3.00,Health/fit.) (3.05,Audio files) (3.11,Contacts)
+   (3.12,Device IDs) (3.15,Messages) (3.14,Location)
+   (3.21,Personal info) (3.21,Financial info) (3.23,App activity)
+   (3.30,App info/perf.) (3.35,Photos/videos)
+};
+\end{axis}
+\end{tikzpicture}%
+}
+\caption{Mean necessity rating by data category, collection only. The
+spread is narrow (2.60--3.35), centred on the neutral midpoint of the
+five-point scale: no category is rated as broadly unnecessary, and no
+category is broadly necessary either.}
+\label{fig:cat-means-coll}
+\end{figure}

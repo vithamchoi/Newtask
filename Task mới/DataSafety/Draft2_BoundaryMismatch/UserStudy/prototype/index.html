@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>BLE Prototype — Landing</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container" style="padding-top:24px;">
+  <div class="landing-card">
+    <h1>Boundary-Layer Explainer prototype</h1>
+    <p>This is the working prototype that accompanies the paper
+       <em>Where the Policy Ends and the User Begins: A Boundary-Case
+       Mismatch in App-Store Privacy Labels</em>.</p>
+
+    <h3>1) Live participant flow — full study</h3>
+    <p style="font-size:0.92rem;color:#6b7280;">
+      The participant arrives via Prolific (or Microworkers) with a
+      unique <code>?pid=PROLIFIC_ID</code>. The single-page-app
+      <code>study.html</code> runs consent &rarr; pre-task &rarr;
+      4 randomised app vignettes &rarr; attention check &rarr;
+      post-task &rarr; debrief in one continuous flow. Condition
+      (current vs BLE) is assigned by hashing the pid, and the
+      4-app subset is sampled by stratification from a 12-app pool.</p>
+    <div class="cond-btn-row">
+      <a class="cond-btn A" href="study.html?pid=DEMO-001">Run study (pid=DEMO-001)</a>
+      <a class="cond-btn B" href="study.html?pid=DEMO-002">Run study (pid=DEMO-002)</a>
+      <a class="cond-btn A" href="study.html?pid=DEMO-003">Run study (pid=DEMO-003)</a>
+    </div>
+
+    <h3 style="margin-top:18px;">2) Condition-only previews</h3>
+    <p style="font-size:0.92rem;color:#6b7280;">
+      For design review and the think-aloud arm. No consent flow, no
+      instrument — just the rendered label so the moderator can walk
+      participants through it.</p>
+    <div class="cond-btn-row">
+      <a class="cond-btn A" href="current.html?pid=DEMO-001">A · Preview (current renderer)</a>
+      <a class="cond-btn B" href="ble.html?pid=DEMO-001">B · Preview (BLE renderer)</a>
+    </div>
+
+    <h3 style="margin-top:18px;">Preview mode (no pid)</h3>
+    <p style="font-size:0.92rem;color:#6b7280;">
+      Without a <code>pid</code>, the prototype shows the full pool so
+      moderators can inspect any single app. Useful for the
+      think-aloud arm and for design review.</p>
+    <div class="cond-btn-row">
+      <a class="cond-btn A" href="current.html">A · Preview (all apps)</a>
+      <a class="cond-btn B" href="ble.html">B · Preview (all apps)</a>
+    </div>
+
+    <h3 style="margin-top:18px;">Pool size</h3>
+    <p style="font-size:0.92rem;color:#6b7280;">
+      The pool currently contains <strong id="pool-count">…</strong>
+      apps spanning the 14 Data Safety categories. Each contested
+      cell is tagged with the boundary case it triggers (one of
+      $b_1$–$b_9$) so the analytics pipeline can score
+      drawer-engagement per case.</p>
+
+    <div id="file-warn" class="banner warn" style="display:none;margin-top:14px;">
+      <strong>Heads-up:</strong> this page is opened directly from disk
+      (<code>file://</code>). Most of the prototype works in fallback mode,
+      but if anything looks empty, please run a local server:
+      <br><br>
+      <code>cd UserStudy/prototype &amp;&amp; python3 -m http.server 8080</code>
+      <br>then open <code>http://localhost:8080/</code>.
+    </div>
+
+    <p class="foot">For research use only. Apps and developers are fictional.</p>
+  </div>
+</div>
+<script src="apps_data.js"></script>
+<script>
+  // Show pool count from fetch when possible, else fallback.
+  fetch("apps.json")
+    .then(r => r.ok ? r.json() : Promise.reject())
+    .catch(() => window.__APPS_FALLBACK || [])
+    .then(d => {
+      document.getElementById("pool-count").textContent = String(d.length);
+    });
+  // Warn if opened from file://
+  if (location.protocol === "file:") {
+    document.getElementById("file-warn").style.display = "block";
+  }
+</script>
+</body>
+</html>

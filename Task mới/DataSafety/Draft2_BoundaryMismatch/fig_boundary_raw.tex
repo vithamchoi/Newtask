@@ -1,0 +1,66 @@
+% Figure: raw Yes/No/Maybe boundary case
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    xbar stacked,
+    width=0.82\linewidth, height=0.50\linewidth,
+    xmin=0,xmax=100,
+    xlabel={\footnotesize Response distribution (\%) -- raw $N=87$ sample},
+    symbolic y coords={
+        $b_3$ Off-device ephemeral,
+        $b_9$ Anonymised transfer,
+        $b_7$ Service provider,
+        $b_8$ Legal transfer,
+        $b_4$ Redirect to service,
+        $b_6$ Prominent consent,
+        $b_1$ On-device only,
+        $b_5$ User-initiated,
+        $b_2$ E2E encryption},
+    ytick=data,
+    xtick={0,20,40,60,80,100},
+    yticklabel style={font=\footnotesize},
+    xticklabel style={font=\footnotesize},
+    legend style={at={(0.5,-0.22)},anchor=north,legend columns=3,draw=none,
+                  font=\footnotesize},
+    bar width=10pt,
+    enlarge y limits=0.05,
+    grid=major,grid style={bmInk!18}]
+\addplot+[fill=bmGreen!80,draw=bmGreen]
+  coordinates {
+    (61.8,$b_3$ Off-device ephemeral)
+    (71.6,$b_9$ Anonymised transfer)
+    (72.6,$b_7$ Service provider)
+    (73.9,$b_8$ Legal transfer)
+    (75.4,$b_4$ Redirect to service)
+    (79.0,$b_6$ Prominent consent)
+    (80.9,$b_1$ On-device only)
+    (82.3,$b_5$ User-initiated)
+    (83.3,$b_2$ E2E encryption)};
+\addplot+[fill=bmRed!80,draw=bmRed]
+  coordinates {(0,$b_3$ Off-device ephemeral)(0,$b_9$ Anonymised transfer)
+    (0,$b_7$ Service provider)(0,$b_8$ Legal transfer)
+    (0,$b_4$ Redirect to service)(0,$b_6$ Prominent consent)
+    (0,$b_1$ On-device only)(0,$b_5$ User-initiated)
+    (0,$b_2$ E2E encryption)};
+\addplot+[fill=bmAmber!85,draw=bmAmber]
+  coordinates {
+    (38.2,$b_3$ Off-device ephemeral)
+    (28.4,$b_9$ Anonymised transfer)
+    (27.4,$b_7$ Service provider)
+    (26.2,$b_8$ Legal transfer)
+    (24.6,$b_4$ Redirect to service)
+    (21.0,$b_6$ Prominent consent)
+    (19.1,$b_1$ On-device only)
+    (17.7,$b_5$ User-initiated)
+    (16.7,$b_2$ E2E encryption)};
+\legend{Agree with policy, Disagree, Unsure}
+\end{axis}
+\end{tikzpicture}
+\caption{Raw per-boundary-case agreement with Google Play's policy
+interpretation ($N{=}87$). No participant selected ``No'' on any
+boundary case; the trichotomy collapses to Yes vs Maybe. The case with
+the highest uncertainty is $b_3$ (off-device ephemeral); the highest
+agreement is $b_2$ (E2E encryption).}
+\label{fig:boundary-raw}
+\end{figure}

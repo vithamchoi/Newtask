@@ -1,0 +1,72 @@
+% Figure: Filtered (N=62) Yes/No/Maybe boundary cases
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    xbar stacked,
+    width=0.82\linewidth, height=0.50\linewidth,
+    xmin=0,xmax=100,
+    xlabel={\footnotesize Response distribution (\%) -- quality-filtered $N=62$},
+    symbolic y coords={
+        $b_3$ Off-device ephemeral,
+        $b_7$ Service provider,
+        $b_9$ Anonymised transfer,
+        $b_8$ Legal transfer,
+        $b_6$ Prominent consent,
+        $b_4$ Redirect to service,
+        $b_5$ User-initiated,
+        $b_1$ On-device only,
+        $b_2$ E2E encryption},
+    ytick=data,
+    xtick={0,20,40,60,80,100},
+    yticklabel style={font=\footnotesize},
+    xticklabel style={font=\footnotesize},
+    legend style={at={(0.5,-0.22)},anchor=north,legend columns=3,draw=none,
+                  font=\footnotesize},
+    bar width=10pt,
+    enlarge y limits=0.05,
+    grid=major,grid style={bmInk!18}]
+\addplot+[fill=bmGreen!80,draw=bmGreen]
+  coordinates {
+    (48.3,$b_3$ Off-device ephemeral)
+    (51.7,$b_7$ Service provider)
+    (55.2,$b_9$ Anonymised transfer)
+    (55.2,$b_8$ Legal transfer)
+    (56.3,$b_6$ Prominent consent)
+    (58.6,$b_4$ Redirect to service)
+    (58.6,$b_5$ User-initiated)
+    (62.1,$b_1$ On-device only)
+    (69.0,$b_2$ E2E encryption)};
+\addplot+[fill=bmRed!80,draw=bmRed]
+  coordinates {
+    (23.0,$b_3$ Off-device ephemeral)
+    (28.7,$b_7$ Service provider)
+    (23.0,$b_9$ Anonymised transfer)
+    (25.3,$b_8$ Legal transfer)
+    (28.7,$b_6$ Prominent consent)
+    (21.8,$b_4$ Redirect to service)
+    (28.7,$b_5$ User-initiated)
+    (23.0,$b_1$ On-device only)
+    (17.2,$b_2$ E2E encryption)};
+\addplot+[fill=bmAmber!85,draw=bmAmber]
+  coordinates {
+    (28.7,$b_3$ Off-device ephemeral)
+    (19.5,$b_7$ Service provider)
+    (21.8,$b_9$ Anonymised transfer)
+    (19.5,$b_8$ Legal transfer)
+    (14.9,$b_6$ Prominent consent)
+    (19.5,$b_4$ Redirect to service)
+    (12.6,$b_5$ User-initiated)
+    (14.9,$b_1$ On-device only)
+    (13.8,$b_2$ E2E encryption)};
+\legend{Agree with policy, Disagree, Unsure}
+\end{axis}
+\end{tikzpicture}
+\caption{Quality-filtered ($N{=}62$) per-boundary-case agreement.
+Excluding straight-liners ($n{=}6$), heavy Yes-leaners ($n{=}14$), and
+rationale-repeaters ($n{=}25$) reduces every Yes-rate without inverting
+the ordering. The case with widest mismatch in the filtered sample
+remains $b_3$ off-device ephemeral processing, with only $48.3\%$
+agreement. The Maybe band exceeds $10\%$ for every case.}
+\label{fig:boundary-filtered}
+\end{figure}

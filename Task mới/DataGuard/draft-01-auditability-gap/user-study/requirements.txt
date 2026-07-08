@@ -1,0 +1,20 @@
+Flask==3.0.0
+Flask-Cors==4.0.0
+SQLAlchemy==2.0.25
+gunicorn==21.2.0
+python-dotenv==1.0.0
+pyyaml==6.0.1
+# analysis
+numpy==1.26.3
+pandas==2.1.4
+scipy==1.11.4
+statsmodels==0.14.1
+scikit-learn==1.3.2
+matplotlib==3.8.2
+seaborn==0.13.1
+# evidence locator (optional, only if running C2 against an LLM)
+openai==1.10.0
+tenacity==8.2.3
+# tests
+pytest==7.4.4
+pytest-cov==4.1.0

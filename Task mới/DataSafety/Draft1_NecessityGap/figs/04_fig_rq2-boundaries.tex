@@ -1,0 +1,49 @@
+\begin{figure}[!htbp]
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}
+\begin{axis}[
+    xbar stacked,
+    width=120mm, height=72mm,
+    scale only axis,
+    xmin=0, xmax=100,
+    xlabel={Response distribution (\%)},
+    symbolic y coords={
+        Service provider,Anonymised transfer,Legal transfer,Prominent consent,
+        User-initiated transfer,Ephemeral off-device,Redirect to service,
+        On-device only,End-to-end encryption},
+    ytick=data, y dir=normal,
+    xtick={0,20,40,60,80,100},
+    legend style={at={(0.5,-0.20)},anchor=north,legend columns=3,draw=none,
+                  font=\footnotesize},
+    y tick label style={font=\footnotesize},
+    x tick label style={font=\footnotesize},
+    bar width=8pt, enlarge y limits=0.06,
+    axis line style={ngSlate}, tick style={ngSlate},
+    grid=major, grid style={ngSlate!18}
+]
+\addplot+[fill=ngGreen!75, draw=ngGreen!90] coordinates {
+    (51.7,Service provider)(55.2,Anonymised transfer)(55.2,Legal transfer)
+    (56.3,Prominent consent)(58.6,User-initiated transfer)
+    (48.3,Ephemeral off-device)(58.6,Redirect to service)
+    (62.1,On-device only)(69.0,End-to-end encryption)};
+\addplot+[fill=ngRed!75, draw=ngRed!90] coordinates {
+    (28.7,Service provider)(23.0,Anonymised transfer)(25.3,Legal transfer)
+    (28.7,Prominent consent)(28.7,User-initiated transfer)
+    (23.0,Ephemeral off-device)(21.8,Redirect to service)
+    (23.0,On-device only)(17.2,End-to-end encryption)};
+\addplot+[fill=ngYellow!85, draw=ngOrange] coordinates {
+    (19.5,Service provider)(21.8,Anonymised transfer)(19.5,Legal transfer)
+    (14.9,Prominent consent)(12.6,User-initiated transfer)
+    (28.7,Ephemeral off-device)(19.5,Redirect to service)
+    (14.9,On-device only)(13.8,End-to-end encryption)};
+\legend{Yes (agree with policy), No, Maybe}
+\end{axis}
+\end{tikzpicture}%
+}
+\caption{Interpretation of Google Play boundary cases (\textit{N}\,=\,87).
+Policy-defined exceptions for ephemeral processing, service-provider
+transfer, and anonymised transfer leave more than 40\% of participants
+disagreeing or uncertain.}
+\label{fig:rq2-boundaries}
+\end{figure}

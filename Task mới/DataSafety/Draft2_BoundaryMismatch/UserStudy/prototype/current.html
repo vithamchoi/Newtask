@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Condition A — Current Data Safety</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <div style="padding:12px 0;">
+    <span class="brand">Data Safety</span>
+    <span class="condition">Condition: <strong id="condition-chip">Current</strong></span>
+  </div>
+
+  <div id="app-mount"></div>
+
+  <div id="nav-mount" style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap;"></div>
+
+  <p class="foot">Condition A renders the label exactly as Google Play does today: a list of categories with binary flags. No rule clause, no community signal, no toggle.</p>
+</div>
+<script>
+  // Lock condition to "current" regardless of URL
+  history.replaceState(null, "", "?condition=current&" + location.search.replace(/^\?/, "").replace(/condition=[^&]*&?/, ""));
+</script>
+<script src="apps_data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+# Optional Netlify configuration. Drop this file at the repo root if
+# you deploy via git. Not needed for drag-and-drop deploys.
+
+[build]
+  publish = "."
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "public, max-age=300"
+    Referrer-Policy = "no-referrer"
+    X-Content-Type-Options = "nosniff"
+
+[[headers]]
+  for = "/*.json"
+  [headers.values]
+    Content-Type = "application/json"
+
+[[redirects]]
+  from = "/study"
+  to   = "/study.html"
+  status = 200
+
+[[redirects]]
+  from = "/preview-a"
+  to   = "/current.html"
+  status = 200
+
+[[redirects]]
+  from = "/preview-b"
+  to   = "/ble.html"
+  status = 200

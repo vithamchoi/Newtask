@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: dataguard-user-study
+    env: docker
+    plan: starter
+    healthCheckPath: /healthz
+    disk:
+      name: dataguard-study-data
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: DATAGUARD_DB
+        value: /data/study.db
+      - key: DATAGUARD_STUDY_MODE
+        value: feedback
+      - key: DATAGUARD_ADMIN_TOKEN
+        generateValue: true

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><title>PRISM workbench — exit interview</title>
+<style>
+body { font: 14px/1.5 -apple-system, system-ui, sans-serif;
+  max-width: 720px; margin: 32px auto; padding: 0 16px; color: #222; }
+h1 { font-size: 20px; }
+.q { margin: 18px 0; }
+.q label { font-weight: 600; display: block; margin-bottom: 6px; }
+textarea { width: 100%; min-height: 80px; padding: 8px; font: inherit;
+  border: 1px solid #ccc; border-radius: 4px; }
+button { background: #163160; color: #fff; border: 0; padding: 10px 24px;
+  border-radius: 4px; font-weight: 600; cursor: pointer; font-size: 15px; }
+.done { padding: 20px; background: #e1f3d9; border: 1px solid #549c54;
+  border-radius: 6px; margin-top: 20px; }
+</style>
+</head><body>
+
+<h1>Exit interview</h1>
+<p>Thank you for completing the audit task. Please answer these five short
+questions so we can improve the workbench. There are no right or wrong
+answers.</p>
+
+<form id="exit-form">
+<div class="q">
+  <label>Q1. Describe one app you found <em>hard</em> to audit. What made it hard?</label>
+  <textarea name="q1" required></textarea>
+</div>
+<div class="q">
+  <label>Q2. Was there any interface element that helped you decide? Which one and why?</label>
+  <textarea name="q2"></textarea>
+</div>
+<div class="q">
+  <label>Q3. Was there any interface element you ignored or found unhelpful?</label>
+  <textarea name="q3"></textarea>
+</div>
+<div class="q">
+  <label>Q4. What is one change you would make to the workbench?</label>
+  <textarea name="q4"></textarea>
+</div>
+<div class="q">
+  <label>Q5. Would you use this workbench in a real audit setting? Why or why not?</label>
+  <textarea name="q5" required></textarea>
+</div>
+
+<button id="submit" type="submit">Submit and finish</button>
+</form>
+
+<div id="thanks" class="done" hidden>
+  <h2>Thank you — you're done.</h2>
+  <p>Your participation has been recorded. Please notify the experimenter; your
+  compensation will be processed at the end of the session.</p>
+</div>
+
+<script>
+document.getElementById("exit-form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const data = Object.fromEntries(new FormData(e.target).entries());
+  await fetch("/api/exit", {method:"POST",
+    headers:{"Content-Type":"application/json"}, body:JSON.stringify(data)});
+  e.target.hidden = true;
+  document.getElementById("thanks").hidden = false;
+});
+</script>
+</body></html>

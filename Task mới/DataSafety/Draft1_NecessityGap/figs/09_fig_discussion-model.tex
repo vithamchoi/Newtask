@@ -1,0 +1,83 @@
+\begin{figure*}[!tbp]
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[
+    font=\sffamily, >=Latex,
+    input/.style={draw=ngBlue, top color=ngBlue!8, bottom color=ngBlue!28,
+                  rounded corners=4pt, align=center, minimum width=34mm,
+                  minimum height=12mm, font=\small},
+    interp/.style={draw=ngPurple, top color=ngPurple!10, bottom color=ngPurple!30,
+                  rounded corners=4pt, align=center, minimum width=52mm,
+                  minimum height=20mm, font=\small,
+                  blur shadow={shadow blur steps=5}},
+    outcome/.style={draw=ngGreen, top color=ngGreen!10, bottom color=ngGreen!30,
+                  rounded corners=4pt, align=center, minimum width=36mm,
+                  minimum height=12mm, font=\small},
+    note/.style={draw=ngOrange, top color=ngOrange!10, bottom color=ngOrange!30,
+                  rounded corners=3pt, align=center, minimum width=42mm,
+                  minimum height=14mm, font=\footnotesize},
+    design/.style={draw=ngRed, top color=ngRed!10, bottom color=ngRed!30,
+                  rounded corners=3pt, align=center, minimum width=44mm,
+                  minimum height=14mm, font=\small},
+    arr/.style={-{Latex[length=2.8mm]}, line width=0.9pt, draw=ngSlate},
+    fbarr/.style={-{Latex[length=2.6mm]}, line width=0.9pt,
+                  draw=ngRed!75, dashed}
+]
+% --- Top row: inputs (left), interpretation (centre), outcomes (right).
+\node[input]   (cat)    at (0   , 3.6)  {Data category\\\emph{personalness}};
+\node[input]   (not)    at (0   , 1.8)  {Disclosure notice\\\emph{mention}};
+\node[input]   (bnd)    at (0   , 0.0)  {Policy boundary\\\emph{coll. / shar.}};
+
+\node[interp]  (interp) at (6.0 , 1.8)  {%
+    \textbf{Contextual interpretation}\\[2pt]
+    \scriptsize app function $\cdot$ benefit\\
+    \scriptsize recipient $\cdot$ control $\cdot$ alternative};
+
+\node[outcome] (nec)    at (11.5, 2.7)  {Necessity\\judgment};
+\node[outcome] (dec)    at (11.5, 0.9)  {Privacy\\decision};
+
+% --- Bottom row: interpretive burden and design implications.  The two
+%     boxes are made narrower so a visible arrow can run between them,
+%     and the row is placed at y=-1.6 (closer to the top row) for
+%     visually balanced spacing.
+\node[note]    (burden) at (4.3 ,-1.6)  {Interpretive burden\\(ambiguous categories\\\& boundaries)};
+\node[design]  (design) at (11.5,-1.6)
+    {\textbf{Design implications}\\[2pt]
+     \scriptsize Why $\cdot$ Where $\cdot$ Who\\
+     \scriptsize $\cdot$ Control $\cdot$ Flag};
+
+% --- Forward arrows (inputs -> interp -> nec -> dec).  TikZ resolves
+%     the endpoints against each box's outline so every arrow lands on
+%     the box edge rather than in empty space.
+\draw[arr] (cat) -- (interp);
+\draw[arr] (not) -- (interp);
+\draw[arr] (bnd) -- (interp);
+
+\draw[arr] (interp) -- (nec);
+\draw[arr] (nec)    -- (dec);
+
+% --- Burden -> interpretation (vertical, upward).
+\draw[arr] (burden) -- (interp);
+
+% --- Feedback loop:
+%     (a) Privacy decision -> design implications  (vertical dashed on
+%         the right).
+%     (b) Design implications -> interpretive burden  (horizontal
+%         dashed along the bottom).  With the narrower boxes there is
+%         now ~3 cm of horizontal arrow visible between them.
+\draw[fbarr] (dec)    -- (design);
+\draw[fbarr] (design) -- (burden);
+
+\end{tikzpicture}%
+}
+\caption{Conceptual model of the Necessity Gap. Three input streams
+feed contextual interpretation, which converts them into a necessity
+judgment and then a privacy decision (top row, solid arrows).
+Interpretive burden is the cost that ambiguous categories and
+boundaries impose on interpretation, and is the target of the
+proposed design implications (bottom row). The dashed feedback loop
+runs from the privacy decision down to the design implications, then
+horizontally to the interpretive burden, which feeds back upward into
+the interpretation.}
+\label{fig:discussion-model}
+\end{figure*}

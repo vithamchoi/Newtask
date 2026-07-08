@@ -1,0 +1,34 @@
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    ybar,
+    width=0.86\linewidth, height=0.52\linewidth,
+    ymin=2.6, ymax=4.0,
+    ylabel={Participant-category mean necessity},
+    symbolic x coords={Collection,Sharing},
+    xtick=data,
+    legend style={at={(0.5,-0.22)},anchor=north,legend columns=3,draw=none,
+                  font=\footnotesize},
+    bar width=22pt,
+    nodes near coords, point meta=y,
+    nodes near coords={\pgfmathprintnumber[fixed,precision=2]{\pgfplotspointmeta}},
+    every node near coord/.append style={font=\scriptsize,color=ngSlate},
+    axis line style={ngSlate}, tick style={ngSlate},
+    grid=major, grid style={ngSlate!18}
+]
+\addplot+[fill=ngRed!75,  draw=ngRed]
+   coordinates {(Collection,3.14)(Sharing,3.27)};
+\addplot+[fill=ngOrange!75, draw=ngOrange]
+   coordinates {(Collection,3.18)(Sharing,3.47)};
+\addplot+[fill=ngBlue!75,  draw=ngBlue]
+   coordinates {(Collection,3.05)(Sharing,3.36)};
+\legend{Survey: Personal, Survey: Maybe, Survey: Not personal}
+\end{axis}
+\end{tikzpicture}
+\caption{The Necessity Gap, participant-linked. Within the \emph{same}
+participants, classifying a category as Personal does not produce lower
+necessity ratings: cluster-bootstrap differences are 0.09 [\textendash 0.27,
+0.45] for collection and \textendash 0.09 [\textendash 0.44, 0.25] for sharing.}
+\label{fig:rq5-necessity-gap}
+\end{figure}

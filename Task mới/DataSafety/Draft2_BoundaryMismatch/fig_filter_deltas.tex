@@ -1,0 +1,40 @@
+% Figure: Filter-induced deltas in Yes-rate per boundary case
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    width=\linewidth, height=0.42\linewidth,
+    ybar,
+    bar width=12pt,
+    ymin=-30,ymax=0,
+    ylabel={\footnotesize $\Delta$ Yes (filtered $-$ raw, pp)},
+    symbolic x coords={$b_1$,$b_2$,$b_3$,$b_4$,$b_5$,$b_6$,$b_7$,$b_8$,$b_9$},
+    xtick=data,
+    xticklabel style={font=\footnotesize},
+    yticklabel style={font=\footnotesize},
+    grid=major,grid style={bmInk!18},
+    nodes near coords={\pgfmathprintnumber[fixed,precision=1]{\pgfplotspointmeta}},
+    nodes near coords style={font=\tiny,anchor=north,color=bmInk},
+    enlarge x limits=0.06,
+]
+\addplot+[fill=bmPurple!70,draw=bmPurple]
+  coordinates {
+    ($b_1$,-18.8)
+    ($b_2$,-14.3)
+    ($b_3$,-13.5)
+    ($b_4$,-16.8)
+    ($b_5$,-23.7)
+    ($b_6$,-22.7)
+    ($b_7$,-20.9)
+    ($b_8$,-18.7)
+    ($b_9$,-16.4)};
+\end{axis}
+\end{tikzpicture}
+\caption{Filter-induced change in per-case Yes-rate (filtered $N{=}62$
+minus raw $N{=}87$). Every boundary case loses agreement when
+acquiescent and repetitive responders are removed. The largest drops
+($-23.7$ pp on $b_5$, $-22.7$ on $b_6$) cluster in the consent-architecture
+family. The relative ordering of cases is preserved, indicating the
+mismatch is structural and not a filter artefact.}
+\label{fig:filter-deltas}
+\end{figure}

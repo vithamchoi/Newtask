@@ -1,0 +1,324 @@
+/* Shared style for the BLE prototype */
+
+:root {
+  --ink:        #374151;
+  --ink-soft:   #6b7280;
+  --green:      #2e9f43;
+  --red:        #d62728;
+  --amber:      #f0a028;
+  --gold:       #f1c40f;
+  --teal:       #17becf;
+  --purple:     #9467bd;
+  --cream:      #fcf7ea;
+  --blue:       #1f77b4;
+  --bg:         #f7f7f8;
+  --card-bg:    #ffffff;
+  --tier-policy: #1b5e20;
+  --tier-label:  #ff8f00;
+  --tier-user:   #b71c1c;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  margin: 0; padding: 0;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.container { max-width: 720px; margin: 0 auto; padding: 16px; }
+
+.brand { font-weight: 700; font-size: 1.1rem; }
+.condition { float: right; font-size: 0.85rem; color: var(--ink-soft); }
+
+.app-card {
+  background: var(--card-bg);
+  border: 1px solid #e6e6ea;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 18px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+
+.app-head { display: flex; align-items: center; gap: 12px; }
+.app-icon {
+  width: 56px; height: 56px;
+  background: linear-gradient(135deg, var(--blue), var(--teal));
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  color: white; font-weight: 800; font-size: 1.4rem;
+}
+.app-name { font-weight: 700; font-size: 1.1rem; }
+.app-dev  { font-size: 0.85rem; color: var(--ink-soft); }
+.app-meta { font-size: 0.8rem; color: var(--ink-soft); margin-top: 4px; }
+
+.app-desc { margin-top: 12px; font-size: 0.95rem; }
+
+.install-btn {
+  display: inline-block;
+  background: var(--blue); color: white;
+  padding: 8px 20px; border-radius: 999px;
+  font-weight: 600; font-size: 0.9rem;
+  border: 0; cursor: pointer;
+  margin-top: 10px;
+}
+
+.section-title {
+  font-weight: 700;
+  margin: 18px 0 8px 0;
+  font-size: 1.0rem;
+}
+
+.label-row {
+  display: flex; align-items: center;
+  padding: 8px 12px;
+  border: 1px solid #ececef;
+  border-radius: 8px;
+  margin-bottom: 6px;
+  background: #fcfcfd;
+  font-size: 0.92rem;
+  cursor: default;
+}
+.label-row.contested {
+  border-color: rgba(214, 39, 40, 0.4);
+  background: #fff7f7;
+}
+.label-cat { font-weight: 600; flex: 1; }
+.label-tag { font-size: 0.78rem; color: var(--ink-soft); margin-left: 8px; }
+.label-flag-chip {
+  font-size: 0.72rem;
+  background: var(--red); color: white;
+  padding: 2px 8px; border-radius: 999px;
+  margin-left: 8px;
+}
+
+/* BLE drawer */
+.ble-drawer {
+  border: 1px solid var(--amber);
+  background: #fffbf2;
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin: 4px 0 10px 16px;
+  font-size: 0.88rem;
+}
+.ble-head { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+.ble-head strong { font-size: 0.92rem; }
+.tier-pill {
+  font-size: 0.7rem; font-weight: 700;
+  color: white; padding: 2px 7px; border-radius: 4px;
+  margin-left: auto;
+}
+.tier-Recipient    { background: var(--teal); }
+.tier-Reversibility{ background: var(--purple); }
+.tier-Consent      { background: var(--gold); color: #333; }
+.tier-Capability   { background: var(--green); }
+
+.ble-rule { font-style: italic; color: #444; margin: 4px 0; }
+.ble-signal { font-size: 0.85rem; margin: 4px 0; }
+.ble-toggle-btn {
+  font-size: 0.78rem; font-weight: 700;
+  background: white; border: 1px solid #cccfd6;
+  border-radius: 4px; padding: 4px 10px;
+  cursor: pointer;
+  margin-top: 4px;
+}
+.ble-toggle-btn:hover { background: #f5f5f7; }
+
+.counter {
+  margin-top: 6px; padding: 6px 10px;
+  background: #f0f7ff; border: 1px dashed var(--blue);
+  border-radius: 6px; font-size: 0.82rem;
+  color: var(--ink);
+}
+
+.foot {
+  font-size: 0.78rem; color: var(--ink-soft);
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* ========== SPA study runner ========== */
+
+.phase {
+  background: var(--card-bg);
+  border: 1px solid #e6e6ea;
+  border-radius: 14px;
+  padding: 24px;
+  margin: 16px 0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+.phase h1 { margin-top: 0; }
+.phase h2 { margin: 22px 0 6px 0; font-size: 1.1rem; }
+.phase p  { line-height: 1.5; }
+
+.progress-bar {
+  background: #eef0f4;
+  border-radius: 999px;
+  height: 8px;
+  margin: 12px 0 20px 0;
+  overflow: hidden;
+}
+.progress-bar > div {
+  height: 100%;
+  background: linear-gradient(90deg, var(--blue), var(--teal));
+  transition: width 0.4s ease;
+}
+
+.consent-check {
+  display: flex; align-items: flex-start; gap: 10px;
+  margin: 8px 0;
+  font-size: 0.95rem;
+}
+
+.radio-list label {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 12px;
+  border: 1px solid #ececef;
+  border-radius: 8px;
+  margin: 4px 0;
+  cursor: pointer;
+  font-size: 0.93rem;
+}
+.radio-list label:hover { background: #f5f7fa; }
+.radio-list input[type="radio"] { margin: 0; }
+
+.likert-7 {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  margin: 6px 0 12px 0;
+}
+.likert-7 label {
+  text-align: center;
+  padding: 8px 4px;
+  background: #f5f7fa;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+.likert-7 input[type="radio"] { display: none; }
+.likert-7 input[type="radio"]:checked + span {
+  background: var(--blue); color: white;
+  border-radius: 4px; padding: 2px 6px;
+}
+.likert-anchor {
+  display: flex; justify-content: space-between;
+  font-size: 0.78rem; color: var(--ink-soft);
+  margin-bottom: 4px;
+}
+
+.slider-row { margin: 10px 0; }
+.slider-row input[type="range"] { width: 100%; }
+.slider-row output { font-weight: 700; }
+
+.free-text textarea {
+  width: 100%;
+  min-height: 60px;
+  padding: 8px;
+  border: 1px solid #d0d3d8;
+  border-radius: 6px;
+  font: inherit;
+}
+
+.nav-row {
+  display: flex; justify-content: space-between;
+  margin-top: 18px;
+}
+.btn-primary {
+  background: var(--blue); color: white;
+  border: 0; padding: 10px 24px;
+  border-radius: 999px;
+  font-weight: 700; font-size: 0.95rem;
+  cursor: pointer;
+}
+.btn-primary[disabled] {
+  opacity: 0.45; cursor: not-allowed;
+}
+.btn-secondary {
+  background: #eef0f4; color: var(--ink);
+  border: 0; padding: 10px 18px;
+  border-radius: 999px;
+  font-weight: 600; font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.code-pill {
+  display: inline-block;
+  background: var(--cream);
+  border: 1px dashed var(--amber);
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-family: ui-monospace, monospace;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+}
+
+.banner {
+  padding: 10px 14px;
+  border-radius: 8px;
+  margin: 12px 0;
+  font-size: 0.9rem;
+}
+.banner.info  { background: #eff7ff; border: 1px solid #b5d5f5; }
+.banner.warn  { background: #fff8e8; border: 1px solid #f0c773; }
+.banner.error { background: #fdeaea; border: 1px solid #f5b1b1; color: #842029; }
+.banner.ok    { background: #ebf7ef; border: 1px solid #9bd6b1; color: #14532d; }
+
+/* Index/landing page */
+.landing-card {
+  background: var(--card-bg);
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+.landing-card h1 { margin-top: 0; }
+.cond-btn-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 12px; }
+.cond-btn {
+  flex: 1; min-width: 160px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 2px solid #ddd;
+  background: white; cursor: pointer;
+  font-size: 0.95rem;
+  text-decoration: none;
+  color: var(--ink);
+  text-align: center;
+}
+.cond-btn.A { border-color: var(--tier-label); }
+.cond-btn.B { border-color: var(--tier-user); }
+.cond-btn:hover { background: #f7f9fc; }
+
+.app-pick {
+  display: flex; gap: 8px; flex-wrap: wrap;
+  margin: 12px 0 0 0;
+}
+.app-pick a {
+  padding: 6px 12px;
+  background: #f0f3f7;
+  border-radius: 6px;
+  color: var(--ink); text-decoration: none;
+  font-size: 0.9rem;
+}
+.app-pick a:hover { background: #e3e8ee; }
+
+/* Survey strip at the bottom of each condition */
+.survey-strip {
+  background: white;
+  border: 1px solid #e6e6ea;
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 24px;
+}
+.survey-strip h3 { margin-top: 0; }
+.likert-row { display: flex; gap: 4px; margin: 6px 0 12px 0; }
+.likert-row label {
+  flex: 1; text-align: center;
+  padding: 6px; font-size: 0.85rem;
+  background: #f5f7fa; border-radius: 6px;
+  cursor: pointer;
+}
+.likert-row input[type="radio"] { display: none; }
+.likert-row input:checked + span { font-weight: 700; }

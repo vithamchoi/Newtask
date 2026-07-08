@@ -1,0 +1,58 @@
+% Figure: code co-occurrence matrix. First column widened to fit row labels.
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily,
+  rowhdr/.style={draw=bmInk!50,fill=bmCream,minimum width=42mm,
+                 minimum height=10mm,anchor=center,align=left,
+                 font=\footnotesize\bfseries,inner sep=2mm},
+  colhdr/.style={draw=bmInk!50,fill=bmCream,minimum width=22mm,
+                 minimum height=10mm,anchor=center,align=center,
+                 font=\footnotesize\bfseries},
+  cell/.style={draw=bmInk!50,fill=bmCream,minimum width=22mm,
+               minimum height=10mm,anchor=center,align=center,
+               font=\footnotesize}]
+
+% Header row
+\node[rowhdr,fill=white,draw=none] (h0) at (0,0) {};
+\node[colhdr] (hC1) at (3.2,0)  {Cap.};
+\node[colhdr] (hC2) at (5.5,0)  {Context};
+\node[colhdr] (hC3) at (7.8,0)  {Trust};
+\node[colhdr] (hC4) at (10.1,0) {Rever.};
+
+% Row 1: Capability-not-intent
+\node[rowhdr] (r1) at (0,-1.0)   {Capability-not-intent};
+\node[cell] (c11) at (3.2,-1.0)  {\textbf{34.1\%}};
+\node[cell,fill=bmAmber!30] (c12) at (5.5,-1.0)  {19\%};
+\node[cell,fill=bmAmber!40] (c13) at (7.8,-1.0)  {22\%};
+\node[cell,fill=bmRed!50]   (c14) at (10.1,-1.0) {28\%};
+
+% Row 2: Context-dependent
+\node[rowhdr] (r2) at (0,-2.0)   {Context-dependent};
+\node[cell,fill=bmAmber!30] (c21) at (3.2,-2.0) {19\%};
+\node[cell] (c22) at (5.5,-2.0)  {\textbf{27.4\%}};
+\node[cell,fill=bmRed!60]   (c23) at (7.8,-2.0)  {41\%};
+\node[cell,fill=bmAmber!20] (c24) at (10.1,-2.0) {14\%};
+
+% Row 3: Trust-of-recipient
+\node[rowhdr] (r3) at (0,-3.0)   {Trust-of-recipient};
+\node[cell,fill=bmAmber!40] (c31) at (3.2,-3.0) {22\%};
+\node[cell,fill=bmRed!60]   (c32) at (5.5,-3.0) {41\%};
+\node[cell] (c33) at (7.8,-3.0)  {\textbf{22.8\%}};
+\node[cell,fill=bmAmber!30] (c34) at (10.1,-3.0) {18\%};
+
+% Row 4: Reversibility-concern
+\node[rowhdr] (r4) at (0,-4.0)   {Reversibility-concern};
+\node[cell,fill=bmRed!50]   (c41) at (3.2,-4.0) {28\%};
+\node[cell,fill=bmAmber!20] (c42) at (5.5,-4.0) {14\%};
+\node[cell,fill=bmAmber!30] (c43) at (7.8,-4.0) {18\%};
+\node[cell] (c44) at (10.1,-4.0) {\textbf{15.7\%}};
+\end{tikzpicture}
+\caption{Co-occurrence of the four rationale codes across two-code
+rationales (off-diagonal cells; the diagonal reports each code's overall
+share of disagreement rationales). \textsf{Context-dependent} and
+\textsf{trust-of-recipient} co-occur most often;
+\textsf{reversibility-concern} co-occurs with
+\textsf{capability-not-intent} when participants are reasoning about
+$b_3$ and $b_9$.}
+\label{fig:code-cooccur}
+\end{figure}

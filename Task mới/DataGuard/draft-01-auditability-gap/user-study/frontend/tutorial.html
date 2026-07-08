@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Tutorial — DataGuard study</title>
+<link rel="stylesheet" href="/css/study.css">
+</head>
+<body>
+<main class="card">
+  <h1>Tutorial</h1>
+  <p>Each app you see has two parts:</p>
+  <ol>
+    <li><b>Data Safety panel.</b> A short structured table the developer
+    submitted to Google Play. It lists data the app says it shares, data it
+    collects, and security practices.</li>
+    <li><b>Privacy policy.</b> A longer document with the legal description
+    of the same things.</li>
+  </ol>
+
+  <p>You will make four judgments per app:</p>
+  <ul>
+    <li><b>Sharing — Correct or Incorrect.</b> Does the policy support the
+    sharing claims in the Data Safety panel?</li>
+    <li><b>Sharing — Complete or Incomplete.</b> Does the policy describe any
+    sharing practice that is missing from the panel?</li>
+    <li><b>Collection — Correct or Incorrect.</b></li>
+    <li><b>Collection — Complete or Incomplete.</b></li>
+  </ul>
+  <p>You will also rate your <b>confidence</b> (0–100) on each judgment.</p>
+  <p>Three interface conditions will appear (in a randomised order):</p>
+  <ul>
+    <li><b>C0.</b> Raw artefacts: the Data Safety panel and the full policy
+    text. You scroll through the policy yourself.</li>
+    <li><b>C1.</b> The Data Safety panel plus the <em>Data Share</em> and
+    <em>Data Collect</em> sections extracted from the policy.</li>
+    <li><b>C2.</b> Same as C1 plus AI-highlighted candidate evidence and an
+    AI-suggested judgment for each axis. You can accept the suggestion or
+    override it.</li>
+  </ul>
+
+  <h2>Comprehension check (5 questions)</h2>
+  <form id="check">
+    <label>1. The Data Safety panel is written by:
+      <select name="q1" required><option value="">—</option>
+        <option value="dev">the app developer</option>
+        <option value="google">Google</option>
+        <option value="user">the user</option></select></label>
+
+    <label>2. If the policy mentions an advertising SDK but the panel
+      says no data sharing, the sharing axis is most likely:
+      <select name="q2" required><option value="">—</option>
+        <option value="correct">Correct</option>
+        <option value="incorrect">Incorrect</option></select></label>
+
+    <label>3. In condition C2, you must:
+      <select name="q3" required><option value="">—</option>
+        <option value="accept">always accept the AI suggestion</option>
+        <option value="inspect">inspect the highlighted evidence before deciding</option>
+        <option value="ignore">ignore the AI</option></select></label>
+
+    <label>4. The confidence slider records:
+      <select name="q4" required><option value="">—</option>
+        <option value="accuracy">how accurate the app is</option>
+        <option value="conf">how confident you are in your judgment</option></select></label>
+
+    <label>5. If the policy is so vague you cannot decide, you should:
+      <select name="q5" required><option value="">—</option>
+        <option value="random">guess</option>
+        <option value="ambig">mark Ambiguous and explain in the rationale</option></select></label>
+
+    <button type="submit">Submit answers</button>
+  </form>
+  <p id="result"></p>
+</main>
+<script>
+const KEY = {q1:"dev", q2:"incorrect", q3:"inspect", q4:"conf", q5:"ambig"};
+document.getElementById("check").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const fd = new FormData(e.target);
+  let score = 0;
+  for (const [k,v] of Object.entries(KEY)) if (fd.get(k) === v) score++;
+  const passed = score >= 4;
+  document.getElementById("result").textContent =
+     `You got ${score}/5. ` + (passed ? "Proceeding to trials…" : "Please re-read and retry.");
+  await fetch("/api/tutorial", {method:"POST", headers:{"Content-Type":"application/json"},
+    body: JSON.stringify({pid: sessionStorage.getItem("pid"), passed})});
+  if (passed) setTimeout(() => location.href = "/trial.html", 800);
+});
+</script>
+</body>
+</html>

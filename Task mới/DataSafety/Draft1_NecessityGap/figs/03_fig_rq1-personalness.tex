@@ -1,0 +1,44 @@
+\begin{figure}[!htbp]
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}
+\begin{axis}[
+    xbar,
+    width=130mm, height=85mm,
+    scale only axis,
+    xmin=0, xmax=100,
+    enlarge x limits={upper, value=0.06},
+    xlabel={Participants answering \emph{Yes} (\%)},
+    symbolic y coords={
+        Calendar,App info/perf.,Audio files,Health/fitness,App activity,
+        Device IDs,Web browsing,Files/docs,Contacts,
+        Photos/videos,Financial info,Messages,Location,Personal info},
+    ytick=data, y dir=normal,
+    xtick={0,20,40,60,80,100},
+    nodes near coords, point meta=x,
+    nodes near coords={\pgfmathprintnumber[fixed,precision=1]{\pgfplotspointmeta}\,\%},
+    nodes near coords align=horizontal,
+    every node near coord/.append style={font=\footnotesize, color=ngSlate,
+                                         /pgf/number format/.cd, fixed, precision=1},
+    y tick label style={font=\footnotesize},
+    x tick label style={font=\footnotesize},
+    bar width=6.5pt, enlarge y limits=0.04,
+    axis line style={ngSlate}, tick style={ngSlate},
+    grid=major, grid style={ngSlate!18}
+]
+\addplot+[draw=ngBlue, fill=ngBlue!85, line width=0.4pt] coordinates {
+    (78.2,Personal info) (75.9,Location)   (74.7,Messages)
+    (69.0,Financial info)(69.0,Photos/videos)(63.2,Contacts)
+    (62.1,Files/docs)    (60.9,Web browsing)(60.9,Device IDs)
+    (55.2,App activity)  (51.7,Health/fitness)(50.6,Audio files)
+    (46.0,App info/perf.)(42.5,Calendar)
+};
+\end{axis}
+\end{tikzpicture}%
+}
+\caption{Perceived personalness of Google Play Data Safety categories
+(\textit{N}\,=\,87). Categories range from broadly recognised personal
+data (top) to deeply ambiguous (bottom). The 35-point spread is itself
+the contribution: a flat category list hides this gradient from users.}
+\label{fig:rq1-personalness}
+\end{figure}

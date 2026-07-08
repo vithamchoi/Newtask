@@ -1,0 +1,90 @@
+\begin{figure*}[!tbp]
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[
+    font=\sffamily,
+    every node/.style={transform shape},
+    tier/.style    = {rounded corners=8pt, draw=#1, line width=1.1pt,
+                      top color=#1!10, bottom color=#1!28,
+                      minimum width=46mm, minimum height=22mm,
+                      align=center, blur shadow={shadow blur steps=6}},
+    inputbox/.style= {draw=ngSlate, rounded corners=3pt, fill=tierBg,
+                      align=center, minimum width=34mm, minimum height=10mm,
+                      font=\footnotesize},
+    gap/.style     = {draw=ngRed, rounded corners=3pt, dashed, line width=1.0pt,
+                      fill=ngRed!8, align=center, font=\footnotesize\itshape,
+                      minimum width=42mm, minimum height=12mm},
+    flow/.style    = {-{Latex[length=3mm,width=2mm]}, line width=0.9pt,
+                      draw=ngSlate},
+    gapflow/.style = {-{Latex[length=2.4mm,width=1.8mm]}, line width=0.7pt,
+                      draw=ngRed!70, dashed}
+]
+
+% Tier nodes (the three judgment levels)
+\node[tier=tierA] (T1) at (0,4) {%
+    \textbf{Tier 1 --- Category Recognition}\\[2pt]
+    \scriptsize Is this data \emph{personal}?\\[-1pt]
+    \scriptsize (14 Data Safety categories)
+};
+\node[tier=tierB] (T2) at (6.6,4) {%
+    \textbf{Tier 2 --- Boundary Acceptance}\\[2pt]
+    \scriptsize Do users \emph{accept} that this practice\\[-1pt]
+    \scriptsize counts as collection / sharing?
+};
+\node[tier=tierC] (T3) at (13.2,4) {%
+    \textbf{Tier 3 --- Contextual Necessity}\\[2pt]
+    \scriptsize Is this practice \emph{necessary}\\[-1pt]
+    \scriptsize for what the app does?
+};
+
+% Inputs above each tier
+\node[inputbox] at (T1 |- 0,7.0) (i1) {Survey item:\\[-1pt]\emph{personal info?}};
+\node[inputbox] at (T2 |- 0,7.0) (i2) {Boundary survey:\\[-1pt]\emph{9 policy cases}};
+\node[inputbox] at (T3 |- 0,7.0) (i3) {Task ratings:\\[-1pt]\emph{310 social apps}};
+
+\draw[flow] (i1) -- (T1);
+\draw[flow] (i2) -- (T2);
+\draw[flow] (i3) -- (T3);
+
+% Results below each tier (with their headline numbers)
+\node[inputbox, fill=tierA!12] at (T1 |- 0,1.0) (r1)
+    {Clear hierarchy of personalness\\
+     \emph{42.5\% \textendash{} 78.2\%} agree};
+\node[inputbox, fill=tierB!12] at (T2 |- 0,1.0) (r2)
+    {Policy boundaries are partially accepted\\
+     \emph{48.3\% \textendash{} 69.0\%} agree};
+\node[inputbox, fill=tierC!12] at (T3 |- 0,1.0) (r3)
+    {Moderate, contested necessity\\
+     \emph{M\,=\,3.17} (Coll.), \emph{3.27} (Shar.)};
+
+\draw[flow] (T1) -- (r1);
+\draw[flow] (T2) -- (r2);
+\draw[flow] (T3) -- (r3);
+
+% Between-tier "gap" annotations.  Routing: each gap node sits lower than
+% the result row so the connecting dashed arrows have visible clearance
+% from the result boxes (rather than touching their edges).
+\node[gap] at ($(r1.east)!0.5!(r2.west) + (0,-1.9)$) (G12) {%
+    \textbf{Boundary Gap}\\
+    tier-1 recognition does not\\transfer to tier-2 acceptance};
+\node[gap] at ($(r2.east)!0.5!(r3.west) + (0,-1.9)$) (G23) {%
+    \textbf{Necessity Gap}\\
+    same-participant linkage\\$\Delta=0.09$ [\textendash 0.27,\,0.45]};
+
+% Smooth dashed connectors that leave the result boxes on the side rather
+% than from the bottom centre; this keeps the arrowheads from overlapping
+% the gap-box borders.
+\draw[gapflow] (r1.south east) .. controls +(0.2,-0.5) and +(-0.6,0.4) .. (G12.north west);
+\draw[gapflow] (r2.south west) .. controls +(-0.2,-0.5) and +( 0.6,0.4) .. (G12.north east);
+\draw[gapflow] (r2.south east) .. controls +(0.2,-0.5) and +(-0.6,0.4) .. (G23.north west);
+\draw[gapflow] (r3.south west) .. controls +(-0.2,-0.5) and +( 0.6,0.4) .. (G23.north east);
+
+\end{tikzpicture}%
+}
+\caption{Three-tier conceptual architecture of the Necessity Gap. Each
+tier draws on a distinct empirical source in the present study. The
+Boundary Gap and the Necessity Gap describe the two between-tier
+breakdowns observed in the data and are presented as a framework
+hypothesis rather than as confirmed within-person disconnects.}
+\label{fig:necessity-gap-architecture}
+\end{figure*}

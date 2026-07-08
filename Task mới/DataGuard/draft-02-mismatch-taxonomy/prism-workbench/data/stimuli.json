@@ -1,0 +1,587 @@
+[
+  {
+    "app_id": 463,
+    "package": "com.linguaapps.translator.spanish.th",
+    "name": "Spanish-Thai Translator",
+    "category": "Books & Reference",
+    "quadrant": "Q1_common_ambig",
+    "quadrant_label": "common & ambiguous",
+    "is_tutorial": true,
+    "data_safety_raw": "{'data_shared': [{'category': 'App activity', 'sub_info': [{'data_type': 'App interactions', 'purpose': 'Analytics - Advertising or marketing', 'optional': False}]}, {'category': 'Personal info', 'sub_info': [{'data_type': 'User IDs', 'purpose': 'Analytics - Advertising or marketing', 'optional': False}, {'data_type': 'Other info', 'purpose': 'Analytics - Advertising or marketing', 'optional': False}]}, {'category': 'Location', 'sub_info': [{'data_type': 'Approximate location', 'purpose': 'Analytics - Advertising or marketing', 'optional': False}, {'data_type': 'Precise location', 'purpose': 'Analytics - Advertising or marketing', 'optional': False}]}, {'category': 'Device or other IDs', 'sub_info': [{'data_type': 'Device or other IDs', 'purpose': 'Analytics - Advertising or marketing', 'optional': False}]}], 'data_collected': [{'category': 'Personal info', 'sub_info': [{'data_type': 'User IDs', 'purpose': 'Analytics - Advertising or marketing', 'optional': False}, {'data_type': 'Other info', 'purpose': 'Analytics - Advertising or marketing', 'optional': False}]}], 'security_practices': [{'category': 'Data is encrypted in transit', 'sub_info': []}, {'category': 'Data can’t be deleted', 'sub_info': []}]}",
+    "policy_excerpt": "Data Share:\nLingua Apps may share your information as described in the Privacy Policy. Third parties who provide services on behalf of Lingua Apps have access to your Personal Information to perform tasks assigned to them, but they are obligated not to use or disclose this information for any other purpose. In using the service, you agree to this sharing policy.\nData Collect:\nLingua Apps may require you to provide personally identifiable information for a better experience while using the service. The requested information is stored on your device but not collected. Also, Lingua Apps may use third-party services that collect information used to identify you. In case of an error, the app collects data and information such as your device IP address, device name, operating system version, app configuration, and usage statistics using third-party products. While the app doesn't explicitly use cookies, it may use third-party codes and libraries that use cookies to collect information and improve services.",
+    "expected_codes": [
+      "M1",
+      "M3"
+    ]
+  },
+  {
+    "app_id": 1057,
+    "package": "me.nanoleaf.nanoleaf",
+    "name": "Nanoleaf",
+    "category": "Lifestyle",
+    "quadrant": "Q1_common_ambig",
+    "quadrant_label": "common & ambiguous",
+    "is_tutorial": false,
+    "data_safety_raw": "{'data_shared': [], 'data_collected': [{'category': 'App info and performance', 'sub_info': [{'data_type': 'Crash logs', 'purpose': 'Analytics', 'optional': False}, {'data_type': 'Diagnostics', 'purpose': 'Analytics', 'optional': False}, {'data_type': 'Other app performance data', 'purpose': 'Analytics', 'optional': False}]}, {'category': 'Device or other IDs', 'sub_info': [{'data_type': 'Device or other IDs', 'purpose': 'Analytics - Account management', 'optional': False}]}, {'category': 'App activity', 'sub_info': [{'data_type': 'App interactions', 'purpose': 'Analytics', 'optional': False}]}, {'category': 'Personal info', 'sub_info': [{'data_type': 'Name', 'purpose': 'App functionality - Analytics - Advertising or marketing - Account management', 'optional': True}, {'data_type': 'Email address', 'purpose': 'App functionality - Analytics - Advertising or marketing - Account management', 'optional': True}, {'data_type': 'User IDs', 'purpose': 'Analytics - Account management', 'optional': False}]}], 'security_practices': [{'category': 'Data is encrypted in transit', 'sub_info': []}]}",
+    "policy_excerpt": "Data Share:\nWe may hire third-party service providers to assist us in analyzing the Browsing Data gathered through cookies. No personal information is disclosed to these service providers. We explicitly don't link personal information like name, email, address, or contact information with web analytics data, cookies, or log files.\nData Collect:\nWe use cookies and log files to improve your website experience. Cookies, small text files placed by a website on your computer's disk, are assigned uniquely to you. They can only be read by the issuing website or web server. Log files record data when you visit a website, including your IP address, preferred language setting, and visiting country. These elements help us in recognizing returning users, tracking activity, studying navigation, and enhancing the design and function of our website. Users can accept or decline cookies; however, refusing or blocking them might potentially impair website functionality. The term 'you' refers to your internet browser and its usage of our website.",
+    "expected_codes": [
+      "M1",
+      "M3"
+    ]
+  },
+  {
+    "app_id": 148,
+    "package": "com.gpinfo.ShraddhanjaliCardMaker",
+    "name": "Shradhanjali Card Maker - HD",
+    "category": "Art & Design",
+    "quadrant": "Q1_common_ambig",
+    "quadrant_label": "common & ambiguous",
+    "is_tutorial": false,
+    "data_safety_raw": "{'data_shared': [], 'data_collected': [], 'security_practices': [{'category': 'Data is encrypted in transit', 'sub_info': []}]}",
+    "policy_excerpt": "Data Share:\nSaee Creations' Shraddhanjali Card Maker app uses third party services and may contain links to other sites. If you click on a third-party link, you will be directed to that site. These external sites are not operated by us; we recommend reviewing their privacy policies.\nData Collect:\nShraddhanjali Card Maker does not collect or store any information to server. All photos for the app are processed and saved locally in the user’s device. No server API communication is present for this app and no data of the user is logged. No personal information is collected. Uploaded photos are processed within the app and stored within the user's phone's internal storage. The app does not collect any personally identifiable information from children under 18.",
+    "expected_codes": [
+      "M1",
+      "M3",
+      "M4"
+    ]
+  },
+  {
+    "app_id": 2293,
+    "package": "com.music.youngradiopro",
+    "name": "Medhut",
+    "category": "Tools",
+    "quadrant": "Q1_common_ambig",
+    "quadrant_label": "common & ambiguous",
+    "is_tutorial": false,
+    "data_safety_raw": "{'data_shared': [], 'data_collected': [], 'security_practices': [{'category': 'Data isn’t encrypted', 'sub_info': []}, {'category': 'Data can’t be deleted', 'sub_info': []}]}",
+    "policy_excerpt": "Data Share:\nWe receive and store the information you provide to Young Radio Pro Services, including your nickname, email, phone number, birth date, and gender. Using third-party login service, we may obtain your name, email address, and profile picture. Third-party SDKs including Umeng, Facebook Analytics, Facebook Audience Network, Facebook Login, TwitterKit, Fabric, Google Analytics, AdMob, Adjust, OneDrive, Dropbox, ironSource, JPush, AppLovin, MoPub also collect data. The data shared includes connection request, server communication, and data sharing related to network testing, quality of service, date, time, and location. Summary Information, data collected from a group or service type or users, excludes personal identity information.\nData Collect:\nWe collect and store automatic information about your use of Young Radio Pro Services. This includes interactions, preferences, SDK/API/JS code version, browser details, IP address, platform, timestamp, app version and distribution channel, device identifiers and model, operating system version, session timings, language location, time zone, network status, and hardware usage. Our system may collect Unique user device serial number, IP address, browser or operating system type, and usage timings. Data about how you use the applications, services, and websites is combined with usage data from others to prepare Summary Information, guiding us in the development of new features and providing tailored services.",
+    "expected_codes": [
+      "M1",
+      "M2",
+      "M3"
+    ]
+  },
+  {
+    "app_id": 613,
+    "package": "com.fleetmatics.eld",
+    "name": "REVEAL ELD Logbook",
+    "category": "Business",
+    "quadrant": "Q1_common_ambig",
+    "quadrant_label": "common & ambiguous",
+    "is_tutorial": false,
+    "data_safety_raw": "{'data_shared': [{'category': 'Location', 'sub_info': [{'data_type': 'Approximate location', 'purpose': 'App functionality - Analytics', 'optional': False}, {'data_type': 'Precise location', 'purpose': 'App functionality - Analytics', 'optional': False}]}, {'category': 'Device or other IDs', 'sub_info': [{'data_type': 'Device or other IDs', 'purpose': 'App functionality - Analytics', 'optional': False}]}, {'category': 'App info and performance', 'sub_info': [{'data_type': 'Crash logs', 'purpose': 'App functionality - Analytics', 'optional': False}, {'data_type': 'Diagnostics', 'purpose': 'App functionality - Analytics', 'optional': False}, {'data_type': 'Other app performance data', 'purpose': 'App functionality - Analytics', 'optional': False}]}, {'category': 'Personal info', 'sub_info': [{'data_type': 'User IDs', 'purpose': 'App functionality - Analytics - Account management', 'optional': False}]}], 'data_collected': [{'category': 'Location', 'sub_info': [{'data_type': 'Approximate location', 'purpose': 'App functionality - Analytics', 'optional': False}, {'data_type': 'Precise location', 'purpose': 'App functionality - Analytics', 'optional': False}]}, {'category': 'Device or other IDs', 'sub_info': [{'data_type': 'Device or other IDs', 'purpose': 'App functionality - Analytics', 'optional': False}]}, {'category': 'App info and performance', 'sub_info': [{'data_type': 'Crash logs', 'purpose': 'App functionality - Analytics', 'optional': False}, {'data_type': 'Diagnostics', 'purpose': 'App functionality - Analytics', 'optional': False}, {'data_type': 'Other app performance data', 'purpose': 'App functionality - Analytics', 'optional': False}]}, {'category': 'Personal info', 'sub_info': [{'data_type': 'User IDs', 'purpose': 'App functionality - Analytics - Account management', 'optional': False}]}], 'security_practices': [{'category': 'Data is encrypted in transit', 'sub_info': []}, {'category': 'Data can’t be deleted', 'sub_info': []}]}",
+    "policy_excerpt": "Data Share:\n1. We share information within Verizon and with our affiliates.\n2. We distribute data to service providers who perform work on our behalf.\n3. Information is shared with others as required for legal compliance, fraud prevention, directory assistance, credit and collections, caller id, and select advertising purposes.\n4. We respond to legal requests and may disseminate information with your consent.\nData Collect:\nThis section is not provided in the text given. The provided text only outlines how information is shared, not how it is collected.",
+    "expected_codes": [
+      "M1",
+      "M3"
+    ]
+  },
+  {
+    "app_id": 276,
+    "package": "com.zsvgmail.fredegar.manicurestepbystep",
+    "name": "Маникюр пошагово картинки Гель",
+    "category": "Beauty",
+    "quadrant": "Q1_common_ambig",
+    "quadrant_label": "common & ambiguous",
+    "is_tutorial": true,
+    "data_safety_raw": "{'data_shared': [], 'data_collected': []}",
+    "policy_excerpt": "Data Share: ZSVStudio does not share users' personal information taken from the Маникюр пошагово картинки Гель Лак Идеи дизайна app except as described in the privacy policy. Third party entities may have access to this personal information to execute tasks on ZSVStudio's behalf, but they are obligated not to disclose or use the information for other purposes. It's noteworthy, however, that ZSVStudio cannot absolutely guarantee the security and reliability of data transmission over the internet or electronic storage systems.\nData Collect: For improved service experience, ZSVStudio may ask users to provide certain personally identifiable information, including but not limited to advertising identifier. This information will be retained on users' devices and ZSVStudio does not collect it directly. Additionally, third-party services used by ZSVStudio may collect information that can identify users. When errors occur in the app, ZSVStudio collects data, referred to as Log Data, through third party products. This could include device IP address, device name, operating system version, configuration of the app, the time and date of service usage, and other statistics.",
+    "expected_codes": [
+      "M1",
+      "M2",
+      "M3",
+      "M4"
+    ]
+  },
+  {
+    "app_id": 863,
+    "package": "com.free.call.walkie.talkie.ptt.walkie.talkie",
+    "name": "Walkie Talkie App: video call",
+    "category": "Communication",
+    "quadrant": "Q1_common_ambig",
+    "quadrant_label": "common & ambiguous",
+    "is_tutorial": false,
+    "data_safety_raw": "{'data_shared': [{'category': 'App info and performance', 'sub_info': [{'data_type': 'Crash logs', 'purpose': 'Analytics', 'optional': False}, {'data_type': 'Other app performance data', 'purpose': 'Analytics', 'optional': False}]}], 'data_collected': [{'category': 'Audio', 'sub_info': [{'data_type': 'Voice or sound recordings', 'purpose': 'App functionality', 'optional': True}, {'data_type': 'Music files', 'purpose': 'App functionality', 'optional': True}, {'data_type': 'Other audio files', 'purpose': 'App functionality', 'optional': True}]}, {'category': 'App info and performance', 'sub_info': [{'data_type': 'Crash logs', 'purpose': 'Analytics', 'optional': False}, {'data_type': 'Other app performance data', 'purpose': 'Analytics', 'optional': False}]}], 'security_practices': [{'category': 'Data is encrypted in transit', 'sub_info': []}, {'category': 'Data can’t be deleted', 'sub_info': []}]}",
+    "policy_excerpt": "Data Share:\nThis privacy policy iterates the usage of your information associated with our product. We share non-personal information about your Wi-Fi network and location, and usage of our Apps. We utilize a variety of third-party services to enhance our services but do not control these external sites or services. The presence of a link to such a website or service in our Apps doesn't imply our endorsement of their user information practices. We regularly update this privacy policy and the changes are instantaneously effective once uploaded on this page.\nData Collect:\nOur policy details our methods of collection and storage of user information. We gather and use non-personal data such as Wi-Fi network, your location, and aggregate information regarding the Apps' usages. Our services don't cater to anyone below 18 and we do not knowingly accumulate personally identifiable information from such users. Any personal data gathered from a child without parental consent will be removed from our servers. We may require certain permissions to access internet resources like photo effects, photo frame, and network connection.\nPlease address any concerns or issues related to the application by contacting us at Nasappsfeeback@gmail.com.",
+    "expected_codes": [
+      "M1",
+      "M3"
+    ]
+  },
+  {
+    "app_id": 1827,
+    "package": "com.inditex.massimodutti",
+    "name": "Massimo Dutti: Clothing store",
+    "category": "Shopping",
+    "quadrant": "Q1_common_ambig",
+    "quadrant_label": "common & ambiguous",
+    "is_tutorial": false,
+    "data_safety_raw": "{'data_shared': [], 'data_collected': [{'category': 'Financial info', 'sub_info': [{'data_type': 'Purchase history', 'purpose': 'App functionality', 'optional': True}]}, {'category': 'App activity', 'sub_info': [{'data_type': 'App interactions', 'purpose': 'Analytics', 'optional': False}, {'data_type': 'In-app search history', 'purpose': 'Analytics - Personalization', 'optional': False}]}, {'category': 'Device or other IDs', 'sub_info': [{'data_type': 'Device or other IDs', 'purpose': 'App functionality', 'optional': False}]}, {'category': 'Personal info', 'sub_info': [{'data_type': 'Name', 'purpose': 'Account management', 'optional': False}, {'data_type': 'Email address', 'purpose': 'App functionality', 'optional': False}, {'data_type': 'User IDs', 'purpose': 'App functionality', 'optional': False}, {'data_type': 'Address', 'purpose': 'Account management', 'optional': True}, {'data_type': 'Phone number', 'purpose': 'Account management', 'optional': False}]}, {'category': 'App info and performance', 'sub_info': [{'data_type': 'Diagnostics', 'purpose': 'Analytics', 'optional': False}]}], 'security_practices': [{'category': 'Data is encrypted in transit', 'sub_info': []}, {'category': 'You can request that data be deleted', 'sub_info': []}]}",
+    "policy_excerpt": "Data Share:\n1. In some cases, we offer the possibility to exercise your privacy preferences when using some of our services. We have specific channels on our Platform for this purpose.\n2. We assure you that any provision of your personal data is under your control, and should you wish not to share your information with third parties for advertising purposes, you can alter your preferences on your device, browser, cookies settings, or through communicating with us directly via email.\n3. Personal data provided by you for specific services like the activation and sending of the Gift Voucher may be processed by us, as it is necessary for the provision of such services.\nData Collect:\n1. We refer to your right to request access to and rectify your personal data we hold. This can be done directly if you are a registered user on the Platform via your online account, or through a formal request to us.\n2. In cases where personal data is no longer necessary for services or when we're legally not permitted to process them, you can request us to erase your data.\n3. Subject to legal provisions and reasons for processing, we allow requests for the cancellation, limitation, or temporary suspension of processing your personal data.\n4. You have the right to withdraw your consent at any time for any purpose that you gave us consent for.\n5. When legally permitted, you have the right to data portability, which means you can transmit your data to another entity without impediments from us.\n6. If the processing of data is based on our legitimate interest, you have the right to object to this processing.\n7. You have the right to file a claim before the relevant data protection regulatory authority if needed.",
+    "expected_codes": [
+      "M1",
+      "M3"
+    ]
+  },
+  {
+    "app_id": 2028,
+    "package": "com.textbehind.textbehind",
+    "name": "TextBehind Inmate Texting App",
+    "category": "Social",
+    "quadrant": "Q1_common_ambig",
+    "quadrant_label": "common & ambiguous",
+    "is_tutorial": false,
+    "data_safety_raw": "{'data_shared': [], 'data_collected': [{'category': 'Personal info', 'sub_info': [{'data_type': 'Name', 'purpose': 'App functionality - Account management', 'optional': False}, {'data_type': 'Email address', 'purpose': 'App functionality - Account management', 'optional': False}, {'data_type': 'User IDs', 'purpose': 'App functionality - Account management', 'optional': False}, {'data_type': 'Address', 'purpose': 'App functionality - Account management', 'optional': False}, {'data_type': 'Phone number', 'purpose': 'App functionality - Account management', 'optional': False}]}, {'category': 'Photos and videos', 'sub_info': [{'data_type': 'Photos', 'purpose': 'Account management', 'optional': True}, {'data_type': 'Videos', 'purpose': 'Account management', 'optional': True}]}, {'category': 'Files and docs', 'sub_info': [{'data_type': 'Files and docs', 'purpose': 'Account management', 'optional': True}]}], 'security_practices': [{'category': 'Data is encrypted in transit', 'sub_info': []}, {'category': 'You can request that data be deleted', 'sub_info': []}]}",
+    "policy_excerpt": "Data Share:\nTextBehind ensures that personal data, including email address, phone number, name, addresses, inmate information, communication, photos, and financial transactions will not be shared with any third parties unless required by law. This service does not sell, trade, or transfer your personal information to third parties but may share aggregated, non-personally identifiable information for marketing or analytics purposes. Information may be shared under specific circumstances: with your consent, to comply with legal obligations or protect rights, privacy, safety, or property, and with service providers assisting with app operations under strict confidentiality agreements.\nData Collect:\nTextBehind collects personal information you provide directly, such as email address, phone number, name, addresses, inmate information, communication, photos, and financial information when you create an account and use their services or contact for support. Non-personal information like device and usage data or analytics data are not collected. The collected information is used to maintain and improve the app, respond to requests, comments, or questions, send important notices like app updates or policy changes, personalize user experience, provide relevant content, monitor and analyze app usage and trends. User data is retained as long as necessary to fulfill the purposes outlined or as required by law. Data deletion requests can be made through contact details provided.",
+    "expected_codes": [
+      "M1",
+      "M3",
+      "M4"
+    ]
+  },
+  {
+    "app_id": 1403,
+    "package": "com.luck.photoeditornewversion",
+    "name": "Photo editor: Coloring effects",
+    "category": "Photography",
+    "quadrant": "Q1_common_ambig",
+    "quadrant_label": "common & ambiguous",
+    "is_tutorial": false,
+    "data_safety_raw": "{'data_shared': [], 'data_collected': [], 'security_practices': [{'category': 'Data is encrypted in transit', 'sub_info': []}, {'category': 'You can request that data be deleted', 'sub_info': []}]}",
+    "policy_excerpt": "Data Share:\nBy accessing or using Photo Editor New Version 2018 Color Splash, you agree to these Terms. We do not provide personal data to third parties.\nData Collection:\nBefore downloading or using our application, please read these Terms carefully. We require certain permissions as stated below:",
+    "expected_codes": [
+      "M1",
+      "M3"
+    ]
+  },
+  {
+    "app_id": 62,
+    "package": "com.coloringbooksmaona.adultimaui",
+    "name": "Coloring book bear cartoon",
+    "category": "Art & Design",
+    "quadrant": "Q2_common_tractable",
+    "quadrant_label": "common & tractable",
+    "is_tutorial": false,
+    "data_safety_raw": "{'data_shared': [{'category': 'App info and performance', 'sub_info': [{'data_type': 'Diagnostics', 'purpose': 'Analytics - Advertising or marketing - Fraud prevention - security - and compliance', 'optional': False}]}, {'category': 'Location', 'sub_info': [{'data_type': 'Approximate location', 'purpose': 'Analytics - Advertising or marketing - Fraud prevention - security - and compliance', 'optional': False}]}, {'category': 'App activity', 'sub_info': [{'data_type': 'App interactions', 'purpose': 'Analytics - Advertising or marketing - Fraud prevention - security - and compliance', 'optional': False}]}, {'category': 'Device or other IDs', 'sub_info': [{'data_type': 'Device or other IDs', 'purpose': 'Analytics - Advertising or marketing - Fraud prevention - security - and compliance', 'optional': False}]}], 'data_collected': [{'category': 'App info and performance', 'sub_info': [{'data_type': 'Diagnostics', 'purpose': 'Analytics - Advertising or marketing - Fraud prevention - security - and compliance', 'optional': False}]}, {'category': 'Location', 'sub_info': [{'data_type': 'Approximate location', 'purpose': 'Analytics - Advertising or marketing - Fraud prevention - security - and compliance', 'optional': False}]}, {'category': 'App activity', 'sub_info': [{'data_type': 'App interactions', 'purpose': 'Analytics - Advertising or marketing - Fraud prevention - security - and compliance', 'optional': False}]}, {'category': 'Device or other IDs', 'sub_info': [{'data_type': 'Device or other IDs', 'purpose': 'Analytics - Advertising or marketing - Fraud prevention - security - and compliance', 'optional': False}]}], 'security_practices': [{'category': 'Data is encrypted in transit', 'sub_info': []}, {'category': 'Data can?t be deleted', 'sub_info': []}]}",
+    "policy_excerpt": "Data Share:\nCertain features of rocka game's services are designed to connect with your social networking sites in order to obtain additional personal information about you. rocka game may collect various profile details from your social network when permitted and consented by you. This information can include your name, profile picture, gender, user ID, email address, location details (country, language, time zone), organizations and links on your profile, friend list, and various other profile information. This data is used in line with the guidelines provided in this Privacy Policy.\nData Collect:\nrocka game may have access to certain information from your social networking profile upon your consent and permission from the social networking site. This collection can include your name, profile image, gender, user ID, email, country, language preference, time zone, organizations and links on your profile, the list of your friends, and other information included in your social networking profile. rocka game manages, associates, and utilizes the collected information as stated in this Privacy Policy.",
+    "expected_codes": [
+      "M3"
+    ]
+  },
+  {
+    "app_id": 537,
+    "package": "com.cspMobile.DCSSMobileApp",
+    "name": "GA DCSS",
+    "category": "Books & Reference",
+    "quadrant": "Q2_common_tractable",
+    "quadrant_label": "common & tractable",
+    "is_tutorial": false,
+    "data_safety_raw": "{'data_shared': [], 'data_collected': [], 'security_practices': [{'category': 'Data is encrypted in transit', 'sub_info': []}, {'category': 'You can request that data be deleted', 'sub_info': []}]}",
+    "policy_excerpt": "Data Share:\nThis privacy policy indicates that the State of Georgia might share some personally identifiable information among its agencies if necessary for specific services or transactions. Generally, the policy doesn't endorse the disclosure of any personally identifiable information collected online to entities outside of the State of Georgia departments and agencies unless the user has given permission. However, exceptions are made when information is public under the Georgia Open Records Act O.C.G.A. 50-18-70 et seq., or other applicable laws. The email section of the policy further states that sometimes the government may forward user emails to other state employees who may be better equipped to help, and these employees could potentially belong to a different agency within the state.\nData Collect:\nThe policy states that Georgia.gov websites use Google Analytics to capture information about site effectiveness. When users visit a Georgia.gov website, the items that may be collected include domain names, IP addresses, browser and operating system types, the internet address from which users link directly to the site, search terms used to get to the website, the dates and times of access, the type of device used, the frequency of visits, pages visited within the site, and links made to other sites from this site. All collected information isn't identifiable by person and used cumulatively for statistical purposes. If users provide personally identifiable information through a form voluntarily during their visit, it's also collected. Examples include name, address, phone number, email address, online application or form submission information, survey information, or content. The collected information may include text, audio, video, and other graphic formats, and it is retained and used consistent with laws, rules, regulations, and other policies.",
+    "expected_codes": [
+      "M3"
+    ]
+  },
+  {
+    "app_id": 1875,
+    "package": "com.bathandbody.bbw",
+    "name": "My Bath & Body Works",
+    "category": "Shopping",
+    "quadrant": "Q2_common_tractable",
+    "quadrant_label": "common & tractable",
+    "is_tutorial": false,
+    "data_safety_raw": "{'data_shared': [{'category': 'App activity', 'sub_info': [{'data_type': 'App interactions', 'purpose': 'Analytics - Developer communications - Advertising or marketing', 'optional': False}]}, {'category': 'App info and performance', 'sub_info': [{'data_type': 'Crash logs', 'purpose': 'Analytics - Developer communications', 'optional': False}]}], 'data_collected': [{'category': 'App activity', 'sub_info': [{'data_type': 'App interactions', 'purpose': 'Analytics - Developer communications - Advertising or marketing', 'optional': False}]}, {'category': 'Device or other IDs', 'sub_info': [{'data_type': 'Device or other IDs', 'purpose': 'App functionality - Analytics - Fraud prevention - security - and compliance', 'optional': False}]}, {'category': 'Financial info', 'sub_info': [{'data_type': 'User payment info', 'purpose': 'App functionality - Analytics - Fraud prevention - security - and compliance', 'optional': False}, {'data_type': 'Purchase history', 'purpose': 'Analytics - Advertising or marketing - Fraud prevention - security - and compliance', 'optional': False}]}, {'category': 'Personal info', 'sub_info': [{'data_type': 'Name', 'purpose': 'App functionality - Advertising or marketing - Personalization - Account management', 'optional': False}, {'data_type': 'Email address', 'purpose': 'App functionality - Advertising or marketing - Personalization - Account management', 'optional': False}, {'data_type': 'Address', 'purpose': 'Advertising or marketing', 'optional': True}, {'data_type': 'Phone number', 'purpose': 'App functionality - Advertising or marketing - Account management', 'optional': False}, {'data_type': 'Other info', 'purpose': 'App functionality - Advertising or marketing - Personalization', 'optional': True}]}, {'category': 'App info and performance', 'sub_info': [{'data_type': 'Crash logs', 'purpose': 'Analytics - Developer communications', 'optional': False}]}, {'category': 'Location', 'sub_info': [{'data_type': 'Precise location', 'purpose': 'App functionality - Analytics - Fraud prevention - security - and compliance', 'optional': True}]}], 'security_practices': [{'category': 'Data is encrypted in transit', 'sub_info': []}, {'category': 'You can request that data be deleted', 'sub_info': []}]}",
+    "policy_excerpt": "Data Share:\nWe do not use or disclose sensitive personal information unless authorized by you or by law. California, Colorado, Connecticut, Utah, and Virginia consumers can request for disclosure of the personal information we've collected, used, disclosed, sold, and shared about them up to twice a year. A request to delete or correct this information can be submitted through \"Your Data Rights\" or by calling 1-800-756-5005. Users can opt out of the sale or sharing of personal information through our \"Do Not Sell or Share My Personal Information\" link or by calling the same number. Global Privacy Control (GPC) signals from web browsers or extensions are recognized to opt out of selling or sharing web browser-derived information. Consumers have the right to exercise privacy rights without experiencing discriminatory or retaliatory treatment.\nData Collect:\nWe collect certain personal information such as name, email address, phone number, zip codes, and birthday when consumers sign up for our programs. These programs can include rewards, specific product purchase incentives, mailing list signups, app downloads, and sweepstakes. Signing up is not obligated and consumers can choose to opt out at any time. The value of a consumer's personal information depends on their engagement level with our offerings, responses to our offers, and our ability to learn about their shopping preferences and history. The information provided aids in enhancing our relationship with consumers, showcasing products and services relevant to the consumer, and delivering value.",
+    "expected_codes": [
+      "M3"
+    ]
+  },
+  {
+    "app_id": 241,
+    "package": "com.zafertawel.wassfat",
+    "name": "تطويل الاظافر بسرعة مجربة",
+    "category": "Beauty",
+    "quadrant": "Q2_common_tractable",
+    "quadrant_label": "common & tractable",
+    "is_tutorial": false,
+    "data_safety_raw": "{'data_shared': [], 'data_collected': [], 'security_practices': [{'category': 'Data is encrypted in transit', 'sub_info': []}, {'category': 'Data can’t be deleted', 'sub_info': []}]}",
+    "policy_excerpt": "Data Share:\nZiza Apps may share your personal information under the following conditions: Firstly, with your prior permission. Secondly, in accordance with applicable law within or outside your country of residence, legal process, or litigation requests. Thirdly, following requests from public and governmental authorities. Lastly, to protect their legal rights and interests. If non-personal information is combined with personal information, it is treated as personal information for the purposes of the Privacy Policy.\nData Collect:\nZiza Apps does not collect, store, or use any personal information while you install or upgrade their products. Nonetheless, they may use personal information submitted by you for the purpose of developing, delivering, and improving their products and services and to provide a higher quality service. The non-personal information that may be collected by Ziza Apps includes the name and package name of the installed application, the date of install, frequency of use, country, equipment, and channel. Ziza Apps also collects device-specific information, unique application numbers, and anonymous identifiers when you interact with certain services. Furthermore, when you use a location-enabled service, Ziza Apps may collect and process information about your actual location.",
+    "expected_codes": [
+      "M3",
+      "M4"
+    ]
+  },
+  {
+    "app_id": 832,
+    "package": "com.robtheis.android.phrasebook.cc.bc",
+    "name": "Cantonese Basic Phrases",
+    "category": "Communication",
+    "quadrant": "Q2_common_tractable",
+    "quadrant_label": "common & tractable",
+    "is_tutorial": true,
+    "data_safety_raw": "{'data_shared': [{'category': 'App info and performance', 'sub_info': [{'data_type': 'Crash logs', 'purpose': 'Advertising or marketing', 'optional': False}, {'data_type': 'Diagnostics', 'purpose': 'Advertising or marketing', 'optional': False}]}, {'category': 'App activity', 'sub_info': [{'data_type': 'App interactions', 'purpose': 'Advertising or marketing', 'optional': False}]}, {'category': 'Device or other IDs', 'sub_info': [{'data_type': 'Device or other IDs', 'purpose': 'Advertising or marketing', 'optional': False}]}], 'data_collected': [], 'security_practices': [{'category': 'Data is encrypted in transit', 'sub_info': []}, {'category': 'Data can’t be deleted', 'sub_info': []}]}",
+    "policy_excerpt": "Data Share:\nThis app may use an advertising service provided by Google. As part of its advertising service, Google may collect various information to improve its performance such as your IP address, crash logs, performance data like launch time, hang rate, or energy usage, your device ID, advertising data, and other user product interactions. You may opt out of advertising and its associated information sharing by upgrading the app through a one-time in-app purchase available in the Settings menu.\nData Collect:\nGoogle's advertising service, used by this app, involves collection of various types of information such as your IP address, non-user related crash logs, device ID (including the device's advertising identifier), advertising data, and user product interactions. This data collection aids in enhancing the performance of the advertising service. Performance data like launch time, hang rate, and energy usage may also be collected. Qvyshift does not retain any personal or sensitive user information.",
+    "expected_codes": [
+      "M2",
+      "M3"
+    ]
+  },
+  {
+    "app_id": 2021,
+    "package": "com.chatroullete.alternative",
+    "name": "Chat Alternative — android app",
+    "category": "Social",
+    "quadrant": "Q2_common_tractable",
+    "quadrant_label": "common & tractable",
+    "is_tutorial": false,
+    "data_safety_raw": "{'data_shared': [{'category': 'Photos and videos', 'sub_info': [{'data_type': 'Videos', 'purpose': 'App functionality', 'optional': False}]}, {'category': 'Audio', 'sub_info': [{'data_type': 'Voice or sound recordings', 'purpose': 'App functionality', 'optional': False}]}, {'category': 'Messages', 'sub_info': [{'data_type': 'Other in-app messages', 'purpose': 'App functionality', 'optional': False}]}, {'category': 'Location', 'sub_info': [{'data_type': 'Approximate location', 'purpose': 'App functionality - Personalization', 'optional': False}]}], 'data_collected': [{'category': 'App info and performance', 'sub_info': [{'data_type': 'Crash logs', 'purpose': 'Analytics', 'optional': False}, {'data_type': 'Diagnostics', 'purpose': 'Analytics', 'optional': False}]}, {'category': 'Financial info', 'sub_info': [{'data_type': 'Purchase history', 'purpose': 'Analytics', 'optional': False}]}, {'category': 'Photos and videos', 'sub_info': [{'data_type': 'Videos', 'purpose': 'App functionality', 'optional': False}]}, {'category': 'Device or other IDs', 'sub_info': [{'data_type': 'Device or other IDs', 'purpose': 'Fraud prevention - security - and compliance', 'optional': False}]}, {'category': 'App activity', 'sub_info': [{'data_type': 'App interactions', 'purpose': 'Analytics', 'optional': False}]}, {'category': 'Audio', 'sub_info': [{'data_type': 'Voice or sound recordings', 'purpose': 'App functionality', 'optional': False}]}, {'category': 'Messages', 'sub_info': [{'data_type': 'Other in-app messages', 'purpose': 'App functionality', 'optional': False}]}, {'category': 'Location', 'sub_info': [{'data_type': 'Approximate location', 'purpose': 'App functionality - Personalization', 'optional': False}]}, {'category': 'Personal info', 'sub_info': [{'data_type': 'Email address', 'purpose': 'Fraud prevention - security - and compliance', 'optional': True}, {'data_type': 'User IDs', 'purpose': 'App functionality - Fraud prevention - security - and compliance - Account management', 'optional': False}]}], 'security_practices': [{'category': 'Data is encrypted in transit', 'sub_info': []}, {'category': 'You can request that data be deleted', 'sub_info': []}]}",
+    "policy_excerpt": "Data Share:\nWe handle personal data that includes collection, processing, retention, and transfer activities. The data from the Facebook Platform, which encompasses a significant portion of user personal information, is utilized for specific objectives.\nData Collect:\nWe collect personal data to enhance our service and user experience, manage and secure our system, and facilitate user interaction in video chat. This data allows us to connect with our users, manage and fulfill orders including payment processing, register new users and log in existing ones, and facilitate our application operation on diverse Android versions. We also collect data to ensure our website functions correctly across various browsers and platforms, and display our website with proper connectivity to our application.",
+    "expected_codes": [
+      "M3"
+    ]
+  },
+  {
+    "app_id": 1016,
+    "package": "com.hyperdimsoft.rosary",
+    "name": "The Holy Rosary",
+    "category": "Lifestyle",
+    "quadrant": "Q2_common_tractable",
+    "quadrant_label": "common & tractable",
+    "is_tutorial": false,
+    "data_safety_raw": "{'data_shared': [{'category': 'App info and performance', 'sub_info': [{'data_type': 'Crash logs', 'purpose': 'Advertising or marketing', 'optional': False}, {'data_type': 'Diagnostics', 'purpose': 'Advertising or marketing', 'optional': False}, {'data_type': 'Other app performance data', 'purpose': 'Advertising or marketing', 'optional': False}]}, {'category': 'App activity', 'sub_info': [{'data_type': 'App interactions', 'purpose': 'Advertising or marketing', 'optional': False}]}, {'category': 'Device or other IDs', 'sub_info': [{'data_type': 'Device or other IDs', 'purpose': 'Advertising or marketing', 'optional': False}]}, {'category': 'Location', 'sub_info': [{'data_type': 'Approximate location', 'purpose': 'Advertising or marketing', 'optional': False}]}], 'data_collected': [{'category': 'App info and performance', 'sub_info': [{'data_type': 'Crash logs', 'purpose': 'Advertising or marketing', 'optional': False}, {'data_type': 'Diagnostics', 'purpose': 'Advertising or marketing', 'optional': False}, {'data_type': 'Other app performance data', 'purpose': 'Advertising or marketing', 'optional': False}]}, {'category': 'Device or other IDs', 'sub_info': [{'data_type': 'Device or other IDs', 'purpose': 'Advertising or marketing', 'optional': False}]}], 'security_practices': [{'category': 'Data is encrypted in transit', 'sub_info': []}, {'category': 'Data can’t be deleted', 'sub_info': []}]}",
+    "policy_excerpt": "Data Share:\nHyperDimSoft respects your privacy and ensures that any identifiable information you provide is secure, used in accordance with this policy, and protected. The policy may be updated periodically, so it's recommended to check this page occasionally to stay informed about any changes.\nData Collect:\nDespite requiring some personal information for identification when using HyperDimSoft's website or applications, the company states that it does NOT collect any information when you download and play their games.",
+    "expected_codes": [
+      "M3",
+      "M4"
+    ]
+  },
+  {
+    "app_id": 673,
+    "package": "uk.gov.Aberdeenshire.MyAberdeenshire.Android",
+    "name": "myAberdeenshire",
+    "category": "Business",
+    "quadrant": "Q2_common_tractable",
+    "quadrant_label": "common & tractable",
+    "is_tutorial": false,
+    "data_safety_raw": "{'data_shared': [], 'data_collected': [{'category': 'Location', 'sub_info': [{'data_type': 'Precise location', 'purpose': 'App functionality - Developer communications', 'optional': True}]}, {'category': 'Personal info', 'sub_info': [{'data_type': 'Name', 'purpose': 'Developer communications', 'optional': True}, {'data_type': 'Email address', 'purpose': 'Developer communications', 'optional': True}, {'data_type': 'Phone number', 'purpose': 'Developer communications', 'optional': True}]}, {'category': 'App info and performance', 'sub_info': [{'data_type': 'Crash logs', 'purpose': 'Analytics', 'optional': True}, {'data_type': 'Diagnostics', 'purpose': 'Analytics', 'optional': False}]}, {'category': 'App activity', 'sub_info': [{'data_type': 'App interactions', 'purpose': 'Analytics', 'optional': False}]}, {'category': 'Photos and videos', 'sub_info': [{'data_type': 'Photos', 'purpose': 'App functionality - Developer communications', 'optional': True}]}, {'category': 'Messages', 'sub_info': [{'data_type': 'Other in-app messages', 'purpose': 'Developer communications', 'optional': True}]}], 'security_practices': [{'category': 'Data isn’t encrypted', 'sub_info': []}, {'category': 'Data can’t be deleted', 'sub_info': []}]}",
+    "policy_excerpt": "Data Share:\nThe Data Controller and Data Protection Officer are featured as Aberdeenshire Council. Information is shared solely within Aberdeenshire Council and is not transferred outside. All data, including postcode, address, name, phone number, and email address is kept within the UK.\nData Collect:\nAberdeenshire Council collects information for purposes such as providing waste collection details specific to address, responding to support or fault reports and customer survey submissions, and diagnosing issues. This encompasses name, phone number, postcode, address, and email. This information is voluntary, based on user choice during form submission. Data provided for support, fault reports, or surveys is held for three months on the server, then deleted. Details provided about the postcode and address are stored until the app uninstallation. Automated decision-making or profiling isn't applicable.",
+    "expected_codes": [
+      "M3"
+    ]
+  },
+  {
+    "app_id": 2223,
+    "package": "net.openvpn.openvpn",
+    "name": "OpenVPN Connect – OpenVPN App",
+    "category": "Tools",
+    "quadrant": "Q2_common_tractable",
+    "quadrant_label": "common & tractable",
+    "is_tutorial": false,
+    "data_safety_raw": "{'data_shared': [], 'data_collected': [{'category': 'Device or other IDs', 'sub_info': [{'data_type': 'Device or other IDs', 'purpose': 'Fraud prevention - security - and compliance', 'optional': True}]}], 'security_practices': [{'category': 'Data is encrypted in transit', 'sub_info': []}, {'category': 'Data can’t be deleted', 'sub_info': []}]}",
+    "policy_excerpt": "Data Share: We promise that your private or public information will not be sold, exchanged, transferred, or given to any other company without your consent. This is other than for the specific purpose of delivering the purchased product or service you requested. The email address you provide for order processing is solely used for sending you information and updates about your order. Instructions are provided at the bottom of each email if you wish to unsubscribe from future emails.\nData Collect: We may use the information we collect from you to enhance our website and improve our offerings based on your feedback and information. Your information also equips us better in handling customer service requests and attending to your support needs efficiently. Additionally, it facilitates the processing of transactions.",
+    "expected_codes": [
+      "M3"
+    ]
+  },
+  {
+    "app_id": 1419,
+    "package": "com.fantasticapps.funnyfaco.funia.face.changer",
+    "name": "Funny Faco Funia Face Changer",
+    "category": "Photography",
+    "quadrant": "Q2_common_tractable",
+    "quadrant_label": "common & tractable",
+    "is_tutorial": false,
+    "data_safety_raw": "{'data_shared': [], 'data_collected': []}",
+    "policy_excerpt": "Data Share:\nThis policy does not address the sharing of data as no Personal Information is collected.\nData Collect:\nWe prioritize safeguarding your information. While we don't collect Personal Information, we apply administrative, physical, and electronic measures to prevent unauthorized access and use of your Non-Personal Information. However, no security measures are absolutely guaranteed to prevent unauthorized access or use of your Non-Personal Information.",
+    "expected_codes": [
+      "M4"
+    ]
+  },
+  {
+    "app_id": 71,
+    "package": "air.com.gamesaien.neonblinkdraw",
+    "name": "Neon Blink Draw",
+    "category": "Art & Design",
+    "quadrant": "Q3_rare_ambig",
+    "quadrant_label": "rare & ambiguous",
+    "is_tutorial": false,
+    "data_safety_raw": "{'data_shared': [{'category': 'Device or other IDs', 'sub_info': [{'data_type': 'Device or other IDs', 'purpose': 'Analytics - Advertising or marketing - Fraud prevention - security - and compliance', 'optional': False}]}, {'category': 'Location', 'sub_info': [{'data_type': 'Approximate location', 'purpose': 'Analytics - Advertising or marketing - Fraud prevention - security - and compliance', 'optional': False}]}, {'category': 'App activity', 'sub_info': [{'data_type': 'App interactions', 'purpose': 'Analytics - Advertising or marketing - Fraud prevention - security - and compliance', 'optional': False}]}, {'category': 'App info and performance', 'sub_info': [{'data_type': 'Crash logs', 'purpose': 'Analytics - Advertising or marketing - Fraud prevention - security - and compliance', 'optional': False}, {'data_type': 'Diagnostics', 'purpose': 'Analytics - Advertising or marketing - Fraud prevention - security - and compliance', 'optional': False}, {'data_type': 'Other app performance data', 'purpose': 'Analytics - Advertising or marketing - Fraud prevention - security - and compliance', 'optional': False}]}], 'data_collected': [], 'security_practices': [{'category': 'Data is encrypted in transit', 'sub_info': []}, {'category': 'Data can?t be deleted', 'sub_info': []}]}",
+    "policy_excerpt": "Data Share:\nGameSaien.com discloses your data with third-party advertising providers such as Admob. The privacy policy for Admob can be found at https://policies.google.com/privacy.\nData Collect:\nBy using Neon Blink Draw for Android, you agree to the collection and use of your personal information. This information is used in accordance with GameSaien.com's privacy policy. The policy may be updated periodically.",
+    "expected_codes": [
+      "M1",
+      "M3",
+      "M6"
+    ]
+  },
+  {
+    "app_id": 2014,
+    "package": "com.odiashaadi.android",
+    "name": "Odia Matrimony by Shaadi.com",
+    "category": "Social",
+    "quadrant": "Q3_rare_ambig",
+    "quadrant_label": "rare & ambiguous",
+    "is_tutorial": false,
+    "data_safety_raw": "{'data_shared': [{'category': 'Personal info', 'sub_info': [{'data_type': 'Name', 'purpose': 'Fraud prevention - security - and compliance', 'optional': False}, {'data_type': 'Email address', 'purpose': 'App functionality - Fraud prevention - security - and compliance', 'optional': False}, {'data_type': 'Address', 'purpose': 'App functionality - Fraud prevention - security - and compliance', 'optional': False}, {'data_type': 'Phone number', 'purpose': 'App functionality - Fraud prevention - security - and compliance', 'optional': False}, {'data_type': 'Race and ethnicity', 'purpose': 'App functionality - Fraud prevention - security - and compliance - Personalization', 'optional': False}, {'data_type': 'Other info', 'purpose': 'App functionality - Fraud prevention - security - and compliance', 'optional': False}]}, {'category': 'Location', 'sub_info': [{'data_type': 'Approximate location', 'purpose': 'App functionality - Personalization', 'optional': False}, {'data_type': 'Precise location', 'purpose': 'App functionality - Personalization', 'optional': False}]}, {'category': 'Health and fitness', 'sub_info': [{'data_type': 'Health info', 'purpose': 'App functionality', 'optional': False}]}, {'category': 'Messages', 'sub_info': [{'data_type': 'Emails', 'purpose': 'App functionality - Fraud prevention - security - and compliance', 'optional': False}, {'data_type': 'SMS or MMS', 'purpose': 'App functionality - Fraud prevention - security - and compliance', 'optional': False}]}, {'category': 'Financial info', 'sub_info': [{'data_type': 'Other financial info', 'purpose': 'App functionality', 'optional': False}]}, {'category': 'App activity', 'sub_info': [{'data_type': 'Other user-generated content', 'purpose': 'App functionality', 'optional': False}]}, {'category': 'Photos and videos', 'sub_info': [{'data_type': 'Photos', 'purpose': 'App functionality - Fraud prevention - security - and compliance', 'optional': False}]}], 'data_collected': [{'category': 'Files and docs', 'sub_info': [{'data_type': 'Files and docs', 'purpose': 'App functionality - Fraud prevention - security - and compliance - Account management', 'optional': False}]}, {'category': 'Personal info', 'sub_info': [{'data_type': 'Name', 'purpose': 'Fraud prevention - security - and compliance', 'optional': False}, {'data_type': 'Email address', 'purpose': 'App functionality - Fraud prevention - security - and compliance', 'optional': False}, {'data_type': 'Address', 'purpose': 'App functionality - Fraud prevention - security - and compliance', 'optional': False}, {'data_type': 'Phone number', 'purpose': 'App functionality - Fraud prevention - security - and compliance', 'optional': False}, {'data_type': 'Race and ethnicity', 'purpose': 'App functionality - Fraud prevention - security - and compliance - Personalization', 'optional': False}, {'data_type': 'Other info', 'purpose': 'App functionality - Fraud prevention - security - and compliance', 'optional': False}]}, {'category': 'Location', 'sub_info': [{'data_type': 'Approximate location', 'purpose': 'App functionality - Personalization', 'optional': False}, {'data_type': 'Precise location', 'purpose': 'App functionality - Personalization', 'optional': False}]}, {'category': 'Health and fitness', 'sub_info': [{'data_type': 'Health info', 'purpose': 'App functionality', 'optional': False}]}, {'category': 'Device or other IDs', 'sub_info': [{'data_type': 'Device or other IDs', 'purpose': 'App functionality - Analytics - Developer communications - Advertising or marketing - Fraud prevention - security - and compliance', 'optional': False}]}, {'category': 'App info and performance', 'sub_info': [{'data_type': 'Crash logs', 'purpose': 'App functionality - Analytics - Developer communications', 'optional': False}, {'data_type': 'Diagnostics', 'purpose': 'App functionality - Analytics - Developer communications', 'optional': False}, {'data_type': 'Other app performance data', 'purpose': 'App functionality - Analytics - Developer communications', 'optional': False}]}, {'category': 'Messages', 'sub_info': [{'data_type': 'Emails', 'purpose': 'App functionality - Fraud prevention - security - and compliance', 'optional': False}, {'data_type': 'SMS or MMS', 'purpose': 'App functionality - Fraud prevention - security - and compliance', 'optional': False}]}, {'category': 'Financial info', 'sub_info': [{'data_type': 'Other financial info', 'purpose': 'App functionality', 'optional': False}]}, {'category': 'App activity', 'sub_info': [{'data_type': 'Other user-generated content', 'purpose': 'App functionality', 'optional': False}]}, {'category': 'Photos and videos', 'sub_info': [{'data_type': 'Photos', 'purpose': 'App functionality - Fraud prevention - security - and compliance', 'optional': False}]}], 'security_practices': [{'category': 'Data is encrypted in transit', 'sub_info': []}, {'category': 'You can request that data be deleted', 'sub_info': []}]}",
+    "policy_excerpt": "Data Share:\nWe implement safeguards to protect your information, but cannot guarantee absolute safety due to the internet's inherent nature. Sensitive information you provide (e.g., credit card number) is encrypted with industry-leading software. We adhere to accepted industry standards for protecting personal information. Information access in our offices is limited to employees who need it for their tasks.\nData Collect:\nWe collect information during our registration/order processes. This can include sensitive information such as credit card details. Our office only permits access to this personal information to those employees who require it to perform their roles. Any queries regarding the security of our website can be directed to us via email.",
+    "expected_codes": [
+      "M3",
+      "M6"
+    ]
+  },
+  {
+    "app_id": 1076,
+    "package": "com.thepopdirectory",
+    "name": "The Pop Directory",
+    "category": "Lifestyle",
+    "quadrant": "Q3_rare_ambig",
+    "quadrant_label": "rare & ambiguous",
+    "is_tutorial": false,
+    "data_safety_raw": "{'data_shared': [{'category': 'App info and performance', 'sub_info': [{'data_type': 'Crash logs', 'purpose': 'Analytics', 'optional': False}, {'data_type': 'Diagnostics', 'purpose': 'Analytics', 'optional': False}]}], 'data_collected': [{'category': 'Personal info', 'sub_info': [{'data_type': 'Email address', 'purpose': 'App functionality - Developer communications - Account management', 'optional': False}, {'data_type': 'User IDs', 'purpose': 'App functionality - Account management', 'optional': False}, {'data_type': 'Other info', 'purpose': 'App functionality - Personalization', 'optional': True}]}, {'category': 'App info and performance', 'sub_info': [{'data_type': 'Crash logs', 'purpose': 'Analytics', 'optional': False}, {'data_type': 'Diagnostics', 'purpose': 'Analytics', 'optional': False}]}, {'category': 'Device or other IDs', 'sub_info': [{'data_type': 'Device or other IDs', 'purpose': 'App functionality - Developer communications - Advertising or marketing', 'optional': False}]}], 'security_practices': [{'category': 'Data is encrypted in transit', 'sub_info': []}, {'category': 'You can request that data be deleted', 'sub_info': []}]}",
+    "policy_excerpt": "Data Share:\nThe Pop Directory (\"TPD\") does not sell, rent, or share your data to third parties without your consent, unless required by law. Links within TPD may lead to other websites, such as eBay, and it is recommended to read their privacy policies to understand their data usage.\nData Collect:\nTPD collects your username, email address, shipping country and postal code (optional) and Firebase Instance ID. Your username is used for personalizing your experience. Your email address may be used for direct contact, especially in response to queries. Your shipping data is used to present relevant eBay listings and calculate shipping costs. Firebase Instance ID is utilized for sending push notifications, which are controllable from the Settings tab in the app or from your device settings. Your data is stored securely with SSL transmission and secure password hashing. TPD retains your data as long as necessary for maintaining your access to the service. You have rights in relation to this data; including to request a copy, correct inaccuracies, demand deletion, or raise queries or complaints about its processing via privacy@thepopdirectory.com",
+    "expected_codes": [
+      "M1",
+      "M3",
+      "M4",
+      "M6"
+    ]
+  },
+  {
+    "app_id": 650,
+    "package": "com.aspen.isave",
+    "name": "Aspen iSAVE",
+    "category": "Business",
+    "quadrant": "Q3_rare_ambig",
+    "quadrant_label": "rare & ambiguous",
+    "is_tutorial": false,
+    "data_safety_raw": "{'data_shared': [], 'data_collected': [{'category': 'Personal info', 'sub_info': [{'data_type': 'Name', 'purpose': 'App functionality - Account management', 'optional': False}, {'data_type': 'Email address', 'purpose': 'App functionality - Analytics - Account management', 'optional': False}, {'data_type': 'User IDs', 'purpose': 'App functionality - Account management', 'optional': False}, {'data_type': 'Address', 'purpose': 'App functionality - Account management', 'optional': False}, {'data_type': 'Phone number', 'purpose': 'App functionality - Account management', 'optional': False}, {'data_type': 'Other info', 'purpose': 'App functionality - Account management', 'optional': False}]}, {'category': 'Photos and videos', 'sub_info': [{'data_type': 'Photos', 'purpose': 'App functionality', 'optional': True}, {'data_type': 'Videos', 'purpose': 'App functionality', 'optional': True}]}, {'category': 'App info and performance', 'sub_info': [{'data_type': 'Crash logs', 'purpose': 'Analytics', 'optional': False}, {'data_type': 'Diagnostics', 'purpose': 'Analytics', 'optional': False}, {'data_type': 'Other app performance data', 'purpose': 'Analytics', 'optional': False}]}, {'category': 'Audio', 'sub_info': [{'data_type': 'Voice or sound recordings', 'purpose': 'App functionality', 'optional': True}]}, {'category': 'Device or other IDs', 'sub_info': [{'data_type': 'Device or other IDs', 'purpose': 'App functionality', 'optional': False}]}, {'category': 'Location', 'sub_info': [{'data_type': 'Approximate location', 'purpose': 'App functionality', 'optional': False}, {'data_type': 'Precise location', 'purpose': 'App functionality', 'optional': False}]}], 'security_practices': [{'category': 'Data is encrypted in transit', 'sub_info': []}, {'category': 'Data can’t be deleted', 'sub_info': []}]}",
+    "policy_excerpt": "Data Share:\nThe collected data from Aspen iSAVE Mobile App is sent to the server located at https://aspen.xemplarinsights.com for the purposes of returning the correct policy information and assessing driving risks for those participating in Aspen's driving safety program.\nData Collect:\nThe Aspen iSAVE Mobile App collects the following data:\n- Policy Information retrieved from Aspen MGA system\n- First and Last name from your policy\n- Email address that you provide during registration\n- Precise Location from your device\n- Photographs attached by you when using Claims and Other features\n- Technical device information such as model, software version, carrier, battery information, etc.\n- Phone sensor/movement data like display status, GPS, Bluetooth, etc.\n- GPS / Location Information including coordinates, date and time, actual speed, etc.\n- Patterns of application usage, user interaction, and screen views for analytics\n- User ID set up by you\n- Device ID from your device\n- Product interaction data from features you use\n- Application Crash data for troubleshooting purposes only\n- Application Version to ensure that you have the most recent version.",
+    "expected_codes": [
+      "M2",
+      "M3",
+      "M5",
+      "M6"
+    ]
+  },
+  {
+    "app_id": 862,
+    "package": "com.messages.smstext",
+    "name": "Text Messages: SMS + MMS",
+    "category": "Communication",
+    "quadrant": "Q3_rare_ambig",
+    "quadrant_label": "rare & ambiguous",
+    "is_tutorial": true,
+    "data_safety_raw": "{'data_shared': [{'category': 'Device or other IDs', 'sub_info': [{'data_type': 'Device or other IDs', 'purpose': 'Advertising or marketing', 'optional': False}]}], 'data_collected': [{'category': 'Personal info', 'sub_info': [{'data_type': 'Phone number', 'purpose': 'App functionality', 'optional': False}]}], 'security_practices': [{'category': 'Data isn’t encrypted', 'sub_info': []}, {'category': 'Data can’t be deleted', 'sub_info': []}]}",
+    "policy_excerpt": "Data Share:\nThe only instance we may access your Personally Identifiable Information (PII) is when you choose to share your feedback or send us a bug report via email. In this situation, we restrict the collected PII to your name, email address, and your survey responses. This information will only be utilized for improving our services and communicating with you. Your PII will never be used for marketing our products, nor will it be disclosed to any third party for commercial advantage. If you have feedback or require detailed information about our privacy policy, feel free to reach us at tinyentertainment2019@gmail.com.\nIn terms of your SMS and MMS messaging data, we do not collect, store or share these messages. All messages, including your phone number, are transited via your mobile carrier, not by us. We also do not collect or store your contact/address book information, it is only accessed to associate contact names and pictures with your conversations and messages.\nThird-party data including Android Advertising ID, Browser, IP address, Phone model, Language, Mobile Carrier, Screen Resolution, Phone Orientation, WiFi or Mobile Connection, and Android version may be collected by our third-party advertising providers for showing relevant advertisements. However, these providers do not have the right to collect user data for personalized ads unless user consent is provided.\nData Collect:\nThe PII we may collect is limited to your name and email address when voluntarily provided by you for sending feedback or providing a bug report. We do not collect or store personally identifiable information on our servers.\nYour phone number is collected and stored on your device to help users block unwanted phone numbers. However, this information is never uploaded or stored on our servers.\nOur third-party advertising providers may collect specific data including Android Advertising ID, Browser, IP address, Phone model, Language, Mobile Carrier, Screen Resolution, Phone Orientation, WiFi or Mobile Connection, and Android version. This information is used for showing more targeted advertising and combined with tracking and anti-fraud technologies.\nAdditionally, our app may require certain Android device permissions including reading contacts, writing external storage, reading phone state, and accessing SMS, MMS or Internet connectivity.",
+    "expected_codes": [
+      "M1",
+      "M2",
+      "M3",
+      "M4",
+      "M6"
+    ]
+  },
+  {
+    "app_id": 2334,
+    "package": "com.magdalm.freewifipassword",
+    "name": "Wifi password all in one",
+    "category": "Tools",
+    "quadrant": "Q3_rare_ambig",
+    "quadrant_label": "rare & ambiguous",
+    "is_tutorial": false,
+    "data_safety_raw": "{'data_shared': [{'category': 'Device or other IDs', 'sub_info': [{'data_type': 'Device or other IDs', 'purpose': 'Analytics - Advertising or marketing - Fraud prevention - security - and compliance', 'optional': False}]}, {'category': 'App activity', 'sub_info': [{'data_type': 'App interactions', 'purpose': 'Analytics - Advertising or marketing - Fraud prevention - security - and compliance', 'optional': False}]}, {'category': 'App info and performance', 'sub_info': [{'data_type': 'Crash logs', 'purpose': 'Analytics - Advertising or marketing - Fraud prevention - security - and compliance', 'optional': False}, {'data_type': 'Diagnostics', 'purpose': 'Analytics - Advertising or marketing - Fraud prevention - security - and compliance', 'optional': False}]}], 'data_collected': [{'category': 'Device or other IDs', 'sub_info': [{'data_type': 'Device or other IDs', 'purpose': 'Analytics - Advertising or marketing - Fraud prevention - security - and compliance', 'optional': False}]}, {'category': 'App activity', 'sub_info': [{'data_type': 'App interactions', 'purpose': 'Analytics - Advertising or marketing - Fraud prevention - security - and compliance', 'optional': False}]}, {'category': 'App info and performance', 'sub_info': [{'data_type': 'Crash logs', 'purpose': 'Analytics - Advertising or marketing - Fraud prevention - security - and compliance', 'optional': False}, {'data_type': 'Diagnostics', 'purpose': 'Analytics - Advertising or marketing - Fraud prevention - security - and compliance', 'optional': False}]}], 'security_practices': [{'category': 'Data is encrypted in transit', 'sub_info': []}, {'category': 'Data can’t be deleted', 'sub_info': []}]}",
+    "policy_excerpt": "Data Share:\nThe app doesn't gather or share personal data regarding the user or their saved data. All data transmitted are encrypted during transfer using the advanced Transport Layer Security (TLS) protocol. The software contains possible third-party links, services, or advertisements not governed by this privacy policy. By default, Google Mobile Ads SDK and Google User Messaging Platform SDK automatically collects and shares certain data for advertising, analytics, and fraud prevention. These include the device's IP address, Android advertising (ad) ID, user product interactions and interaction data, and performance-related data about your app and the SDK. If you make a payment, the associated data will be stored and managed by Google's payment processor.\nData Collect:\nThe application gathers data strictly for its operation. This data is securely stored locally within the device and is not collected or shared. User location permissions are used in the foreground only when the application is in use, providing details about available Wi-Fi networks. This data is not gathered or shared. We also do not gather or share personal information from children under the age of 16. By default, Google Mobile Ads SDK and Google User Messaging Platform SDK collects device's IP address (estimated for general location), Android advertising (ad) ID, user product interactions, interaction data, performance-related data including crash logs, app launch time, hang rate, and energy usage, and Android advertising (ad) ID, app set ID, and other identifiers related to signed-in accounts on the device. Any payment-related data will also be collected and managed by Google's payment processor if a transaction occurs.",
+    "expected_codes": [
+      "M1",
+      "M3",
+      "M6"
+    ]
+  },
+  {
+    "app_id": 526,
+    "package": "com.surgeworks.divineoffice",
+    "name": "Divine Office",
+    "category": "Books & Reference",
+    "quadrant": "Q3_rare_ambig",
+    "quadrant_label": "rare & ambiguous",
+    "is_tutorial": false,
+    "data_safety_raw": "{'data_shared': [{'category': 'Location', 'sub_info': [{'data_type': 'Approximate location', 'purpose': 'App functionality', 'optional': False}, {'data_type': 'Precise location', 'purpose': 'App functionality', 'optional': False}]}], 'data_collected': [{'category': 'Location', 'sub_info': [{'data_type': 'Approximate location', 'purpose': 'App functionality', 'optional': False}, {'data_type': 'Precise location', 'purpose': 'App functionality', 'optional': False}]}, {'category': 'App info and performance', 'sub_info': [{'data_type': 'Crash logs', 'purpose': 'Analytics', 'optional': False}, {'data_type': 'Diagnostics', 'purpose': 'Analytics', 'optional': False}, {'data_type': 'Other app performance data', 'purpose': 'Analytics', 'optional': False}]}], 'security_practices': [{'category': 'Data is encrypted in transit', 'sub_info': []}, {'category': 'Data can’t be deleted', 'sub_info': []}]}",
+    "policy_excerpt": "Data Share:\nWe do not sell, trade, or transfer your personally identifiable information to outside parties. Exceptions include trusted third parties assisting in our website operations, business conduct, or servicing you, who have agreed to keep this confidential. We may disclose your information if we believe it's necessary to comply with law, enforce our site policies, or to protect our or others' rights, property, and safety. Non-personally identifiable visitor information may be shared for marketing, advertising, or other purposes.\nData Collect:\nWe collect information when you register on our site, subscribe to our newsletter, complete a survey, and use our applications. Your name, e-mail, and approximate location are required upon registration. You might be asked questions related to your background and faith. This information may be mandatory as it supports our copyrighted materials' licenses and permissions. We use cookies to aggregate data about site traffic and interaction, and to improve site experiences and tools. We use cookies to remember your login details for convenience. All sensitive/credit information is transmitted via Secure Socket Layer (SSL) technology to our Payment gateway providers database, not our servers. After a transaction, your private information will not be stored on our servers.",
+    "expected_codes": [
+      "M1",
+      "M3",
+      "M4",
+      "M5",
+      "M6"
+    ]
+  },
+  {
+    "app_id": 1816,
+    "package": "com.citpl.revlogical",
+    "name": "My Retail Rebel",
+    "category": "Shopping",
+    "quadrant": "Q3_rare_ambig",
+    "quadrant_label": "rare & ambiguous",
+    "is_tutorial": false,
+    "data_safety_raw": "{'data_shared': [], 'data_collected': [{'category': 'Personal info', 'sub_info': [{'data_type': 'Name', 'purpose': 'App functionality - Account management', 'optional': False}, {'data_type': 'Email address', 'purpose': 'App functionality - Account management', 'optional': False}, {'data_type': 'Phone number', 'purpose': 'App functionality - Account management', 'optional': False}]}], 'security_practices': [{'category': 'Data is encrypted in transit', 'sub_info': []}, {'category': 'You can request that data be deleted', 'sub_info': []}]}",
+    "policy_excerpt": "Data Share:\nOur policy is to keep your information confidential. Any information we collect from you is used solely for fulfilling your requests and improving our services. We do not sell, rent, or share your information to any third party outside of our organization except necessarily to fulfill your request, for instance, shipping an order. However, we may use your information to inform you about specials, new products or services, or changes to this privacy policy unless you opt-out.\nData Collect:\nWe solely own the information we collect from this site, which comprises of information you voluntarily provide via direct contact methods like email. You are allowed to see, change, correct, or even request a deletion of any data we hold about you by contacting us via our official contacts. We gather sensitive information (like credit card data) for certain operations, which is encrypted and securely transmitted to us. Our employees who require the information for specific jobs (e.g., billing or customer service) are granted limited access. The data storage servers are also securely managed. If you feel any discrepancies regarding this policy, get in touch through email at privacy@revlogical.com.",
+    "expected_codes": [
+      "M1",
+      "M3",
+      "M4",
+      "M6"
+    ]
+  },
+  {
+    "app_id": 315,
+    "package": "com.niskapus.hairstyles",
+    "name": "Hairstyles Step by Step Videos",
+    "category": "Beauty",
+    "quadrant": "Q3_rare_ambig",
+    "quadrant_label": "rare & ambiguous",
+    "is_tutorial": true,
+    "data_safety_raw": "{'data_shared': [], 'data_collected': [], 'security_practices': [{'category': 'Data isn’t encrypted', 'sub_info': []}, {'category': 'Data can’t be deleted', 'sub_info': []}]}",
+    "policy_excerpt": "Data Share:\nThe app shares your advertising ID with Google AdMob for serving targeted ads. Information collected by our services may be shared with advertisers and third party advertising networks, including your unique device ID and mobile number. Encrypted versions of your information may also be shared for analysis or advertising related use.\nData Collect:\nPersonal information collected is used to provide and enhance the service. Non-personal information like device ID, android advertising ID is collected for advertisement and user analytics. If an error occurs, log data including your IP address, device name, operating system version, app configuration, usage time and date, and other stats are collected. The app may ask for personally identifiable information, but it is stored on your device and not collected by the app. Location data is not precisely collected. Third-party services used by the app might also collect data to identify you.",
+    "expected_codes": [
+      "M1",
+      "M2",
+      "M3",
+      "M6"
+    ]
+  },
+  {
+    "app_id": 69,
+    "package": "justcreativeclub.learnhowtodraw.trees",
+    "name": "Learn to Draw Trees",
+    "category": "Art & Design",
+    "quadrant": "Q3_rare_ambig",
+    "quadrant_label": "rare & ambiguous",
+    "is_tutorial": false,
+    "data_safety_raw": "{'data_shared': [{'category': 'Device or other IDs', 'sub_info': [{'data_type': 'Device or other IDs', 'purpose': 'Advertising or marketing', 'optional': False}]}], 'data_collected': [], 'security_practices': [{'category': 'Data isn?t encrypted', 'sub_info': []}, {'category': 'Data can?t be deleted', 'sub_info': []}]}",
+    "policy_excerpt": "Data Share:\nJust Creative Club uses the personal data collected for improving its services. We assure that your information will not be shared with anyone except as outlined in this privacy policy. If there are updates or modifications to this privacy policy, we'll notify you by revising the date at the top of the policy. Depending on the specific changes, we will provide you with additional notice or require renewed consent.\nData Collect:\nJust Creative Club collects your personal data when you use any mobile application published by us on the Google Play store. The service, provided by Just Creative Club, uses this collected information in accordance with this privacy policy. Your agreement to the collection and use of this information is implicit in your use of our service. A full list of our apps is provided here: https://play.google.com/store/apps/developer?id=Just+Creative+Club. It is recommended that you review our privacy policy from time to time to stay informed about how we collect and process your personal data.",
+    "expected_codes": [
+      "M1",
+      "M3",
+      "M6"
+    ]
+  },
+  {
+    "app_id": 9,
+    "package": "com.panalab.letters.fletter.Wallpaper",
+    "name": "F Letters Wallpaper HD",
+    "category": "Art & Design",
+    "quadrant": "Q4_clean",
+    "quadrant_label": "rare & tractable",
+    "is_tutorial": false,
+    "data_safety_raw": "{'data_shared': [], 'data_collected': [], 'security_practices': [{'category': 'Data is encrypted in transit', 'sub_info': []}, {'category': 'Data can?t be deleted', 'sub_info': []}]}",
+    "policy_excerpt": "Data Share: We currently have no information provided about data sharing in the given content.\nData Collect: We currently have no information provided about data collection in the given content.",
+    "expected_codes": []
+  },
+  {
+    "app_id": 898,
+    "package": "com.pitb.rasta",
+    "name": "Rasta",
+    "category": "Communication",
+    "quadrant": "Q4_clean",
+    "quadrant_label": "rare & tractable",
+    "is_tutorial": false,
+    "data_safety_raw": "{'data_shared': [], 'data_collected': [{'category': 'Personal info', 'sub_info': [{'data_type': 'Email address', 'purpose': 'App functionality', 'optional': False}, {'data_type': 'Phone number', 'purpose': 'App functionality', 'optional': False}, {'data_type': 'Other info', 'purpose': 'App functionality', 'optional': False}]}, {'category': 'Photos and videos', 'sub_info': [{'data_type': 'Photos', 'purpose': 'App functionality', 'optional': False}]}, {'category': 'Location', 'sub_info': [{'data_type': 'Approximate location', 'purpose': 'App functionality', 'optional': False}, {'data_type': 'Precise location', 'purpose': 'App functionality', 'optional': False}]}], 'security_practices': [{'category': 'Data isn’t encrypted', 'sub_info': []}, {'category': 'Data can’t be deleted', 'sub_info': []}]}",
+    "policy_excerpt": "Data Share:\nThe Punjab Information Technology Board (PITB), an autonomous governmental body, provides IT services and infrastructure to the government and businesses. Primarily enhancing governance through transparent methods, PITB also aims to bolster citizens' digital literacy. Hosting a data center and managing official email identities are among its responsibilities. PITB's systems and solutions positively affect Health, Education, and Law & Order sectors in Punjab. Its mobile governance reforms are globally recognized, with appreciation from the World Bank's President. Furthermore, PITB works on entrepreneurship culture promotion and capacity building for professionals and students nationwide.\nData Collect:\nPITB collects the minimum required information for satisfactory service provision, depending on specific user processes. User authorization for data collection is given through application usage. Data types potentially collected include PHONE, CAMERA, SMS, CALENDAR, CONTACTS, LOCATION, INTERNETNET, SENSOR, STORAGE, MICROPHONE, or other necessary information as indicated. Collected data is primarily used to process tasks associated with application usage. In Pakistan, data is managed according to the Electronic Data Protection Act and The Prevention of Electronic Crimes Act, with all reasonable measures employed to prevent unauthorized access.",
+    "expected_codes": []
+  },
+  {
+    "app_id": 645,
+    "package": "com.corrigo.enterprise",
+    "name": "Corrigo Enterprise",
+    "category": "Business",
+    "quadrant": "Q4_clean",
+    "quadrant_label": "rare & tractable",
+    "is_tutorial": false,
+    "data_safety_raw": "{'data_shared': [{'category': 'Location', 'sub_info': [{'data_type': 'Precise location', 'purpose': 'App functionality', 'optional': False}]}, {'category': 'App info and performance', 'sub_info': [{'data_type': 'Crash logs', 'purpose': 'Analytics', 'optional': False}, {'data_type': 'Other app performance data', 'purpose': 'Analytics', 'optional': False}]}, {'category': 'Device or other IDs', 'sub_info': [{'data_type': 'Device or other IDs', 'purpose': 'Analytics - Advertising or marketing', 'optional': False}]}, {'category': 'Personal info', 'sub_info': [{'data_type': 'User IDs', 'purpose': 'Analytics - Advertising or marketing', 'optional': False}]}], 'data_collected': [{'category': 'Location', 'sub_info': [{'data_type': 'Precise location', 'purpose': 'App functionality', 'optional': False}]}, {'category': 'Audio', 'sub_info': [{'data_type': 'Other audio files', 'purpose': 'App functionality', 'optional': False}]}, {'category': 'Files and docs', 'sub_info': [{'data_type': 'Files and docs', 'purpose': 'App functionality', 'optional': False}]}, {'category': 'Photos and videos', 'sub_info': [{'data_type': 'Photos', 'purpose': 'App functionality', 'optional': False}, {'data_type': 'Videos', 'purpose': 'App functionality', 'optional': False}]}], 'security_practices': [{'category': 'Data is encrypted in transit', 'sub_info': []}, {'category': 'Data can’t be deleted', 'sub_info': []}]}",
+    "policy_excerpt": "Data Share:\nOur commitment to privacy section entails the data sharing information. We take the responsibility to protect the personal information provided seriously, employing appropriate measures to safeguard it.\nData Collect:\nIn the Our commitment to privacy section, we outline our approach towards data collection. We collect personal information and place emphasis on the accuracy, currency, and relevance of this data. Our Privacy Commitment gives a detailed account of our management and usage of personal information. Any changes to your personal information should be promptly informed to us during your relationship with us. Furthermore, we reserve the right to update our Privacy Statement as necessary, with revised editions posted on this page and, if appropriate, notified on our homepage.",
+    "expected_codes": []
+  },
+  {
+    "app_id": 1018,
+    "package": "com.ftw_and_co.happn",
+    "name": "happn - Dating App",
+    "category": "Lifestyle",
+    "quadrant": "Q4_clean",
+    "quadrant_label": "rare & tractable",
+    "is_tutorial": false,
+    "data_safety_raw": "{'data_shared': [{'category': 'Location', 'sub_info': [{'data_type': 'Approximate location', 'purpose': 'Advertising or marketing', 'optional': False}]}, {'category': 'Device or other IDs', 'sub_info': [{'data_type': 'Device or other IDs', 'purpose': 'Analytics - Advertising or marketing', 'optional': False}]}, {'category': 'Personal info', 'sub_info': [{'data_type': 'Email address', 'purpose': 'Advertising or marketing', 'optional': False}, {'data_type': 'User IDs', 'purpose': 'Advertising or marketing', 'optional': False}, {'data_type': 'Phone number', 'purpose': 'Advertising or marketing', 'optional': False}, {'data_type': 'Other info', 'purpose': 'Advertising or marketing', 'optional': False}]}], 'data_collected': [{'category': 'Photos and videos', 'sub_info': [{'data_type': 'Photos', 'purpose': 'App functionality - Analytics - Developer communications - Fraud prevention - security - and compliance - Account management', 'optional': False}]}, {'category': 'Location', 'sub_info': [{'data_type': 'Approximate location', 'purpose': 'Advertising or marketing', 'optional': False}]}, {'category': 'App info and performance', 'sub_info': [{'data_type': 'Crash logs', 'purpose': 'Analytics', 'optional': False}, {'data_type': 'Diagnostics', 'purpose': 'Analytics', 'optional': False}]}, {'category': 'Financial info', 'sub_info': [{'data_type': 'Purchase history', 'purpose': 'App functionality - Analytics - Account management', 'optional': False}]}, {'category': 'Messages', 'sub_info': [{'data_type': 'Other in-app messages', 'purpose': 'App functionality', 'optional': False}]}, {'category': 'Health and fitness', 'sub_info': [{'data_type': 'Fitness info', 'purpose': 'App functionality - Personalization', 'optional': True}]}, {'category': 'Audio', 'sub_info': [{'data_type': 'Voice or sound recordings', 'purpose': 'App functionality - Analytics', 'optional': True}]}, {'category': 'Device or other IDs', 'sub_info': [{'data_type': 'Device or other IDs', 'purpose': 'Analytics - Advertising or marketing', 'optional': False}]}, {'category': 'App activity', 'sub_info': [{'data_type': 'App interactions', 'purpose': 'App functionality - Analytics - Developer communications - Fraud prevention - security - and compliance - Personalization - Account management', 'optional': False}, {'data_type': 'Other user-generated content', 'purpose': 'App functionality - Analytics - Fraud prevention - security - and compliance', 'optional': True}, {'data_type': 'Other actions', 'purpose': 'App functionality - Analytics - Developer communications - Fraud prevention - security - and compliance - Personalization', 'optional': False}]}, {'category': 'Personal info', 'sub_info': [{'data_type': 'Email address', 'purpose': 'Advertising or marketing', 'optional': False}, {'data_type': 'User IDs', 'purpose': 'Advertising or marketing', 'optional': False}, {'data_type': 'Phone number', 'purpose': 'Advertising or marketing', 'optional': False}, {'data_type': 'Other info', 'purpose': 'Advertising or marketing', 'optional': False}]}], 'security_practices': [{'category': 'Data is encrypted in transit', 'sub_info': []}, {'category': 'You can request that data be deleted', 'sub_info': []}]}",
+    "policy_excerpt": "Data Share:\nThis text does not provide any information about data sharing practices of the Fast Payout Casino.\nData Collect:\nThis text does not provide any information about data collection practices of the Fast Payout Casino.",
+    "expected_codes": []
+  },
+  {
+    "app_id": 2215,
+    "package": "com.a0soft.gphone.bfont",
+    "name": "Big Font (change font size)",
+    "category": "Tools",
+    "quadrant": "Q4_clean",
+    "quadrant_label": "rare & tractable",
+    "is_tutorial": false,
+    "data_safety_raw": "{'data_shared': [], 'data_collected': [{'category': 'App activity', 'sub_info': [{'data_type': 'App interactions', 'purpose': 'Analytics - Advertising or marketing', 'optional': False}]}, {'category': 'Device or other IDs', 'sub_info': [{'data_type': 'Device or other IDs', 'purpose': 'Analytics - Advertising or marketing', 'optional': False}]}, {'category': 'Location', 'sub_info': [{'data_type': 'Approximate location', 'purpose': 'Advertising or marketing - Fraud prevention - security - and compliance', 'optional': True}]}, {'category': 'App info and performance', 'sub_info': [{'data_type': 'Crash logs', 'purpose': 'Analytics', 'optional': False}, {'data_type': 'Diagnostics', 'purpose': 'Analytics', 'optional': False}]}], 'security_practices': [{'category': 'Data is encrypted in transit', 'sub_info': []}, {'category': 'Data can’t be deleted', 'sub_info': []}]}",
+    "policy_excerpt": "Data Share:\nNo specific information provided in the provided text regarding data sharing practices of AZSoft Technology Inc.\nData Collect:\n\"This Privacy Policy governs the manner in which AZSoft Technology Inc. collects, uses, maintains, and discloses information collected from users of the a0soft.com website or our mobile applications.\"",
+    "expected_codes": []
+  },
+  {
+    "app_id": 1416,
+    "package": "com.realzhang.makeup",
+    "name": "LegSculptor",
+    "category": "Photography",
+    "quadrant": "Q4_clean",
+    "quadrant_label": "rare & tractable",
+    "is_tutorial": false,
+    "data_safety_raw": "{'data_shared': [], 'data_collected': []}",
+    "policy_excerpt": "Data Share:\nReal Zhang built the Slim Long Legs as a free app. This service is provided at no cost. No personal information will be shared.\nData Collect:\nSlim Long Legs requires permission to access photos, media, and files on your devices. This permission is needed for Android to save the resultant photos and videos to your device. The service promises to not collect any personal information.",
+    "expected_codes": []
+  },
+  {
+    "app_id": 411,
+    "package": "com.appactiva.jwtextodiariovideos",
+    "name": "The Daily Text PLAY",
+    "category": "Books & Reference",
+    "quadrant": "Q4_clean",
+    "quadrant_label": "rare & tractable",
+    "is_tutorial": false,
+    "data_safety_raw": "{'data_shared': [{'category': 'Device or other IDs', 'sub_info': [{'data_type': 'Device or other IDs', 'purpose': 'Analytics - Advertising or marketing', 'optional': False}]}, {'category': 'App activity', 'sub_info': [{'data_type': 'App interactions', 'purpose': 'Analytics', 'optional': False}]}, {'category': 'Location', 'sub_info': [{'data_type': 'Precise location', 'purpose': 'Analytics - Developer communications - Advertising or marketing - Fraud prevention - security - and compliance', 'optional': False}]}, {'category': 'App info and performance', 'sub_info': [{'data_type': 'Crash logs', 'purpose': 'Analytics', 'optional': False}, {'data_type': 'Diagnostics', 'purpose': 'Analytics', 'optional': False}, {'data_type': 'Other app performance data', 'purpose': 'Analytics', 'optional': False}]}], 'data_collected': [], 'security_practices': [{'category': 'Data is encrypted in transit', 'sub_info': []}, {'category': 'Data can’t be deleted', 'sub_info': []}]}",
+    "policy_excerpt": "Data Share:\nThis content does not specify any information about data sharing from the Appactiva.\nData Collect:\nThis content does not specify any information about data collection by the Appactiva.",
+    "expected_codes": []
+  },
+  {
+    "app_id": 2030,
+    "package": "com.chatetyamo",
+    "name": "Chat&Yamo",
+    "category": "Social",
+    "quadrant": "Q4_clean",
+    "quadrant_label": "rare & tractable",
+    "is_tutorial": false,
+    "data_safety_raw": "{'data_shared': [{'category': 'App info and performance', 'sub_info': [{'data_type': 'Crash logs', 'purpose': 'App functionality - Analytics', 'optional': False}, {'data_type': 'Other app performance data', 'purpose': 'App functionality - Analytics', 'optional': False}]}], 'data_collected': [{'category': 'Device or other IDs', 'sub_info': [{'data_type': 'Device or other IDs', 'purpose': 'App functionality', 'optional': True}]}, {'category': 'Messages', 'sub_info': [{'data_type': 'Other in-app messages', 'purpose': 'App functionality', 'optional': True}]}, {'category': 'Audio', 'sub_info': [{'data_type': 'Voice or sound recordings', 'purpose': 'App functionality', 'optional': False}]}, {'category': 'Personal info', 'sub_info': [{'data_type': 'Name', 'purpose': 'App functionality - Account management', 'optional': False}, {'data_type': 'Email address', 'purpose': 'App functionality - Account management', 'optional': False}, {'data_type': 'Phone number', 'purpose': 'App functionality - Account management', 'optional': False}, {'data_type': 'Other info', 'purpose': 'App functionality', 'optional': False}]}, {'category': 'Location', 'sub_info': [{'data_type': 'Precise location', 'purpose': 'App functionality', 'optional': True}]}, {'category': 'Photos and videos', 'sub_info': [{'data_type': 'Photos', 'purpose': 'App functionality', 'optional': True}, {'data_type': 'Videos', 'purpose': 'App functionality', 'optional': False}]}, {'category': 'App info and performance', 'sub_info': [{'data_type': 'Crash logs', 'purpose': 'App functionality - Analytics', 'optional': False}, {'data_type': 'Other app performance data', 'purpose': 'App functionality - Analytics', 'optional': False}]}], 'security_practices': [{'category': 'Data is encrypted in transit', 'sub_info': []}, {'category': 'You can request that data be deleted', 'sub_info': []}]}",
+    "policy_excerpt": "Data Share:\nWe are responsible for ensuring that your personal data is used in compliance with data protection law. By downloading, installing, accessing and/or using the Chat&Yamo App and agreeing to our privacy policy, you consent to the use of your personal data for purposes set out in this privacy policy. To withdraw consent or request us to stop using your personal data, you can delete your account and your profile will no longer be visible to other users. To stop receiving notifications, uninstall the Chat&Yamo App. If you face any difficulties, please contact us.\nData Collect:\nPersonal data is information identifiable to you provided during signing up and use of Chat&Yamo App. This page aims to inform you about personal information collection and usage on Chat&Yamo App, available on the Google Play Store and the Apple Store for both Android and IOS users. It outlines our policies regarding the collection, use, and disclosure of personal data when you use our services and the choices associated with that data. To delete your account, head to Chat&Yamo settings and click on 'delete account', ensuring permanent deletion of your account.",
+    "expected_codes": []
+  },
+  {
+    "app_id": 1805,
+    "package": "com.snapdeal.main",
+    "name": "Snapdeal: Online Shopping App",
+    "category": "Shopping",
+    "quadrant": "Q4_clean",
+    "quadrant_label": "rare & tractable",
+    "is_tutorial": false,
+    "data_safety_raw": "{'data_shared': [{'category': 'Financial info', 'sub_info': [{'data_type': 'User payment info', 'purpose': 'App functionality - Analytics - Personalization', 'optional': False}, {'data_type': 'Purchase history', 'purpose': 'App functionality', 'optional': False}]}, {'category': 'Device or other IDs', 'sub_info': [{'data_type': 'Device or other IDs', 'purpose': 'Analytics - Advertising or marketing - Fraud prevention - security - and compliance - Personalization', 'optional': False}]}, {'category': 'Location', 'sub_info': [{'data_type': 'Approximate location', 'purpose': 'App functionality - Analytics - Fraud prevention - security - and compliance - Personalization', 'optional': False}, {'data_type': 'Precise location', 'purpose': 'App functionality - Analytics - Fraud prevention - security - and compliance - Personalization', 'optional': False}]}, {'category': 'App activity', 'sub_info': [{'data_type': 'App interactions', 'purpose': 'Analytics - Advertising or marketing - Personalization', 'optional': False}, {'data_type': 'In-app search history', 'purpose': 'App functionality - Analytics - Advertising or marketing - Personalization', 'optional': False}, {'data_type': 'Installed apps', 'purpose': 'App functionality', 'optional': False}]}, {'category': 'Personal info', 'sub_info': [{'data_type': 'Name', 'purpose': 'Developer communications - Advertising or marketing - Fraud prevention - security - and compliance - Account management', 'optional': False}, {'data_type': 'Email address', 'purpose': 'App functionality - Developer communications - Advertising or marketing - Fraud prevention - security - and compliance - Account management', 'optional': False}, {'data_type': 'User IDs', 'purpose': 'App functionality - Analytics - Developer communications - Advertising or marketing - Fraud prevention - security - and compliance - Personalization - Account management', 'optional': False}, {'data_type': 'Address', 'purpose': 'App functionality - Fraud prevention - security - and compliance', 'optional': False}, {'data_type': 'Phone number', 'purpose': 'App functionality - Developer communications - Fraud prevention - security - and compliance - Account management', 'optional': False}]}, {'category': 'App info and performance', 'sub_info': [{'data_type': 'Crash logs', 'purpose': 'App functionality - Analytics - Developer communications', 'optional': False}, {'data_type': 'Diagnostics', 'purpose': 'App functionality - Analytics', 'optional': False}, {'data_type': 'Other app performance data', 'purpose': 'App functionality - Analytics', 'optional': False}]}], 'data_collected': [{'category': 'Financial info', 'sub_info': [{'data_type': 'User payment info', 'purpose': 'App functionality - Analytics - Personalization', 'optional': False}, {'data_type': 'Purchase history', 'purpose': 'App functionality', 'optional': False}]}, {'category': 'Device or other IDs', 'sub_info': [{'data_type': 'Device or other IDs', 'purpose': 'Analytics - Advertising or marketing - Fraud prevention - security - and compliance - Personalization', 'optional': False}]}, {'category': 'Location', 'sub_info': [{'data_type': 'Approximate location', 'purpose': 'App functionality - Analytics - Fraud prevention - security - and compliance - Personalization', 'optional': False}, {'data_type': 'Precise location', 'purpose': 'App functionality - Analytics - Fraud prevention - security - and compliance - Personalization', 'optional': False}]}, {'category': 'App activity', 'sub_info': [{'data_type': 'App interactions', 'purpose': 'Analytics - Advertising or marketing - Personalization', 'optional': False}, {'data_type': 'In-app search history', 'purpose': 'App functionality - Analytics - Advertising or marketing - Personalization', 'optional': False}, {'data_type': 'Installed apps', 'purpose': 'App functionality', 'optional': False}]}, {'category': 'Photos and videos', 'sub_info': [{'data_type': 'Videos', 'purpose': 'App functionality - Fraud prevention - security - and compliance', 'optional': True}]}, {'category': 'Personal info', 'sub_info': [{'data_type': 'Name', 'purpose': 'Developer communications - Advertising or marketing - Fraud prevention - security - and compliance - Account management', 'optional': False}, {'data_type': 'Email address', 'purpose': 'App functionality - Developer communications - Advertising or marketing - Fraud prevention - security - and compliance - Account management', 'optional': False}, {'data_type': 'User IDs', 'purpose': 'App functionality - Analytics - Developer communications - Advertising or marketing - Fraud prevention - security - and compliance - Personalization - Account management', 'optional': False}, {'data_type': 'Address', 'purpose': 'App functionality - Fraud prevention - security - and compliance', 'optional': False}, {'data_type': 'Phone number', 'purpose': 'App functionality - Developer communications - Fraud prevention - security - and compliance - Account management', 'optional': False}]}, {'category': 'Audio', 'sub_info': [{'data_type': 'Voice or sound recordings', 'purpose': 'App functionality', 'optional': True}]}, {'category': 'App info and performance', 'sub_info': [{'data_type': 'Crash logs', 'purpose': 'App functionality - Analytics - Developer communications', 'optional': False}, {'data_type': 'Diagnostics', 'purpose': 'App functionality - Analytics', 'optional': False}, {'data_type': 'Other app performance data', 'purpose': 'App functionality - Analytics', 'optional': False}]}, {'category': 'Contacts', 'sub_info': [{'data_type': 'Contacts', 'purpose': 'App functionality', 'optional': True}]}], 'security_practices': [{'category': 'Data is encrypted in transit', 'sub_info': []}, {'category': 'Data can’t be deleted', 'sub_info': []}]}",
+    "policy_excerpt": "Data Share:\nWe, AceVector Limited (Snapdeal), own and operate the e-commerce platform and its associated mobile applications (Website/s). This policy covers how we handle digital personal data across our platforms. Our Terms of Use provide further details about our practices which, together with this policy, form a binding agreement. By using, accessing, or downloading our platforms, you consent to us processing your digital personal data. We comply with all applicable laws and only process your personal data in accordance with this policy.\nData Collect:\nWe provide services through our online platforms where users can view, purchase, or upload content, and conduct financial transactions. The access to our full services is only available for our registered users. Non-registered users can avail some of our services. Your interaction with our platforms yields digital personal data that we respect and handle in accordance with your rights to privacy. This policy informs you about your rights in accessing, restricting, consenting to, and seeking erasure of your digital personal data.",
+    "expected_codes": []
+  },
+  {
+    "app_id": 825,
+    "package": "com.avast.android.secure.browser",
+    "name": "Avast Secure Browser",
+    "category": "Communication",
+    "quadrant": "Q4_clean",
+    "quadrant_label": "rare & tractable",
+    "is_tutorial": false,
+    "data_safety_raw": "{'data_shared': [], 'data_collected': [{'category': 'Personal info', 'sub_info': [{'data_type': 'Email address', 'purpose': 'App functionality - Account management', 'optional': True}]}, {'category': 'App info and performance', 'sub_info': [{'data_type': 'Crash logs', 'purpose': 'Analytics', 'optional': True}, {'data_type': 'Diagnostics', 'purpose': 'Analytics', 'optional': True}, {'data_type': 'Other app performance data', 'purpose': 'Analytics', 'optional': True}]}, {'category': 'App activity', 'sub_info': [{'data_type': 'App interactions', 'purpose': 'Analytics', 'optional': True}, {'data_type': 'Other user-generated content', 'purpose': 'Advertising or marketing', 'optional': True}]}, {'category': 'Device or other IDs', 'sub_info': [{'data_type': 'Device or other IDs', 'purpose': 'App functionality - Analytics', 'optional': True}]}], 'security_practices': [{'category': 'Data is encrypted in transit', 'sub_info': []}, {'category': 'You can request that data be deleted', 'sub_info': []}]}",
+    "policy_excerpt": "Data Share: If it is necessary to collect personal data, reasons and usage methods will be clearly explained. The collected data will be processed under high-security standards. The usage of user data not only affects the interaction with Avast, but also with digital entities. Only the minimum amount of data required for specific purposes will be used. The data will not be collected or stored 'just in case'.\nData Collect: If required to collect personal data, we strive to avoid it where possible. Any necessary data will be processed and protected with high-security norms. Easy-to-use tools would be provided to maintain the control of users over their own data. Minimum necessary data is gathered for specific needs. The collected data helps enhance online experiences and boosts online threat detection and prevention capabilities.",
+    "expected_codes": []
+  }
+]

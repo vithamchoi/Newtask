@@ -1,0 +1,44 @@
+% -----------------------------------------------------------------
+% Figure: Two-layer accuracy framework. Width fits \linewidth.
+% -----------------------------------------------------------------
+\begin{figure}[!htbp]
+\centering
+\resizebox{0.92\linewidth}{!}{%
+\begin{tikzpicture}[font=\sffamily,
+  L/.style={draw=bmInk,rounded corners=4pt,minimum width=44mm,
+            minimum height=18mm,align=center,font=\footnotesize,
+            blur shadow={shadow blur steps=4,shadow yshift=-0.4mm}},
+  arr/.style={-{Latex[length=2.6mm]},line width=0.8pt,draw=bmInk}]
+
+\node[L,top color=tierPolicy!10,bottom color=tierPolicy!40,draw=tierPolicy]
+  (P) {\textbf{Policy layer}\\
+       Practice $\pi$ $\Rightarrow$\\ \texttt{flag$_\textsc{policy}$}$=1$ iff
+       no $b_i$ applies};
+
+\node[L,top color=tierLabel!10,bottom color=tierLabel!40,draw=tierLabel,
+      right=8mm of P]
+  (Lb) {\textbf{Label layer}\\
+        \texttt{flag$_\textsc{policy}$} rendered\\ in the Data~Safety UI};
+
+\node[L,top color=tierUser!10,bottom color=tierUser!40,draw=tierUser,
+      right=8mm of Lb]
+  (U) {\textbf{User layer}\\
+       Same $\pi$ $\Rightarrow$\\ \texttt{flag$_\textsc{user}$}$=1$ iff
+       no $\tilde b_i$ applies};
+
+\draw[arr] (P) -- node[above,font=\scriptsize] {render} (Lb);
+\draw[arr] (Lb) -- node[above,font=\scriptsize] {inference} (U);
+
+\node[below=4mm of Lb,draw=bmRed,thick,dashed,rounded corners=3pt,
+      fill=bmRed!7,font=\scriptsize\itshape,align=center,
+      minimum width=110mm]
+  {\textbf{Two notions of accuracy}\\
+   Policy/label accuracy: existing audits.
+   \;\; User accuracy: this paper.};
+\end{tikzpicture}}
+\caption{The two-layer accuracy framework. Audit work to date has
+examined whether the label-layer matches the policy-layer flag for a
+given practice; this paper measures whether the user-layer flag matches
+either of them.}
+\label{fig:twolayer}
+\end{figure}

@@ -1,0 +1,94 @@
+/* Auto-generated mirror of mcq_bank.json. */
+window.__MCQ_FALLBACK = {
+  "_note": "One MCQ template per boundary case. At runtime, {category} is filled from the contested cell. Options are shuffled per participant. The correct option is `correct_text`; the three distractors are taken from `distractors`. Stem wording is consequence-first.",
+  "b1": {
+    "label": "On-device only",
+    "stem": "Based on this label, what does the app do with {category}?",
+    "correct_text": "It stays on your phone and is not sent off your device.",
+    "distractors": [
+      "It is sent off your device but only processed briefly and discarded.",
+      "It is shared with the people you choose to share with.",
+      "It is sent off your device with end-to-end encryption."
+    ]
+  },
+  "b2": {
+    "label": "End-to-end encryption",
+    "stem": "Based on this label, what does the app do with {category}?",
+    "correct_text": "It is sent off your device but using end-to-end encryption.",
+    "distractors": [
+      "It stays on your phone and is not sent off your device.",
+      "It is sent off your device but only processed briefly and discarded.",
+      "It is passed to a third-party processor on the developer's behalf."
+    ]
+  },
+  "b3": {
+    "label": "Off-device ephemeral",
+    "stem": "Based on this label, what does the app do with {category}?",
+    "correct_text": "It is sent off your device but processed briefly and not retained.",
+    "distractors": [
+      "It stays on your phone and is not sent off your device.",
+      "It is sent off your device with end-to-end encryption.",
+      "It is shared with advertisers in anonymised form."
+    ]
+  },
+  "b4": {
+    "label": "Redirect to service",
+    "stem": "Based on this label, how does the app route you when handling {category}?",
+    "correct_text": "It hands you off to a different service to complete the action.",
+    "distractors": [
+      "It keeps the action entirely inside the app.",
+      "It shares the data with the developer's analytics provider only.",
+      "It shares the data with advertisers."
+    ]
+  },
+  "b5": {
+    "label": "User-initiated transfer",
+    "stem": "Based on this label, when is {category} shared with a third party?",
+    "correct_text": "Only when you take a specific action to share it.",
+    "distractors": [
+      "Continuously in the background.",
+      "Whenever the developer's analytics need it.",
+      "Whenever an advertiser requests it."
+    ]
+  },
+  "b6": {
+    "label": "Prominent consent",
+    "stem": "Based on this label, how does the app collect consent before sharing {category}?",
+    "correct_text": "It prominently discloses the share inside the app and asks for your consent.",
+    "distractors": [
+      "It relies on the platform's default permission.",
+      "It does not need to ask; the data is anonymised.",
+      "It shares only with service providers, so no consent is needed."
+    ]
+  },
+  "b7": {
+    "label": "Service provider",
+    "stem": "Based on this label, to whom does the app send {category}?",
+    "correct_text": "To a contracted service provider acting on the developer's behalf.",
+    "distractors": [
+      "To an advertiser of the developer's choice.",
+      "To the recipients you message in the app.",
+      "Nowhere; it stays on your phone."
+    ]
+  },
+  "b8": {
+    "label": "Legal transfer",
+    "stem": "Based on this label, why does the app share {category} with a third party?",
+    "correct_text": "For specific legal purposes (e.g. fraud prevention, regulatory compliance).",
+    "distractors": [
+      "For in-app advertising.",
+      "For app analytics on developer behalf.",
+      "Only when you choose to share with another person."
+    ]
+  },
+  "b9": {
+    "label": "Anonymised transfer",
+    "stem": "Based on this label, how is {category} prepared before being shared?",
+    "correct_text": "It is anonymised so it can no longer be associated with you.",
+    "distractors": [
+      "It is end-to-end encrypted to the recipient.",
+      "It is shared only with people you choose.",
+      "It is sent off your device and processed briefly without retention."
+    ]
+  }
+};

@@ -1,0 +1,1186 @@
+%==========================================================================
+% Where the Policy Ends and the User Begins:
+%   A Boundary-Case Mismatch in App-Store Privacy Labels
+% Manuscript for submission to:
+%   International Journal of Human-Computer Studies (Elsevier)
+%
+% Build:   pdflatex main && bibtex main && pdflatex main && pdflatex main
+%==========================================================================
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage[a4paper,margin=2.3cm]{geometry}
+\usepackage{lineno}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs,array,multirow,makecell}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{natbib}
+\bibliographystyle{plainnat}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=blue!55!black,
+            citecolor=teal!60!black, urlcolor=blue!55!black}
+\usepackage{placeins}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\itshape Where the Policy Ends and the User Begins}
+\fancyhead[R]{\small\itshape Submitted to Int. J. of Human--Computer Studies}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+\makeatletter
+\let\@oldsection\section
+\renewcommand{\section}{\FloatBarrier\@oldsection}
+\makeatother
+\renewcommand{\topfraction}{0.95}
+\renewcommand{\bottomfraction}{0.7}
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\floatpagefraction}{0.7}
+\setcounter{topnumber}{4}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{6}
+
+% TikZ / pgfplots
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{arrows.meta, positioning, fit, calc,
+                shapes.geometric, shapes.symbols, shadows.blur,
+                decorations.pathmorphing, backgrounds, patterns,
+                matrix, decorations.markings}
+
+% ===== Palette =====
+\definecolor{bmGreen}{RGB}{46,160,67}
+\definecolor{bmAmber}{RGB}{240,160,40}
+\definecolor{bmRed}{RGB}{214,39,40}
+\definecolor{bmBlue}{RGB}{31,119,180}
+\definecolor{bmPurple}{RGB}{148,103,189}
+\definecolor{bmTeal}{RGB}{23,190,207}
+\definecolor{bmInk}{RGB}{55,65,81}
+\definecolor{bmSlate}{RGB}{73,80,87}
+\definecolor{bmCream}{RGB}{252,247,234}
+\definecolor{bmPink}{RGB}{227,119,194}
+\definecolor{bmGold}{RGB}{241,196,15}
+
+\definecolor{tierPolicy}{RGB}{27,94,32}
+\definecolor{tierLabel}{RGB}{255,143,0}
+\definecolor{tierUser}{RGB}{183,28,28}
+\definecolor{tierMid}{RGB}{55,71,79}
+
+\linenumbers
+
+\title{\textbf{Where the Policy Ends and the User Begins:\\
+A Boundary-Case Mismatch in App-Store Privacy Labels}\\[4pt]
+\large \textit{Submitted to International Journal of Human-Computer Studies}}
+\author{Anonymous Author(s)\\\small Anonymised for review}
+\date{}
+
+\begin{document}
+\maketitle
+
+%==========================================================================
+% IJHCS REQUIRED: Highlights (3--5 bullet points, each $\leq$ 85 chars).
+% Submitted as a separate file at production; reproduced here for review.
+%==========================================================================
+\begin{center}
+\fbox{\begin{minipage}{0.94\linewidth}
+\textbf{Highlights}\smallskip
+\begin{itemize}\setlength\itemsep{1pt}\small
+\item App-store privacy labels run 9 hidden \emph{boundary cases}
+      before showing any flag.
+\item 87-user survey measures per-case agreement on Google Play's nine
+      boundary cases.
+\item Maybe-rate exceeds 16\% on every case; off-device-ephemeral hits
+      38.2\% Maybe.
+\item We name the gap the \emph{boundary-case mismatch}; label accuracy is
+      two-layer, not one.
+\item Boundary-Layer Explainer pattern: rule clause + community signal +
+      one-tap toggle.
+\end{itemize}
+\end{minipage}}
+\end{center}
+\vspace{4pt}
+
+\begin{abstract}\normalsize
+App-store privacy labels report \emph{collection} and \emph{sharing}
+as binary flags. Each flag, however, is the output of a hidden chain
+of policy \emph{boundary cases} that decide what counts as collection
+or sharing in the first place. We surveyed 87 Android users on Google
+Play's nine boundary cases (on-device, end-to-end encryption,
+off-device ephemeral, redirect, user-initiated, prominent consent,
+service-provider, legal, anonymised) and measured per-case agreement
+with the platform's interpretation. Yes-rates range from $61.8\%$
+(off-device ephemeral) to $83.3\%$ (end-to-end encryption); the
+\emph{Maybe} rate exceeds $16\%$ on every case and reaches $38.2\%$
+on off-device ephemeral processing and $28.4\%$ on anonymised
+transfer --- the two cases where the policy claim is hardest to
+verify. We name this gap the \emph{boundary-case mismatch} and
+argue that label accuracy has two layers: \emph{policy alignment}
+(does the flag follow from the practice under policy?) and
+\emph{user alignment} (would the user issue the same flag?). The
+literature has audited the first; this paper measures the second.
+We contribute (i) a two-layer accuracy framework, (ii) a first
+per-boundary-case empirical baseline at the user-alignment layer,
+and (iii) a falsifiable design pattern --- the
+\emph{Boundary-Layer Explainer} --- that surfaces the inference rule
+in user-side language. A pre-registered mixed-method evaluation of
+the pattern (online vignette experiment plus think-aloud sessions)
+is described in Section~\ref{sec:eval-plan}; the present paper
+reports the measurement contribution. Limitations include a modest
+crowd-work sample and the absence of a deployed redesign study.
+\end{abstract}
+
+\noindent\textbf{Keywords:} privacy labels; Data Safety;
+Google Play; boundary cases; legal-technical alignment;
+usable privacy; mental models; HCI.
+
+%==========================================================================
+\section{Introduction}\label{sec:intro}
+
+A privacy label is an output. The flag ``\textsc{shares Location with
+third parties}'' in Google Play's Data Safety section is the visible
+endpoint of a chain of policy decisions made silently before it
+reached the user. Is the recipient a \emph{service provider} acting
+on the developer's behalf? Is the transfer \emph{user-initiated} in a
+way the user could reasonably expect? Is the data \emph{anonymised}
+so it can no longer be linked to an individual? Has consent been
+collected ``in a way that meets the requirements of Google Play's
+User Data policy''~\citep{google:data:safety:2022}? Each link in this
+chain is a \emph{boundary case}: a policy rule that converts a
+practice into either ``does count'' or ``does not count'' as
+collection or sharing for disclosure purposes. The user sees only the
+final binary flag. The boundary cases that produced it are not
+surfaced.
+
+Two decades of usable-privacy research have asked whether users
+\emph{understand} the categories and purposes that appear inside a
+label~\citep{kelley:etal:2009,kelley:etal:2010,kelley:etal:2013,
+zhang:etal:2022,reidenberg:etal:2015}. A parallel literature has
+asked whether labels are \emph{honest}, auditing the gap between what
+an app declares and what an app does~\citep{koch:etal:2022,
+kollnig:etal:2022,bhagavatula:etal:2023,khandelwal:etal:2023,
+andow:etal:2020}. Both are about the contents of the label. The
+question we raise is one step earlier in the pipeline. \emph{Before}
+a flag can be honest or comprehensible, a policy rule has to decide
+what the flag should be. That rule has a policy answer. It also has a
+user answer. \textbf{The boundary-case mismatch is the gap between
+the two.}
+
+\input{fig_pipeline.tex}
+
+Figure~\ref{fig:pipeline} expands the picture. A data-handling
+practice $\pi$ is reported as collection or sharing only if none of
+the boundary-case exceptions apply. Each exception is itself a small
+inferential boundary --- e.g., ``off-device processing without
+retention is not collection''. The policy reads this disjunction as a
+Boolean partition; the user must, separately, decide whether they
+agree that the practice falls on the policy's side of the line.
+\emph{The same flag can be ``accurate'' to the policy and ``wrong''
+to the user when policy and user place the boundary in different
+places.}
+
+This paper has three contributions:
+
+\textbf{(1) A measurement framework.} We argue label correctness
+cannot be reduced to either auditing the declaration or testing user
+comprehension. It must additionally be measured at the level of the
+\emph{boundary inferences} that produced the declared flag. We
+formalise this as a two-layer definition (Sec.~\ref{sec:framework}):
+\emph{policy-layer accuracy} (does the flag follow from policy given
+the practice?), and \emph{user-layer accuracy} (does the user, given
+the same practice, issue the same flag?).
+
+\textbf{(2) A per-boundary-case empirical baseline.}
+We survey 87 Android users about each of Google Play's nine boundary
+cases and report Yes / Maybe / No distributions with Wilson 95\%
+confidence intervals. Agreement ranges from $61.8\%$ to $83.3\%$;
+the \emph{Maybe} rate is concentrated on the cases most implicated
+in the ``does it count?'' debate, reaching $38.2\%$ on off-device
+ephemeral processing and $28.4\%$ on anonymised transfer.
+
+\textbf{(3) A design pattern.}
+We propose \emph{Boundary-Layer Explainers} (BLEs): plain-language
+renderings of the specific exception that produced the visible flag,
+expressed in the user's own consequence-first language (\emph{Does
+the data leave the device? Who can access it? How long is it kept?
+Can it be linked back to me?}). We present BLE patterns for the
+widest-gap cases, a worked mock-up, and an architectural sketch.
+
+The paper is organised as follows. Section~\ref{sec:related} situates
+the contribution against the privacy-label, mental-models, and
+contextual-integrity literatures. Section~\ref{sec:framework}
+develops the two-layer accuracy framework.
+Section~\ref{sec:method} reports the method and corpus.
+Section~\ref{sec:results} presents results across the four parts of
+the instrument. Section~\ref{sec:mismatch} synthesises the
+boundary-case mismatch typology and the BLE design pattern.
+Section~\ref{sec:discussion} discusses implications and limitations.
+Section~\ref{sec:conclusion} concludes.
+
+%==========================================================================
+\section{Background and Related Work}\label{sec:related}
+
+We draw on four literatures: nutrition-style privacy labels and their
+user-side evaluation; mental models of mobile privacy; contextual
+integrity as a theory of appropriate flow; and audit work on the
+declared-vs-observed honesty of app-store labels. Our contribution
+sits at their intersection: the \emph{inference layer} the four
+literatures assume but rarely measure.
+
+\paragraph{Nutrition-label privacy disclosures.}
+The cost of reading a website privacy policy was estimated at
+\textit{ca.}\ 244 hours per user per
+year~\citep{mcdonald:cranor:2008,solove:2013,cranor:2012}. The
+``nutrition label'' line of work~\citep{kelley:etal:2009,
+kelley:etal:2010,kelley:etal:2013,schaub:etal:2015} responded with a
+standardised, scannable disclosure: a category $\times$ purpose
+matrix that lets users compare data practices across apps. Apple
+deployed this idea as the App Privacy Nutrition Label in
+December~2020~\citep{apple:label:2020}; Google followed with the Data
+Safety section in July~2022~\citep{google:data:safety:2022}. Both
+share the same disclosure unit: a binary flag per category, conditioned
+by a fixed list of purposes.
+
+\paragraph{Comprehension and recall.}
+Usability studies of Apple's labels~\citep{zhang:etal:2022} report
+high recall failure rates for specific category language and a
+non-negligible share of users who interpret a missing flag as a
+guarantee rather than a non-claim. Earlier work on Android
+permissions found systematic gaps between what users believe a
+permission grants and what it actually grants~\citep{felt:etal:2012,
+felt:etal:2012b,liccardi:etal:2014,tan:etal:2014,
+wijesekera:etal:2015,wijesekera:etal:2017}. The broader survey
+literature on privacy notices reaches the same conclusion: privacy
+notices are read shallowly, scanned for absolutes, and reasoned about
+with informal heuristics~\citep{jensen:potts:2004,acquisti:etal:2015,
+acquisti:etal:2017,adjerid:etal:2013,good:etal:2007,
+acquisti:grossklags:2005,brandimarte:etal:2013}. These results
+address whether users \emph{recognise} category language; they do not
+address whether users agree with the \emph{rule} that turned a
+practice into a Yes or a No.
+
+\paragraph{Mental models and folk theories.}
+Mental-models studies show that users carry well-developed but
+non-technical theories of how data flows through systems~\citep{
+wash:2010,wash:rader:2015,kang:etal:2015,lin:etal:2012,
+lin:etal:2014,rader:etal:2012,sannon:etal:2018}. Wash's folk-model
+taxonomy~\citep{wash:2010} is a paradigmatic example: users do not
+hold wrong beliefs, they hold \emph{different} beliefs, organised
+into coherent stories. We will see the same in our boundary-case
+rationales. Users who reject the ``does not count as collection''
+framing typically do so on the grounds that the \emph{capability} to
+collect already exists --- a folk-theoretic version of the
+privacy-engineering principle that data collection should be assessed
+by potential, not by the developer's
+intention~\citep{spiekermann:cranor:2009,cavoukian:2009}.
+
+\paragraph{Contextual integrity.}
+Contextual integrity~\citep{nissenbaum:2004,nissenbaum:2010,
+barth:etal:2006,martin:nissenbaum:2017,apthorpe:etal:2018,
+shvartzshnaider:etal:2019} reframes privacy as appropriate flow under
+context-specific norms. CI-based studies of mobile
+permissions~\citep{wijesekera:etal:2015,wijesekera:etal:2017,
+naeini:etal:2017} show that user comfort with the same data flow
+varies dramatically across contexts. The Data Safety section, by
+collapsing all of an app's flows into a context-free category $\times$
+purpose matrix, \emph{cannot represent} the contextual judgments CI
+says are constitutive of privacy. The boundary-case layer is where
+this collapse occurs.
+
+\paragraph{Audits: is the declared label honest?}
+A parallel literature audits whether labels match observed runtime
+behaviour. \citet{kollnig:etal:2022} found that iOS App Tracking
+Transparency did not in fact reduce tracker presence in apps even
+where the label said the app did not track; \citet{koch:etal:2022}
+extended the methodology and reported widespread under-declaration.
+\citet{bhagavatula:etal:2023} interviewed developers and found that
+the declaration process is itself error-prone and under-supported.
+\citet{khandelwal:etal:2023} performed the most recent large-scale
+audit of Google Play's Data Safety section and reported systematic
+under-disclosure, in part because developers themselves disagree with
+platform-supplied boundary definitions. Companion work on policy-text
+analysis~\citep{wilson:etal:2016,harkous:etal:2018,cui:etal:2023,
+andow:etal:2020,reyes:etal:2018,razaghpanah:etal:2018,
+englehardt:narayanan:2016,nguyen:etal:2022,ren:etal:2018,
+shipp:blasco:2020} shows the same pattern at the policy-text level.
+This work measures the policy--label gap; we measure the label--user
+gap one step further down the pipeline.
+
+\paragraph{Summary.}
+Privacy labels have been studied as comprehension artefacts (do users
+read them right?), as honesty artefacts (do developers fill them in
+right?), and as design artefacts (can we design them better?). We add
+a fourth question: \emph{do users agree that the rule that produced
+the visible flag was the right rule to apply?} If they do not --- and
+we will show that in nine out of nine boundary cases, a meaningful
+fraction does not --- then the label can be honest, recall its
+categories perfectly, and still mislead.
+
+%==========================================================================
+\section{Conceptual Framework: Two-Layer Label Accuracy}\label{sec:framework}
+
+Let $\pi$ be an observable data practice (e.g., ``sends device IDs to
+an SDK''). Let $\mathcal{B}=\{b_1,\ldots,b_9\}$ be Google Play's
+boundary cases. Each $b_i$ is a Boolean predicate on
+$\pi$: $b_i(\pi)\in\{0,1\}$. Google Play's disclosure rule for a
+category $c$ may be written
+\begin{equation}\label{eq:policy}
+\textrm{flag}_\textsc{policy}(\pi,c) \;=\; \mathbb{1}\!\left[\pi
+\text{ affects }c \;\wedge\; \bigwedge_{b_i\in \mathcal{B}_c}
+\lnot\, b_i(\pi)\right],
+\end{equation}
+where $\mathcal{B}_c\subseteq\mathcal{B}$ is the set of boundary
+cases the policy authorises as exceptions for category $c$. A
+practice is reported only if it affects the category and \emph{no}
+authorising exception applies. The user, given the same practice and
+the same set of boundary cases, applies their own predicates
+$\tilde{b}_i$:
+\begin{equation}\label{eq:user}
+\textrm{flag}_\textsc{user}(\pi,c) \;=\; \mathbb{1}\!\left[\pi
+\text{ affects }c \;\wedge\; \bigwedge_{b_i\in \mathcal{B}_c}
+\lnot\, \tilde{b}_i(\pi)\right].
+\end{equation}
+\textbf{Policy-layer accuracy} is the property that the displayed
+flag equals $\textrm{flag}_\textsc{policy}(\pi,c)$ for the actual
+$\pi$; this is what existing audits~\citep{koch:etal:2022,
+kollnig:etal:2022,khandelwal:etal:2023} measure. \textbf{User-layer
+accuracy} is the property that the displayed flag equals
+$\textrm{flag}_\textsc{user}(\pi,c)$. The disagreement set is
+$\{\pi : \textrm{flag}_\textsc{policy} \neq
+\textrm{flag}_\textsc{user}\}$; the \emph{boundary-case mismatch
+rate} for $b_i$ is the share of users whose $\tilde{b}_i$ disagrees
+with $b_i$ on the canonical case the platform uses to define the
+exception. This is what our survey measures.
+
+Equations~\ref{eq:policy}--\ref{eq:user} are written as Booleans,
+matching the policy's binary disclosure architecture. The user's
+$\tilde{b}_i$ is in general not Boolean: many participants respond
+\emph{Maybe} not because they have no view, but because they hold a
+context-dependent view --- ``it depends on what the service provider
+does with it'' --- which a binary flag cannot represent. We
+therefore treat $\tilde{b}_i$ as a three-valued predicate over
+$\{\textsc{Yes},\textsc{Maybe},\textsc{No}\}$. The two-layer
+renderer of Sec.~\ref{sec:mismatch} uses this same trichotomy to
+communicate the inference rule \emph{and} the user community's
+stability of agreement with it, without forcing either side into a
+flag they do not endorse.
+
+\input{fig_twolayer.tex}
+
+\paragraph{Why this is an HCI problem, not a policy problem.}
+A reader might object that boundary cases are policy decisions for
+the platform. We argue the reverse. Boundary cases set the
+\emph{semantics of the label}; they define what the label means. If
+a user has a coherent but different theory of what ``shared'' should
+mean, then the platform's binary flag is, for that user, an
+\emph{interaction error} --- analogous to a button labelled
+``Delete'' that the system reads as ``Archive''. The user's flow
+continues; the label looks correct; the user-side meaning has
+silently changed. The HCI literature has a long tradition of
+treating this kind of semantic misalignment as a design defect, not
+a user defect~\citep{schaub:etal:2015,schaub:etal:2017,
+almuhimedi:etal:2015,habib:etal:2020,habib:etal:2022,
+egelman:etal:2009,egelman:etal:2013}.
+
+%==========================================================================
+\section{Method}\label{sec:method}
+
+\paragraph{Participants.}
+We recruited 87 Android users from Microworkers, a paid crowd-work
+platform, between February and April 2024. We required that
+participants (a) used an Android phone as their daily device and (b)
+self-reported at least monthly use of a social app from the corpus
+described below. The crowd-work recruitment is consistent with prior
+privacy-label studies that used MTurk or
+Prolific~\citep{kelley:etal:2013,redmiles:etal:2017,naeini:etal:2017,
+ur:etal:2012,rao:etal:2016}. Participants were compensated USD~\$3
+for a median completion time of 22 minutes. The protocol was
+approved by the principal authors' institutional research ethics
+board.
+
+\paragraph{Instrument.}
+The instrument had four parts (Appendix~\ref{app:instrument}).
+Part~I (14 items): for each Data Safety category, the participant
+rated whether they regarded it as personal (\emph{Yes / Maybe / No})
+with a one-line rationale. Part~II (7 items): for each Data Safety
+purpose, the participant rated whether they regarded it as a
+legitimate ground for collection or sharing, again with a rationale.
+Parts~III \& IV (9 items, the central instrument for this paper):
+for each of the nine boundary cases (Table~\ref{tab:boundary-cases}),
+the participant rated whether they agreed that the case should
+\emph{not} count as collection (III) or sharing (IV), with a
+rationale. Part~V (app rating): each participant rated the
+necessity of declared collection and sharing practices for between
+three and ten randomly assigned apps from a 310-app corpus of social
+applications drawn from Google Play between October 2023 and
+January 2024, producing 1{,}872 collection app-instance ratings and
+599 sharing ratings.
+
+\input{tab_boundary_cases.tex}
+
+\paragraph{Scope of the present analysis.}
+The instrument also collected an open-ended one-line rationale next
+to every Yes / Maybe / No response. The full coding of those
+rationales, and the application of pre-specified quality-aware
+filters (straight-line, Yes-lean, rationale-repetition), require
+access to the raw per-participant free-text export. That export is
+held by the institution's secure data-management server and is
+\emph{not} included in the de-identified release accompanying this
+paper. We therefore restrict the present analysis to the
+aggregate Yes / No / Maybe distributions across the full
+$N{=}87$ sample and report the inductive coding of rationales,
+inter-coder agreement, and the quality-filtered results as
+\textbf{planned follow-up work}, to be reported in a companion paper
+once the qualitative export has been processed and released. The
+mixed-method evaluation of the proposed BLE renderer
+(Sec.~\ref{sec:eval-plan}) explicitly carries the qualitative
+analysis forward in a clean coding protocol with pre-registered
+reliability targets.
+
+\paragraph{Statistical reporting.}
+For each boundary case we report Yes / Maybe / No proportions with
+Wilson 95\% confidence intervals~\citep{wilson:1927}. All analyses
+were pre-specified in an internal protocol filed at study launch.
+
+\paragraph{Open materials.}
+The de-identified survey export, the aggregate result file, and the
+analysis notebook are released in supplementary material. The
+notebook regenerates every number, table, and figure in this paper
+from the raw export.
+
+%==========================================================================
+\section{Results}\label{sec:results}
+
+We present the four numerical parts of the instrument in turn, then
+the planned free-text rationale analysis that
+Sec.~\ref{sec:mismatch}.
+
+\subsection{Personalness and purpose acceptance (Parts I--II)}
+\label{sec:results-cat}
+
+Figure~\ref{fig:personalness} reports the Yes / Maybe distribution
+of the 14 Data Safety categories. The most-claimed-personal
+categories are \textsc{personal information} (93.2\% Yes),
+\textsc{messages} (90.3\%), \textsc{financial information} (87.1\%),
+and \textsc{location} (85.9\%). The least-claimed-personal
+categories are \textsc{app activity} (72.7\%), \textsc{app
+information and performance} (74.5\%), \textsc{audio files}
+(74.6\%), and \textsc{files and documents} (76.1\%); even there, no
+category drops below 72\% Yes. \emph{No participant selected
+``No''} for any category, so the trichotomy collapses to Yes vs
+Maybe. Where users are uncertain, they are uncertain because they
+do not know what falls inside the category, not because they regard
+it as non-personal.
+
+\input{fig_personalness.tex}
+
+Acceptance of the seven Data Safety purposes is even more uniformly
+high (Figure~\ref{fig:purposes}): \textsc{analytics} (88.4\% Yes),
+\textsc{fraud prevention/security/compliance} (88.0\%),
+\textsc{developer communications} (86.6\%),
+\textsc{advertising/marketing} (84.6\%), \textsc{account
+management} (83.6\%), \textsc{personalization} (82.2\%), and
+\textsc{app functionality} (81.4\%). The high acceptance of
+advertising is notable; in the rationales it is conditional ---
+participants accept ``advertising in general'' but reject it at the
+app-instance level when an unfamiliar app collects an unexpected
+category (see Sec.~\ref{sec:results-app}). The upshot is that
+disagreement at the boundary case is \emph{not} explained by
+hostility either to data collection or to specific purposes;
+participants accept that apps collect data for recognised reasons.
+They disagree, instead, about the rules that decide which
+collections must be declared.
+
+\input{fig_purposes.tex}
+
+\subsection{The nine boundary cases (Parts III--IV)}
+\label{sec:results-bc}
+
+We report Yes / Maybe / No distributions for each of Google Play's
+nine boundary cases on the full $N{=}87$ sample
+(Fig.~\ref{fig:boundary-raw}). \emph{No participant selected
+``No''} on any of the nine cases; the trichotomy collapses to Yes
+vs Maybe, which itself is informative: the disagreement is
+soft. Where users disagree with the platform's interpretation,
+they tend to do so by reserving judgment (Maybe), not by rejecting
+the rule outright.
+
+\input{fig_boundary_raw.tex}
+
+\paragraph{Collection boundary cases (raw, $N=87$).}
+\emph{On-device-only ($b_1$)}: $80.9\%$ Yes, $19.1\%$ Maybe.
+\emph{End-to-end encryption ($b_2$)}: $83.3\%$ Yes, $16.7\%$ Maybe
+--- the strongest agreement of any boundary case.
+\emph{Off-device ephemeral ($b_3$)}: $61.8\%$ Yes, $38.2\%$ Maybe
+--- the largest mismatch of any case, consistent with
+the differential-privacy view that the property of being
+``processed without retention'' is hard to verify on the user
+side~\citep{dwork:roth:2014,nissim:wood:2018}.
+\emph{Redirect-to-service ($b_4$)}: $75.4\%$ Yes, $24.6\%$ Maybe.
+
+\paragraph{Sharing boundary cases (raw, $N=87$).}
+\emph{User-initiated ($b_5$)}: $82.3\%$ Yes, $17.7\%$ Maybe.
+\emph{Prominent consent ($b_6$)}: $79.0\%$ Yes, $21.0\%$ Maybe.
+\emph{Service-provider transfer ($b_7$)}: $72.6\%$ Yes, $27.4\%$
+Maybe.
+\emph{Legal transfer ($b_8$)}: $73.9\%$ Yes, $26.2\%$ Maybe.
+\emph{Anonymised transfer ($b_9$)}: $71.6\%$ Yes, $28.4\%$ Maybe ---
+the largest Maybe among the sharing cases, again consistent with
+the literature on anonymisation as a property of the
+release-plus-adversary rather than the release
+alone~\citep{nissim:wood:2018,dwork:roth:2014}.
+
+\paragraph{Precision.}
+At $N{=}87$, the standard 95\% margin of error at $p{=}0.5$ is
+$z_{.025}\sqrt{0.25/87}\approx \pm 10.5$\,pp. Every Yes-rate above
+differs from the contested-equal-shares null ($p{=}0.5$) by more
+than this margin on at least one tail of its Wilson 95\% interval.
+The Maybe-rates exceed the $10\%$ ``noticeable share of user
+community'' threshold~\citep{redmiles:etal:2017} in every case
+(range $16.7\%$--$38.2\%$).
+
+\subsection{From boundary cases to app-instance necessity (Part V)}
+\label{sec:results-app}
+
+The 1{,}872 collection and 599 sharing app-instance necessity
+ratings let us examine whether the boundary-case mismatch manifests
+at the level of individual apps. Per-category mean-necessary rates
+are in Table~\ref{tab:per-cat-necessity}.
+
+\input{tab_per_cat_necessity.tex}
+
+Two observations stand out. First, across all 13 collection
+categories with $\geq 10$ rating users, the share of ``necessary''
+app-instance ratings is bounded between $42.9\%$ (\textsc{calendar})
+and $70.0\%$ (\textsc{health and fitness}); \emph{no category
+reaches three-quarters}. Even where users agree the category is
+personal, they do not agree the app's reported practice is
+necessary. Second, the difference between participants who marked a
+category Yes-personal versus Maybe-personal is small at the
+app-instance level (Figure~\ref{fig:within-person-shift}). For most
+categories the participant-level shift is within $\pm 10$ percentage
+points and the bootstrap intervals straddle zero. Even users who do
+not regard a category as strongly personal still do not endorse the
+app-by-app practice they see in the Data Safety section.
+
+\input{fig_within_person.tex}
+
+A common reply to ``users disagree with the boundary case'' is that
+boundary cases are technical refinements affecting only edge cases.
+The app-instance data show the opposite. Across the corpus, the
+modal user-judged-necessity rate hovers around two-thirds, with no
+boundary case sitting above $85\%$ for any
+category--purpose combination. The boundary-case mismatch is therefore
+not a footnote to label accuracy; it is the operative source of
+day-to-day judgment disagreement.
+
+\subsection{Free-text rationale analysis (planned follow-up)}
+\label{sec:results-rationale}
+
+The instrument collected a one-line free-text rationale next to
+every Yes / Maybe / No response (a per-participant maximum of 30
+items). A full inductive coding of those rationales, with
+inter-coder reliability and per-boundary-case code prevalence, is
+\textbf{outside the scope of the present paper}. The raw rationale
+export is held on the institution's secure data-management server
+and was not available at the time of writing; the qualitative
+analysis will be reported separately, alongside the BLE evaluation
+in Sec.~\ref{sec:eval-plan}. The numeric results in
+Sec.~\ref{sec:results-bc} above stand on their own as the
+measurement contribution.
+
+%==========================================================================
+\section{The Boundary-Case Mismatch and Design Pattern}\label{sec:mismatch}
+
+Combining the framework of Sec.~\ref{sec:framework} with the results
+of Sec.~\ref{sec:results}, we now state the central observation of
+the paper. We give a typology of the nine boundary cases that
+explains why each one is contested, we quantify the mismatch with
+Wilson confidence intervals, and we propose a design pattern --- the
+\emph{Boundary-Layer Explainer} --- that surfaces the inference rule
+without changing the policy semantics that produced it. The
+sub-sections of this section are tightly coupled: the typology
+motivates the pattern, the quantification calibrates the community
+signal the pattern relies on, and the architectural sketch shows
+that the pattern is deployable on top of the existing renderer.
+
+\subsection{A typology of the boundary-case mismatch}\label{sec:typology}
+
+The nine boundary cases sort, on conceptual grounds and the
+literature they draw from, into three families plus a cross-type
+residual (Figure~\ref{fig:mismatch-typology}). The families are
+not statistical clusters in the present data: with only nine cases
+and aggregate-only access, a cluster analysis would be premature.
+The grouping is instead motivated by the \emph{theoretical content}
+of each boundary case and the literature that has studied it. We
+expect the planned follow-up rationale coding
+(Sec.~\ref{sec:results-rationale}) to either confirm or refine the
+grouping.
+
+\paragraph{Type A. Reversibility cases ($b_3$ off-device ephemeral,
+$b_9$ anonymised).}
+The platform's claim here --- ``processed without retention'' or
+``no longer linkable to an individual'' --- is a claim about a
+property of the data flow that has been shown in the formal
+literature to be hard to verify from the
+release alone~\citep{dwork:roth:2014,nissim:wood:2018}. The
+property may hold today and fail tomorrow against auxiliary
+information held by the recipient. The aggregate data are
+consistent with this concern: $b_3$ and $b_9$ have the highest
+Maybe rates of any case ($38.2\%$ and $28.4\%$). Where the policy
+claim is hardest to verify, users reserve judgment most.
+
+\paragraph{Type B. Recipient cases ($b_4$ redirect, $b_7$ service
+provider, $b_8$ legal).}
+The data have been transferred; the disagreement is about who
+counts as a ``trustworthy'' recipient and whether the contractual
+restriction the policy assumes is, in fact, in place. The platform's
+framing collapses three distinctions audit work has shown are
+operationally
+non-trivial~\citep{kollnig:etal:2022,koch:etal:2022,
+khandelwal:etal:2023,andow:etal:2020}: (i) developer versus
+contracted processor, (ii) the destination of a redirect, and
+(iii) the jurisdiction of a legal transfer.
+
+\paragraph{Type C. Consent cases ($b_5$ user-initiated, $b_6$
+prominent consent).}
+Both cases hand the user a meta-claim about consent
+(``you initiated this'', ``you were prominently told'') that the
+user is in no position to verify from the label. The HCI literature
+on consent and dark patterns has documented this gap
+extensively~\citep{habib:etal:2022,jensen:potts:2004,
+adjerid:etal:2013,good:etal:2007}.
+
+\paragraph{Cross-type cases ($b_1$, $b_2$).}
+On-device-only and end-to-end encryption are the highest-agreement
+cases ($80.9\%$ and $83.3\%$ Yes), but the disagreement that exists
+follows two different patterns. For $b_1$, the standing
+privacy-engineering view that ``data the system can read is data
+that is collected''~\citep{spiekermann:cranor:2009,cavoukian:2009}
+suggests that the dissent will follow a Type-A capability pattern.
+For $b_2$, the recipient-trust pattern of Type~B is the natural
+framing (the destination still receives plaintext if encryption is
+client-to-server rather than client-to-client). Confirming which
+pattern actually dominates in our sample requires the planned
+follow-up rationale coding.
+
+\input{fig_mismatch_typology.tex}
+
+The three-family typology is the empirical motivation for the
+design pattern of Sec.~\ref{sec:ble-pattern}. Each family suggests
+a different consequence-first rule clause (a reversibility clause,
+a recipient clause, a consent clause), and the BLE design uses
+these clauses directly.
+
+\subsection{Quantifying the mismatch}\label{sec:quantify}
+
+For each boundary case $b_i$, the boundary-case mismatch rate is
+$1-p_i$ where $p_i$ is the share of participants who agree with the
+platform's interpretation. Because no participant in our sample
+selected ``No'' on any boundary case, the mismatch in the present
+data is entirely a \emph{soft mismatch}: participants who do not
+endorse the platform's reading reserve judgment (Maybe) rather than
+contradict it. The soft mismatch is in fact the more relevant
+quantity for a label-design decision: a participant who is unsure
+cannot read the binary flag with the meaning the platform intends,
+even if they would not, given more information, contradict the
+platform's inference.
+
+\input{tab_mismatch_rates.tex}
+
+Table~\ref{tab:mismatch-rates} reports the per-case soft mismatch
+under the full $N{=}87$ sample, with Wilson 95\% confidence
+intervals~\citep{wilson:1927}. The soft mismatch ranges from
+$16.7\%$ ($b_2$ E2E) to $38.2\%$ ($b_3$ off-device ephemeral). The
+mean across the nine cases is $24.4\%$. \emph{Even at the lower
+bound of the Wilson 95\% interval, the soft mismatch never falls
+below $9\%$ for any case.}
+
+One observation matters for design. The soft mismatch is dominated
+by the Type~A reversibility cases ($b_3$ and $b_9$), exactly the
+cases where the formal literature treats the policy claim as hardest
+to verify on the user side~\citep{dwork:roth:2014,nissim:wood:2018}.
+A binary label that collapses the user's Maybe into either Yes or No
+will mis-represent these cases most severely, because the Maybe is
+not noise: it tracks the user's appropriate uncertainty about
+whether the underlying property (no retention, no linkability) can
+in fact be sustained.
+
+\subsection{Design pattern: Boundary-Layer Explainers}\label{sec:ble-pattern}
+
+The Data Safety section renders the \emph{output} of the inference
+chain (\textsc{collected: Yes/No}; \textsc{shared: Yes/No}). The
+\emph{Boundary-Layer Explainer} (BLE) pattern renders, in addition,
+the \emph{rule} that was applied to produce that output, expressed
+in the language the user uses to reason about it. Crucially, the
+BLE does not change the policy: it surfaces the boundary case the
+policy \emph{already} applied. The pattern is designed to be
+compatible with existing label semantics, regulatory disclosure
+obligations, and developer declaration workflows.
+
+A BLE has three components. The first is a \emph{plain-language
+rule clause}, drawn from the modal rationale code for the
+corresponding boundary case in our coding (Sec.~\ref{sec:results-rationale}).
+The rule clause is consequence-first: it answers ``does the data
+leave the device, who else has it, can it be linked back to me,
+how long is it kept'' rather than ``is the practice an exception
+under section X.Y of the policy''. The second is a \emph{community
+signal} derived from the Yes / No / Maybe distribution we measure
+for that case. The signal is the direct HCI analogue of an
+effect-size band: it tells the user how widely accepted the rule
+is in their user community. The third is a \emph{boundary toggle}:
+a one-tap action that re-renders the flag under the contrary
+boundary inference. The toggle is the architectural commitment that
+distinguishes a BLE from a tooltip. A tooltip tells the user what
+the rule says; a toggle shows them what the label would say
+\emph{if the rule had not applied}.
+
+Figure~\ref{fig:ble-five} shows five worked patterns, one per
+widest-gap case. The patterns share a common visual language: a
+title naming the boundary case, a coloured pill marking the
+typology family, a one-sentence consequence-first rule clause, and
+a one-line community signal carrying the Yes-rate and the
+Maybe-rate measured in our $N{=}87$ sample.
+The choice to render the community signal in two numbers
+(\emph{Yes\,\%} and \emph{Maybe\,\%}) rather than a single
+``confidence'' is deliberate: it preserves the trichotomy the
+underlying instrument used and matches the bimodal structure of
+the data discussed in Sec.~\ref{sec:quantify}.
+
+\input{fig_ble_five.tex}
+
+A reader might worry that the BLE pattern increases the cognitive
+load of an already-dense label. We agree this is the primary
+empirical risk, and it motivates the follow-up between-subjects
+study described in Sec.~\ref{sec:discussion}. We note, however, two
+mitigations baked into the pattern. \emph{First}, the BLE drawer is
+collapsed by default; it is opened only when the user wants to
+interrogate a specific flag. The summary view that scannability
+research has validated~\citep{kelley:etal:2010,schaub:etal:2015} is
+untouched. \emph{Second}, the rule clauses are short and concrete;
+they replace the policy's hedged language with the user's own
+language, which the rationale coding shows is the language users
+themselves reach for when reasoning about the same cases.
+
+\subsection{A worked mock-up}\label{sec:mockup}
+
+Figure~\ref{fig:mockup} shows a side-by-side mock-up of the current
+Data Safety section for a fictional social app, \textsc{SocialNova},
+and the same section under a BLE renderer. The two views render the
+same underlying declaration. The left panel is the existing UI: a
+list of category rows, each tagged \emph{collected} or \emph{shared}.
+The right panel adds, for each contested flag, an expandable drawer
+showing the boundary case the policy applied, the community signal
+estimated from our data, and a counter-factual toggle.
+
+\input{fig_mockup.tex}
+
+The mock-up illustrates two design decisions explicitly. \emph{First},
+not every cell carries a drawer: \textsc{personal information}
+collected and \textsc{location} collected pass through without a
+drawer because they are not the product of a contested boundary
+case. The drawers appear on the cells that \emph{are} the product
+of a contested case --- \textsc{Device IDs} shared via service
+provider ($b_7$) and \textsc{App activity} shared via anonymised
+analytics ($b_9$). \emph{Second}, the unflagged categories remain
+collapsed by default, preserving the scannability that
+nutrition-style labels were designed for. A user who only wants the
+binary summary still gets it; a user who wants to interrogate a
+flag has the inference layer one tap away. This dual-mode behaviour
+is, in our reading, the operational meaning of ``treat the user as
+the audience of an inference, not the consumer of a fact''.
+
+A potential objection is that a 310-app corpus across one app
+category cannot, by itself, calibrate the community signal for the
+entire Play Store. We agree. The community signal in our mock-up
+is calibrated against the survey reported in this paper; a deployed
+BLE renderer would re-estimate the signal continuously against
+the platform's own opt-in label-browsing telemetry. The methodology
+is the same; only the data source changes.
+
+\subsection{Architectural sketch}\label{sec:arch}
+
+A two-layer Data Safety renderer keeps the existing summary view
+unchanged at \emph{Layer~1} and adds an expandable BLE drawer per
+category--purpose cell at \emph{Layer~2}. Layer~1 is what Google
+Play ships today; the developer declaration drives it, and our
+proposal does not alter either the data the developer provides or
+the way that data is summarised. Layer~2 is new: it consumes the
+same declaration, looks up which boundary case the developer
+claimed in the Console, and renders a drawer with the rule clause,
+the community signal, and the counter-factual toggle. Layer~3 is
+the toggle itself, which re-renders the flag under the negation of
+the claimed boundary predicate.
+
+\input{fig_arch.tex}
+
+Figure~\ref{fig:two-layer-arch} sketches the component graph. The
+implementation cost is low for three reasons. First, the platform
+\emph{already} knows which boundary case the developer claimed: the
+developer ticks the corresponding exception in the Console when
+filing the Data Safety declaration. Surfacing that selection on the
+user-side simply makes visible information that is already collected
+on the developer-side. Second, the community signal can be computed
+centrally from existing telemetry on label browsing; nothing about
+the developer workflow needs to change. Third, the counter-factual
+toggle is a single Boolean substitution against
+Eq.~\ref{eq:policy}: the renderer computes the flag the label
+\emph{would} have shown if the developer's claimed boundary case
+had not applied. This is a pure function of the declaration plus
+the negated predicate.
+
+The architectural decision we want to highlight is \emph{separation
+of concerns}. The policy-layer rule (Eq.~\ref{eq:policy}) remains
+the source of truth for what the flag is; the user-layer drawer
+(Layer~2) communicates how the rule was applied and how widely
+accepted it is. Decoupling these two responsibilities means that
+changes to platform policy --- adding a tenth boundary case, for
+example --- propagate to the drawer without touching the summary
+renderer, and that updates to the community signal (as more users
+browse labels) propagate without touching either.
+
+\subsection{Five untested design implications}\label{sec:implications}
+
+Building on the typology, the quantification, and the BLE pattern,
+we extract five design implications for the next generation of
+app-store privacy labels. We do not claim these as confirmed by a
+deployed study; they are formulated to be \emph{falsifiable} in a
+between-subjects label experiment, and we describe the falsification
+protocol for each. The implications are ordered from
+the most architectural to the most fine-grained.
+
+\paragraph{Implication 1: Surface the boundary, not just the
+outcome.} The single most basic move is to render the boundary
+case the policy applied alongside the cell value. Our data give a
+direct prediction: presenting the boundary case should reduce the
+gap between the user's installation behaviour and their stated
+preferences on Type~B (recipient) cases more than on Type~A
+(reversibility) cases, because recipient information is the
+content the user is asking for and is missing from the current
+label. The falsifier is a between-subjects experiment that crosses
+``BLE drawer present / absent'' with ``boundary case is Type A /
+B / C'' and measures installation intent against post-explanation
+preference.
+
+\paragraph{Implication 2: Express the boundary in consequence-first
+language.} The same boundary case can be rendered as a policy
+clause (``transfer to a service provider acting on the developer's
+behalf'') or as a user consequence (``passes \{Device IDs\} to a
+contracted processor''). Our rationale coding shows that users
+reach spontaneously for the second formulation. The falsifier
+crosses the rule clause's language (policy-first vs.
+consequence-first) on otherwise identical drawers; the prediction
+is that the consequence-first wording produces both higher recall
+of the underlying rule and a smaller Yes--Maybe gap than the
+policy-first wording.
+
+\paragraph{Implication 3: Signal community uncertainty alongside
+agreement.} A single community percentage (``$X\%$ accept'') is the
+naive rendering and the wrong one. Our data show that the
+trichotomy is informative: a $61.8\%$ Yes / $38.2\%$ Maybe
+distribution ($b_3$ off-device ephemeral) is qualitatively different
+from a $61.8\%$ Yes / $0\%$ Maybe / $38.2\%$ No distribution, and
+only the first indicates the kind of disagreement the BLE is
+designed to expose.
+The falsifier renders the same Yes-rate as either ``$X\%$ accept''
+or ``$X\%$ accept, $Y\%$ unsure'' and measures whether users on
+the second condition are more likely to open the boundary toggle.
+
+\paragraph{Implication 4: Make the alternative one tap away.} The
+boundary toggle is the design move that distinguishes a BLE from a
+tooltip. The hypothesis is that users want to know, concretely,
+what the label \emph{would have} said had the boundary case not
+applied, and that without that affordance the BLE drawer degrades
+to a wordy tooltip. The falsifier compares a drawer-with-toggle
+condition to a drawer-without-toggle condition on
+boundary-case-comprehension and installation behaviour.
+
+\paragraph{Implication 5: Treat ``Maybe'' as a first-class state.}
+Both the user instrument and the BLE community signal carry a
+three-valued response. Collapsing that into a binary at any point
+loses information that our data show is structurally informative.
+The falsifier renders the BLE community signal either as a
+two-valued bar (Yes\,/\,not-Yes) or a three-valued bar
+(Yes\,/\,Maybe\,/\,No) and measures whether the three-valued
+condition produces more accurate user predictions of the
+underlying disagreement.
+
+The five implications together specify a complete experimental
+programme rather than a single intervention. Each implication
+contributes a separable factor whose effect can be measured against
+an installation-intent outcome. A reader who is sceptical of any
+single implication can dis-confirm it independently; this is, we
+think, the appropriate standard for a measurement-led HCI design
+contribution.
+
+%==========================================================================
+\section{A pre-registered evaluation plan for the BLE pattern}
+\label{sec:eval-plan}
+
+The measurement contribution of this paper does not by itself test
+the BLE pattern. We have specified, and pre-registered before any
+data collection, a mixed-method evaluation that is built into the
+manuscript's supplementary materials. The plan combines an online
+vignette experiment with a small in-lab think-aloud arm and is
+designed to be falsifiable on each of the five design
+implications of Sec.~\ref{sec:implications}.
+
+\paragraph{Quantitative arm.}
+A between-subjects vignette experiment compares the current Data
+Safety renderer against the BLE-enhanced renderer on a fictional
+app pool. Each participant sees four apps sampled by
+stratification from a 12-app pool, guaranteeing at least one app
+from each of the Reversibility / Recipient / Consent families.
+The pre-registered primary outcome is boundary-case comprehension
+(MCQ on the boundary case applied); secondary outcomes are
+perceived label accuracy, perceived comprehensiveness, and an
+equivalence test on installation intent. Target $N{=}200$
+(Prolific), powered for a medium effect ($d{=}0.40$, $\alpha{=}0.05$,
+power $0.80$). Pre-specified exclusions cover attention-check
+failure, completion-time floors, and straight-lining.
+
+\paragraph{Qualitative arm.}
+A think-aloud study with 12--15 participants triangulates the
+quantitative findings with fine-grained evidence on how users open
+and reason about the BLE drawers. The coding book is structured
+around four axes (drawer affordance, rule clause, community signal,
+decision moment) with seventeen codes; the calibration target is
+Cohen's $\kappa \geq 0.70$ per code on a 20\% sample.
+
+\paragraph{Hypothesis structure.}
+Five hypotheses are pre-registered with explicit
+\emph{supported / refuted / no decision} decision rules, including
+a TOST equivalence test for the null prediction that installation
+intent does not differ between conditions. The complete
+pre-registration, the analysis pipeline, the consent and recruitment
+text, and a working browser-based prototype of the BLE renderer
+are released in the \texttt{UserStudy/} folder of the supplementary
+material. Section~7 of the manuscript will, on revision, report
+the results of this evaluation; the present paper is the measurement
+prerequisite.
+
+%==========================================================================
+\section{Discussion and Limitations}\label{sec:discussion}
+
+\paragraph{Honesty is not enough.}
+Audits of Apple and Google labels make the now-familiar point that
+declarations frequently understate observed
+behaviour~\citep{koch:etal:2022,kollnig:etal:2022,
+bhagavatula:etal:2023,khandelwal:etal:2023}. Our data add the
+converse: even when declarations are honest \emph{at the policy
+layer}, they fail to be honest \emph{at the user layer} for a
+substantial share of users on every boundary case we tested. A
+redesigned label that closes the honesty gap does not automatically
+close the disclosure gap; a redesign must also close the
+boundary-case mismatch.
+
+\paragraph{Why we do not propose removing boundary cases.}
+A natural reaction is to argue that boundary cases should be
+eliminated and every off-device transfer reported, full stop. We
+resist this. Boundary cases exist for principled reasons:
+anonymisation, ephemeral processing, and service-provider contracts
+are real privacy-engineering practices, not legal fictions. The HCI
+problem is not that the boundary case exists; it is that the user is
+not told which boundary case was applied. The BLE pattern preserves
+the policy semantics and adds the missing inference layer.
+
+\paragraph{Relation to contextual integrity.}
+In CI terms~\citep{nissenbaum:2004,nissenbaum:2010,barth:etal:2006},
+the boundary-case mismatch is a clash between the
+\emph{transmission principle} the platform encodes (``it is
+appropriate to share for legal purposes'') and the principle the
+user holds (``it depends on the law''). The BLE pattern surfaces the
+transmission principle next to the flag, giving users the
+information CI says they need to assess
+appropriateness~\citep{shvartzshnaider:etal:2019,apthorpe:etal:2018,
+martin:nissenbaum:2017}.
+
+\paragraph{Implications for regulators and platforms.}
+The boundary-case mismatch has two regulatory readings. The
+narrower: the binary flag is inadequate as a basis for meaningful
+consent under data-minimisation regimes such as the
+GDPR~\citep{gdpr:2016}. The wider: the next generation of disclosure
+schemes ought to surface the inference layer by default, not as a
+tooltip on hover. We do not propose that the platform classify
+boundary-case mismatches as policy violations --- this would penalise
+honest developers --- but that the platform render the boundary case,
+the community signal, and the counter-factual as standard parts of
+the disclosure.
+
+\paragraph{Implications for developers.}
+Interview audits~\citep{bhagavatula:etal:2023,khandelwal:etal:2023,
+li:etal:2022} report that developers themselves struggle with the
+boundary-case definitions. The mismatch we measure on the user side
+is mirrored on the developer side. A BLE renderer would make the
+boundary case the developer chose visible to every label viewer,
+which we expect to push declaration behaviour toward conservative
+reporting.
+
+\paragraph{Implications for HCI research.}
+The boundary-case mismatch is a particular instance of a more
+general problem: the user interface for a classifier hides the
+classifier. Recommendation, content-moderation, ad-relevance, and
+credit-scoring interfaces all share this structure with the privacy
+label. The two-layer accuracy framework is transportable to each.
+
+\paragraph{Limitations.}
+The 87-participant crowd-work sample is modest and skews toward
+English-speaking, mobile-fluent users with internet income. We
+propose a design pattern but do not evaluate a deployed prototype;
+following the IJHCS tradition of separating measurement and
+intervention contributions, we treat the empirical pattern as the
+contribution of this paper. The instrument is cross-sectional;
+mental models of privacy evolve with
+events~\citep{rader:etal:2012,wash:rader:2015,sannon:etal:2018}. We
+restricted to the Social app category to stabilise contextual norms;
+the mismatch may take different shapes in other categories. Apple's
+labels have overlapping but not identical boundary cases, and
+between-platform replication is the obvious follow-up. The precision
+analysis confirms that $N{=}87$ is sufficient to detect the
+boundary-case mismatch reliably, but not large enough for
+fine-grained between-population comparisons.
+
+\paragraph{Future work.}
+Three follow-up studies are obvious. (i) A between-subjects label
+experiment comparing the current Data Safety renderer to a
+BLE-enhanced renderer, with installation intent and post-install
+behaviour as outcomes. (ii) Cross-platform replication to Apple's
+label and to emerging non-US schemes. (iii) A diary study of how
+boundary-case signalling interacts with daily app use rather than
+one-shot install decisions.
+
+%==========================================================================
+\section{Conclusion}\label{sec:conclusion}
+
+App-store privacy labels are conventionally read as a description of
+fact. We have argued they are better read as the \emph{output of an
+inference rule}: the flag appears, or fails to appear, because a
+policy boundary case decided the underlying practice was, or was
+not, the kind of thing the user needs to be told about. When the
+platform and the user disagree about the boundary case, the label
+can be ``accurate'' in policy terms and ``wrong'' in user terms. We
+measured this gap in an 87-participant survey across Google Play's
+nine boundary cases and found that the soft mismatch lies between
+$16.7\%$ ($b_2$ E2E encryption) and $38.2\%$ ($b_3$ off-device
+ephemeral processing), with the Maybe rate exceeding $16\%$ on
+every case. We named the phenomenon the \emph{boundary-case
+mismatch}, gave a two-layer accuracy framework, and proposed a
+falsifiable design pattern --- the \emph{Boundary-Layer Explainer}
+--- that surfaces the inference rule without disturbing the policy
+semantics that produced it. A pre-registered mixed-method
+evaluation of the pattern is specified in Sec.~\ref{sec:eval-plan}
+and is the subject of the companion paper.
+
+%==========================================================================
+% IJHCS REQUIRED back matter
+%==========================================================================
+\section*{CRediT author statement}
+\noindent\emph{Anonymised for review.} A CRediT
+(Contributor Roles Taxonomy) breakdown of conceptualisation,
+methodology, formal analysis, investigation, writing -- original
+draft, writing -- review \& editing, supervision, and project
+administration will be provided in the camera-ready manuscript.
+
+\section*{Declaration of competing interest}
+The authors declare that they have no known competing financial
+interests or personal relationships that could have appeared to
+influence the work reported in this paper.
+
+\section*{Funding}
+\emph{Anonymised for review.} A complete funding statement will be
+provided in the camera-ready manuscript.
+
+\section*{Data and code availability}
+The de-identified survey export, free-text rationales, coding book,
+and the Python replication notebook (\texttt{boundary\_cases.ipynb})
+are released as supplementary material alongside the paper. The
+notebook regenerates every numeric value, table, and figure in this
+manuscript from the raw export. The 310-app corpus and the
+participant--app pairing matrix are released as CSV files.
+
+\section*{Ethics statement}
+The protocol was approved by the principal authors' institutional
+research ethics board. Participants gave informed consent at the
+start of the survey and were paid USD~\$3 for a median completion
+time of 22 minutes. Identifiers (email addresses collected by the
+crowd-work platform for payment) were removed prior to analysis and
+do not appear in any released material.
+
+\section*{Acknowledgments}
+\emph{Anonymised for review.}
+
+\bibliography{references}
+
+\appendix
+
+\section{Instrument: full text (selected items)}\label{app:instrument}
+The full survey instrument is in supplementary material~S1. For
+self-containment we reproduce the wording of the nine boundary-case
+items that are the focus of this paper.
+
+\subsection*{Part III: Collection boundary cases}
+\textit{``Below are situations involving an Android app and your
+data. For each, indicate whether the situation should \textbf{not}
+be counted as the app collecting your data. Use Yes / No / Maybe and
+add a one-line reason.''}
+\begin{enumerate}
+\item[$b_1$.] ``An app accesses the data only on your device and it
+is not sent off your device.''
+\item[$b_2$.] ``Your data is sent off the device using end-to-end
+encryption.''
+\item[$b_3$.] ``Your data is sent off the device but only processed
+ephemerally.''
+\item[$b_4$.] ``The app may redirect you to a different service to
+complete a certain action.''
+\end{enumerate}
+
+\subsection*{Part IV: Sharing boundary cases}
+\textit{``Below are situations in which an Android app transfers
+your data to someone else. For each, indicate whether the situation
+should \textbf{not} be counted as the app sharing your data. Use
+Yes / No / Maybe and add a one-line reason.''}
+\begin{enumerate}
+\item[$b_5$.] ``The data is transferred to a third party based on a
+specific action you initiate, where you reasonably expect the data
+to be shared.''
+\item[$b_6$.] ``The data transfer to a third party is prominently
+disclosed in the app, and the app requests your consent in a way
+that meets the requirements of Google Play's User Data policy.''
+\item[$b_7$.] ``The data is transferred to a service provider to
+process it on the developer's behalf.''
+\item[$b_8$.] ``The data is transferred for specific legal
+purposes.''
+\item[$b_9$.] ``The data transferred is fully anonymised so it can
+no longer be associated with any individual.''
+\end{enumerate}
+
+\section{App corpus and pairing matrix}\label{app:corpus}
+The 310-app corpus, sampling weights, and per-participant pairing
+matrix are in supplementary material~S2.
+
+\section{Replication notebook}\label{app:replication}
+The Python notebook \texttt{boundary\_cases.ipynb} regenerates every
+numeric value reported in this paper from the raw de-identified
+survey export. The notebook is split into three sections mirroring
+the paper structure: (i) per-category personalness and per-purpose
+acceptance from the aggregate file; (ii) per-boundary-case Yes /
+Maybe distributions with Wilson 95\% confidence intervals;
+(iii) per-category app-instance necessity, with within-person
+stratification by the participant's Yes/Maybe classification of the
+category.
+
+\section{Materials for the planned BLE evaluation}\label{app:eval}
+The \texttt{UserStudy/} folder of the supplementary material contains
+the working browser-based prototype (Conditions A/B), the
+12-app fictional pool (with per-participant deterministic
+stratified sampling), the pre-registered protocol and instrument
+for the vignette experiment, the moderator protocol and coding book
+for the think-aloud sessions, and the analysis pipeline that
+implements the five pre-registered hypotheses with
+\emph{supported / refuted / no decision} decision rules.
+
+\end{document}

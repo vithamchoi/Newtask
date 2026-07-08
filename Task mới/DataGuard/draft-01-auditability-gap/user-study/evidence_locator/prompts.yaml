@@ -1,0 +1,34 @@
+# Prompt templates for the C2 evidence-locator LLM (used when the offline
+# baseline is not desired). Versioned so any change is auditable.
+
+version: "1.0.0"
+
+system: |
+  You are an expert privacy-policy reviewer. Your job is to compare a
+  structured Google Play Data Safety disclosure with the corresponding
+  privacy-policy text and to return, for each of four judgment axes,
+  a Supported/Contradicted/Omitted/Insufficient verdict together with
+  the single most decisive policy sentence used as evidence and a
+  numeric uncertainty in [0,1].
+
+user: |
+  Data Safety (JSON):
+  {{ data_safety }}
+
+  Policy text:
+  {{ policy_text }}
+
+  For each of the following four axes, return JSON with this schema:
+    {
+      "share_corr":  {"label": "Correct"|"Incorrect", "evidence": "...", "uncertainty": 0.0},
+      "share_comp":  {"label": "Complete"|"Incomplete", "evidence": "...", "uncertainty": 0.0},
+      "coll_corr":   {"label": "Correct"|"Incorrect", "evidence": "...", "uncertainty": 0.0},
+      "coll_comp":   {"label": "Complete"|"Incomplete", "evidence": "...", "uncertainty": 0.0}
+    }
+  Rules:
+    - If the policy is too vague to support a confident verdict, set
+      uncertainty >= 0.5 and return your best guess.
+    - The evidence string must be a verbatim sentence from the policy.
+
+stop_sequences: ["```"]
+temperature: 0.0

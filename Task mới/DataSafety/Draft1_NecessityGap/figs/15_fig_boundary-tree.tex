@@ -1,0 +1,44 @@
+\begin{figure}[!htbp]
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[
+    font=\sffamily\footnotesize,
+    q/.style={draw=ngPurple, top color=ngPurple!8, bottom color=ngPurple!28,
+              rounded corners=3pt, align=center, minimum width=46mm,
+              minimum height=10mm},
+    coll/.style={draw=ngGreen, top color=ngGreen!10, bottom color=ngGreen!35,
+                 rounded corners=3pt, align=center, minimum width=24mm,
+                 minimum height=8mm, font=\bfseries\footnotesize},
+    nocoll/.style={draw=ngRed, top color=ngRed!10, bottom color=ngRed!35,
+                 rounded corners=3pt, align=center, minimum width=24mm,
+                 minimum height=8mm, font=\bfseries\footnotesize},
+    arr/.style={-{Latex[length=2.5mm]}, line width=0.6pt, draw=ngSlate}
+]
+\node[q] (q1) at (0,5)   {Does data leave the device?};
+\node[q] (q2) at (-3.5,3) {Is processing only\emph{ ephemeral}?};
+\node[q] (q3) at ( 3.5,3) {Is data only on device?};
+
+\node[coll]   (c1) at (-6.0,1) {Counted};
+\node[nocoll] (n1) at (-1.5,1) {Not counted$^{\dagger}$};
+\node[nocoll] (n2) at ( 1.5,1) {Not counted};
+\node[coll]   (c2) at ( 6.0,1) {N/A (path closed)};
+
+\node[font=\scriptsize, align=left, anchor=north west,
+      text width=14cm] at (-7,-0.4)
+  {\textsuperscript{$\dagger$}Ephemeral off-device processing is the
+   boundary case for which only 48.3\,\% of participants agreed with
+   the policy interpretation; 28.7\,\% were unsure.};
+
+\draw[arr] (q1) -- node[above left, font=\scriptsize]{Yes} (q2);
+\draw[arr] (q1) -- node[above right,font=\scriptsize]{No}  (q3);
+\draw[arr] (q2) -- node[left,  font=\scriptsize]{No}  (c1);
+\draw[arr] (q2) -- node[right, font=\scriptsize]{Yes} (n1);
+\draw[arr] (q3) -- node[left,  font=\scriptsize]{Yes} (n2);
+\draw[arr] (q3) -- node[right, font=\scriptsize]{No}  (c2);
+\end{tikzpicture}%
+}
+\caption{Google Play's policy-side decision tree for whether a data
+practice counts as collection. The ephemeral-off-device branch is the
+empirically contested boundary case (RQ2).}
+\label{fig:boundary-tree}
+\end{figure}

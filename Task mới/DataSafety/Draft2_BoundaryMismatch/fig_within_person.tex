@@ -1,0 +1,46 @@
+% Figure: within-person shift between Yes-personal vs Maybe-personal classifications
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    width=\linewidth, height=0.55\linewidth,
+    ybar=4pt,
+    bar width=8pt,
+    ymin=0,ymax=100,
+    ylabel={\footnotesize \% of app-instance ratings judged Necessary},
+    symbolic x coords={
+        Calendar, Files \& docs, Web browsing, Messages, Personal info,
+        App activity, Contacts, Financial info, Location,
+        Photos \& videos, Device IDs, App info \& perf., Health \& fit.},
+    xtick=data,
+    xticklabel style={rotate=35,anchor=east,font=\footnotesize},
+    yticklabel style={font=\footnotesize},
+    legend style={at={(0.5,-0.32)},anchor=north,legend columns=2,draw=none,
+                  font=\footnotesize},
+    grid=major,grid style={bmInk!18},
+    enlarge x limits=0.04]
+\addplot+[fill=bmBlue!75,draw=bmBlue]
+  coordinates {
+    (Calendar,50.0)(Files \& docs,62.5)(Web browsing,81.8)
+    (Messages,63.0)(Personal info,66.9)(App activity,66.7)
+    (Contacts,73.3)(Financial info,59.5)(Location,70.3)
+    (Photos \& videos,62.7)(Device IDs,65.4)(App info \& perf.,71.0)
+    (Health \& fit.,75.0)};
+\addplot+[fill=bmAmber!75,draw=bmAmber]
+  coordinates {
+    (Calendar,41.7)(Files \& docs,54.5)(Web browsing,28.6)
+    (Messages,64.1)(Personal info,66.2)(App activity,66.4)
+    (Contacts,53.8)(Financial info,73.3)(Location,54.5)
+    (Photos \& videos,80.0)(Device IDs,72.8)(App info \& perf.,65.0)
+    (Health \& fit.,66.7)};
+\legend{Classified Yes-personal, Classified Maybe-personal}
+\end{axis}
+\end{tikzpicture}
+\caption{Within-person necessity rates by category, stratified by the
+participant's own personalness classification for that category. The
+shift between Yes-personal and Maybe-personal users is small and
+non-monotonic, supporting the interpretation that
+boundary-case-level disagreement is structural rather than driven by
+prior beliefs about category personalness.}
+\label{fig:within-person-shift}
+\end{figure}

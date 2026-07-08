@@ -1,0 +1,16 @@
+# Pinned dependencies for the BLE evaluation analysis pipeline.
+# Pinning is intentional: small changes in scipy / statsmodels can shift
+# the second decimal of effect sizes and the journal version of the paper
+# locks the pipeline to this list.
+
+pandas==2.2.2
+numpy==1.26.4
+scipy==1.13.0
+statsmodels==0.14.2
+pingouin==0.5.4
+matplotlib==3.8.4
+seaborn==0.13.2
+
+# Notebook (optional, for the supplementary .ipynb release):
+jupyterlab==4.2.0
+ipython==8.24.0

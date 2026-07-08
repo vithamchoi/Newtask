@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>DataGuard Audit Study</title>
+<link rel="stylesheet" href="/css/study.css">
+</head>
+<body>
+<main class="card">
+  <h1>DataGuard Audit Study</h1>
+  <p>Welcome. In this study you will compare the short Google Play
+  <em>Data Safety</em> summary for an Android app with the same app's longer
+  privacy policy and judge whether the summary is consistent.</p>
+  <p>This expert-feedback version takes about <b>15–25 minutes</b> and uses a
+  small set of sample audit tasks. Your responses are anonymous. Please read
+  the consent below before starting.</p>
+
+  <section id="consent">
+    <h2>Informed consent (summary)</h2>
+    <ul>
+      <li>Adult participants only (18+).</li>
+      <li>Your responses are stored under a random token; no personally
+      identifying information is collected.</li>
+      <li>You may stop at any time without penalty.</li>
+      <li>De-identified per-trial data may be released alongside the paper.</li>
+      <li>This deployment is for formative expert feedback on the study
+      materials and interface.</li>
+    </ul>
+    <p>Full text: <a href="ETHICS_CONSENT.md" target="_blank">ETHICS_CONSENT.md</a></p>
+
+    <label><input type="checkbox" id="c1"> I have read the consent above.</label>
+    <label><input type="checkbox" id="c2"> I am 18 or older.</label>
+    <label><input type="checkbox" id="c3"> I consent to participate and to the
+       de-identified release of my responses.</label>
+    <button id="start" disabled>I agree — start the study</button>
+  </section>
+</main>
+
+<script>
+const cbs = ["c1","c2","c3"].map(id => document.getElementById(id));
+const btn = document.getElementById("start");
+cbs.forEach(cb => cb.addEventListener("change", () => {
+  btn.disabled = !cbs.every(c => c.checked);
+}));
+btn.addEventListener("click", async () => {
+  btn.disabled = true;
+  const res = await fetch("/api/consent", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({agree: true})
+  });
+  const data = await res.json();
+  sessionStorage.setItem("pid", data.pid);
+  sessionStorage.setItem("condition_order", data.condition_order.join(","));
+  sessionStorage.setItem("n_trials", data.n_trials);
+  sessionStorage.setItem("study_mode", data.study_mode);
+  location.href = "/demographics.html";
+});
+</script>
+</body>
+</html>

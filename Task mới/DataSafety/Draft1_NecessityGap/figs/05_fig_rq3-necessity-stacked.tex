@@ -1,0 +1,51 @@
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    ybar stacked,
+    width=0.78\linewidth, height=0.52\linewidth,
+    ymin=0, ymax=110,
+    ytick={0,20,40,60,80,100},
+    ylabel={Ratings (\%)},
+    symbolic x coords={Collection,Sharing},
+    xtick=data,
+    legend style={at={(0.5,-0.20)},anchor=north,legend columns=3,draw=none,
+                  font=\footnotesize},
+    bar width=42pt,
+    axis line style={ngSlate}, tick style={ngSlate},
+    grid=major, grid style={ngSlate!18}
+]
+% Each segment carries its own per-segment label via point meta=explicit.
+\addplot+[fill=ngRed!80, draw=ngRed,
+          nodes near coords, point meta=explicit symbolic,
+          every node near coord/.append style={font=\scriptsize,color=white,anchor=center,yshift=-12pt}]
+  table[meta=lab] {
+    x          y    lab
+    Collection 31.2 31.2\%
+    Sharing    26.9 26.9\%
+  };
+\addplot+[fill=ngYellow!80, draw=ngOrange,
+          nodes near coords, point meta=explicit symbolic,
+          every node near coord/.append style={font=\scriptsize,color=ngSlate,anchor=center,yshift=-12pt}]
+  table[meta=lab] {
+    x          y    lab
+    Collection 24.4 24.4\%
+    Sharing    21.6 21.6\%
+  };
+\addplot+[fill=ngGreen!75, draw=ngGreen,
+          nodes near coords, point meta=explicit symbolic,
+          every node near coord/.append style={font=\scriptsize,color=white,anchor=center,yshift=-14pt}]
+  table[meta=lab] {
+    x          y    lab
+    Collection 44.3 44.3\%
+    Sharing    51.4 51.4\%
+  };
+\legend{Disagree ($\leq 2$), Neutral (3), Agree ($\geq 4$)}
+\end{axis}
+\end{tikzpicture}
+\caption{Distribution of task-level necessity ratings for collection
+(\textit{n}\,=\,1{,}690) and sharing (\textit{n}\,=\,661) practices.
+Segment labels show the share of ratings falling into each band
+(Disagree $\leq 2$, Neutral 3, Agree $\geq 4$).}
+\label{fig:rq3-necessity-stacked}
+\end{figure}

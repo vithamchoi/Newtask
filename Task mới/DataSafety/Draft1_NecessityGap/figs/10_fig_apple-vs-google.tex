@@ -1,0 +1,60 @@
+\begin{figure*}[!tbp]
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[
+    font=\sffamily,
+    apple/.style={draw=ngBlue, top color=ngBlue!10, bottom color=ngBlue!30,
+                  rounded corners=4pt, align=center, minimum width=72mm,
+                  minimum height=11mm, font=\scriptsize,
+                  blur shadow={shadow blur steps=4}},
+    google/.style={draw=ngGreen, top color=ngGreen!10, bottom color=ngGreen!32,
+                  rounded corners=4pt, align=center, minimum width=72mm,
+                  minimum height=11mm, font=\scriptsize,
+                  blur shadow={shadow blur steps=4}},
+    header/.style={font=\bfseries\footnotesize, draw=ngSlate, fill=tierBg,
+                   rounded corners=3pt, minimum width=74mm, minimum height=8mm},
+    arr/.style={-{Latex[length=2.5mm]}, line width=0.7pt, draw=ngSlate}
+]
+\node[header] (HA) at (-4.2,7.6)  {Apple --- Privacy Nutrition Labels (Dec 2020)};
+\node[header] (HG) at ( 4.2,7.6)  {Google --- Data Safety section (Jul 2022)};
+
+\node[apple]  (a1) at (-4.2,6.4)  {3 top-level groupings\\Data \emph{linked} / \emph{tracked} / \emph{not linked}};
+\node[apple]  (a2) at (-4.2,5.1)  {14 data category families\\(Contact info, Health, Browsing, $\ldots$)};
+\node[apple]  (a3) at (-4.2,3.8)  {6 purpose families\\(Analytics, App Function., Ads, $\ldots$)};
+\node[apple]  (a4) at (-4.2,2.5)  {Developer self-attestation};
+\node[apple]  (a5) at (-4.2,1.2)  {App Tracking Transparency prompt\\(separate runtime channel)};
+\node[apple]  (a6) at (-4.2,-0.1) {Audits report widespread divergence\\\citep{kollnig:etal:2022,koch:etal:2022}};
+
+\node[google] (g1) at ( 4.2,6.4)  {Collection \& Sharing reported \emph{separately}};
+\node[google] (g2) at ( 4.2,5.1)  {14 data categories, $\ge$45 subtypes};
+\node[google] (g3) at ( 4.2,3.8)  {7 purposes\\incl.\ Fraud prevention, Personalization};
+\node[google] (g4) at ( 4.2,2.5)  {Protective conditions: on-device,\\E2EE, service-provider, ephemeral};
+\node[google] (g5) at ( 4.2,1.2)  {Developer self-attestation\\(with Play policy checks)};
+\node[google] (g6) at ( 4.2,-0.1) {Audits and surveys identify\\inaccuracy and low usability\\\citep{zhang:etal:2022,bhagavatula:etal:2023}};
+
+% Shared problem banner, placed with enough vertical clearance so the
+% dashed connectors land on the banner's top edge rather than crowding
+% the audit-row boxes above.
+\node[draw=ngRed, line width=1pt, rounded corners=4pt,
+      top color=ngRed!12, bottom color=ngRed!30,
+      text width=14.6cm, minimum height=13mm,
+      align=center, font=\bfseries\footnotesize, inner sep=4pt] at (0,-2.4) (banner)
+    {Both architectures stop at \emph{category $\times$ purpose}: neither says
+     \emph{why}, \emph{where to}, or \emph{to whom}, and neither lets the user
+     judge necessity in context.};
+
+% Dashed converging arrows from each audit-row to the banner.  Use
+% Bezier curves so the lines arc inward gently and arrive at the banner
+% top with clear margin from the boxes above.
+\draw[arr, dashed, draw=ngRed!70]
+   (a6.south) .. controls +(0,-0.6) and +(-1.6,0.6) .. (banner.north -| -2,0);
+\draw[arr, dashed, draw=ngRed!70]
+   (g6.south) .. controls +(0,-0.6) and +( 1.6,0.6) .. (banner.north -|  2,0);
+
+\end{tikzpicture}%
+}
+\caption{Apple's Privacy Nutrition Labels and Google Play's Data Safety
+section share the same category $\times$ purpose architecture. Both stop short
+of the contextual information our results show users need.}
+\label{fig:apple-vs-google}
+\end{figure*}

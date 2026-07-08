@@ -1,0 +1,80 @@
+% Figure: Five worked BLE patterns — clean cards, content wrapped inside.
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily,
+  card/.style={draw=bmInk!60,rounded corners=4pt,
+               minimum width=72mm,minimum height=30mm,
+               anchor=north west,
+               blur shadow={shadow blur steps=4,shadow yshift=-0.4mm}},
+  pill/.style={rounded corners=2pt,inner sep=2pt,
+               font=\scriptsize\bfseries,text=white,draw=none,anchor=east},
+  ttl/.style={font=\footnotesize\bfseries,inner sep=0pt,anchor=west},
+  quo/.style={font=\scriptsize\itshape,text=bmInk!85,inner sep=0pt,
+              align=left,anchor=north west},
+  sig/.style={font=\scriptsize,inner sep=0pt,anchor=south west,align=left}]
+
+% ===== Card 1: Off-device ephemeral =====
+\node[card,top color=bmRed!4,bottom color=bmRed!12,draw=bmRed!70] (c1) at (0,0) {};
+\node[ttl] at ($(c1.north west)+(2.5mm,-3mm)$) {BLE 1 $\cdot$ Off-device ephemeral};
+\node[pill,fill=bmRed!85] at ($(c1.north east)+(-2.5mm,-3mm)$) {Reversibility};
+\node[quo,text width=66mm] at ($(c1.north west)+(2.5mm,-8mm)$)
+  {``Sends \{Location\} off your phone for processing but says it doesn't keep it.''};
+\node[sig,text width=66mm] at ($(c1.south west)+(2.5mm,3mm)$)
+  {\textcolor{bmRed!85}{\textbf{48.3\%}} agree $\cdot$ \textcolor{bmAmber!95!black}{\textbf{28.7\%}} unsure};
+
+% ===== Card 2: Anonymised =====
+\node[card,top color=bmPurple!4,bottom color=bmPurple!12,draw=bmPurple!70]
+  (c2) at ($(c1.north east)+(4mm,0)$) {};
+\node[ttl] at ($(c2.north west)+(2.5mm,-3mm)$) {BLE 2 $\cdot$ Anonymised transfer};
+\node[pill,fill=bmPurple!85] at ($(c2.north east)+(-2.5mm,-3mm)$) {Reversibility};
+\node[quo,text width=66mm] at ($(c2.north west)+(2.5mm,-8mm)$)
+  {``Shares \{App activity\} but says the data is anonymised.''};
+\node[sig,text width=66mm] at ($(c2.south west)+(2.5mm,3mm)$)
+  {\textcolor{bmGreen!60!black}{\textbf{55.2\%}} agree $\cdot$ \textcolor{bmAmber!95!black}{\textbf{21.8\%}} unsure (could be re-linked)};
+
+% ===== Card 3: Service provider =====
+\node[card,top color=bmTeal!4,bottom color=bmTeal!12,draw=bmTeal!70]
+  (c3) at ($(c1.south west)+(0,-3mm)$) {};
+\node[ttl] at ($(c3.north west)+(2.5mm,-3mm)$) {BLE 3 $\cdot$ Service provider};
+\node[pill,fill=bmTeal!85!black] at ($(c3.north east)+(-2.5mm,-3mm)$) {Recipient};
+\node[quo,text width=66mm] at ($(c3.north west)+(2.5mm,-8mm)$)
+  {``Passes \{Device IDs\} to a contracted processor on the developer's behalf.''};
+\node[sig,text width=66mm] at ($(c3.south west)+(2.5mm,3mm)$)
+  {\textcolor{bmRed!85}{\textbf{28.7\%}} treat as sharing $\cdot$ platform does not};
+
+% ===== Card 4: Prominent consent =====
+\node[card,top color=bmGold!4,bottom color=bmGold!15,draw=bmGold!85!black]
+  (c4) at ($(c2.south west)+(0,-3mm)$) {};
+\node[ttl] at ($(c4.north west)+(2.5mm,-3mm)$) {BLE 4 $\cdot$ Prominent consent};
+\node[pill,fill=bmGold!85!black] at ($(c4.north east)+(-2.5mm,-3mm)$) {Consent};
+\node[quo,text width=66mm] at ($(c4.north west)+(2.5mm,-8mm)$)
+  {``Disclosed inside the app and asks for your consent.''};
+\node[sig,text width=66mm] at ($(c4.south west)+(2.5mm,3mm)$)
+  {Tap to see exactly what you agreed to $\cdot$ \textcolor{bmAmber!95!black}{\textbf{14.9\%}} unsure};
+
+% ===== Card 5: On-device only =====
+\node[card,top color=bmGreen!5,bottom color=bmGreen!15,draw=bmGreen!75!black]
+  (c5) at ($(c3.south west)+(0,-3mm)$) {};
+\node[ttl] at ($(c5.north west)+(2.5mm,-3mm)$) {BLE 5 $\cdot$ On-device only};
+\node[pill,fill=bmGreen!70!black] at ($(c5.north east)+(-2.5mm,-3mm)$) {Capability};
+\node[quo,text width=66mm] at ($(c5.north west)+(2.5mm,-8mm)$)
+  {``Stays on your phone.''};
+\node[sig,text width=66mm] at ($(c5.south west)+(2.5mm,3mm)$)
+  {\textcolor{bmGreen!60!black}{\textbf{62.1\%}} accept $\cdot$ \textcolor{bmAmber!95!black}{\textbf{14.9\%}} unsure (data still on device)};
+
+% ===== Card 6: Common pattern =====
+\node[card,top color=bmBlue!5,bottom color=bmBlue!12,draw=bmBlue!60,
+      minimum height=30mm]
+  (c6) at ($(c4.south west)+(0,-3mm)$) {};
+\node[anchor=center,align=center,font=\footnotesize,text width=66mm]
+  at ($(c6.north west)!0.5!(c6.south east)$)
+  {\textbf{Common pattern}\\[1pt]
+   Rule clause $\Rightarrow$\\ Community signal $\Rightarrow$\\ Boundary toggle};
+\end{tikzpicture}
+\caption{Five Boundary-Layer Explainer (BLE) patterns for the
+widest-gap boundary cases. Each card carries (i) a one-sentence rule
+clause in consequence-first language, (ii) a community signal in the
+Yes / Maybe band measured in our survey, and (iii) a tier pill marking
+the typology family.}
+\label{fig:ble-five}
+\end{figure}

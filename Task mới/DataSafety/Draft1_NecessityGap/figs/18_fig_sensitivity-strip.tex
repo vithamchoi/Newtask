@@ -1,0 +1,37 @@
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    width=\linewidth, height=0.42\linewidth,
+    ybar,
+    ymin=0, ymax=60,
+    ylabel={Agree (\%)},
+    symbolic x coords={All,Compl.,Compl.\,$\geq$3m,No SL,No rep.,Strict},
+    xtick=data,
+    x tick label style={font=\scriptsize},
+    legend style={at={(0.5,-0.22)},anchor=north,legend columns=2,draw=none,
+                  font=\footnotesize},
+    bar width=6pt,
+    enlarge x limits=0.10,
+    nodes near coords, point meta=y,
+    nodes near coords={\pgfmathprintnumber[fixed,precision=1]{\pgfplotspointmeta}},
+    every node near coord/.append style={font=\tiny,color=ngSlate},
+    axis line style={ngSlate}, tick style={ngSlate},
+    grid=major, grid style={ngSlate!18}
+]
+\addplot+[fill=ngBlue!75, draw=ngBlue] coordinates {
+    (All,44.3)(Compl.,46.8)(Compl.\,$\geq$3m,46.1)(No SL,42.7)(No rep.,49.2)(Strict,49.1)
+};
+\addplot+[fill=ngOrange!75, draw=ngOrange] coordinates {
+    (All,51.4)(Compl.,52.4)(Compl.\,$\geq$3m,48.5)(No SL,50.6)(No rep.,54.1)(Strict,50.7)
+};
+\legend{Collection, Sharing}
+\end{axis}
+\end{tikzpicture}
+\caption{Sensitivity strip across quality filters (All, Completed only,
+Completed and time\,$\geq$\,3\,min, No survey straight-liners, No
+repetitive rationales, Strict). Agreement percentages move within a
+narrow band: the main conclusions are not artefacts of low-quality
+responses.}
+\label{fig:sensitivity-strip}
+\end{figure}

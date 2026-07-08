@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Thank you — DataGuard study</title>
+<link rel="stylesheet" href="/css/study.css">
+</head>
+<body>
+<main class="card">
+  <h1>Thank you for participating</h1>
+  <p>Your responses have been recorded.</p>
+  <p>Your session ID (for any follow-up questions):
+     <code id="pid"></code></p>
+  <p>You will receive your compensation via the method described during
+     consent within 7 business days.</p>
+  <p>To learn more about what we are studying, see the
+     <a href="DEBRIEF.md" target="_blank">debrief</a>.</p>
+
+  <section id="expert-feedback">
+    <h2>Expert feedback</h2>
+    <p>Please add any final comments that would help us improve the study
+       materials or interface.</p>
+    <form id="feedback">
+      <fieldset>
+        <legend>Your review perspective</legend>
+        <label>Role or expertise
+          <input type="text" name="role" placeholder="e.g. privacy reviewer, Android developer">
+        </label>
+        <label>Relevant experience
+          <textarea name="expertise" rows="2"></textarea>
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Overall usefulness</legend>
+        <label>How useful is this audit workflow? (1 = not useful, 5 = very useful)
+          <input type="range" name="usefulness" min="1" max="5" value="3"
+                 oninput="this.nextElementSibling.textContent=this.value">
+          <output>3</output>
+        </label>
+        <label>Preferred condition
+          <select name="preferred_condition">
+            <option value="">- select -</option>
+            <option value="C0">C0 raw review</option>
+            <option value="C1">C1 structured review</option>
+            <option value="C2">C2 evidence-assisted review</option>
+            <option value="mixed">Different conditions for different tasks</option>
+          </select>
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Comments</legend>
+        <label>Most helpful feature
+          <textarea name="most_helpful" rows="2"></textarea>
+        </label>
+        <label>Most confusing part
+          <textarea name="most_confusing" rows="2"></textarea>
+        </label>
+        <label>Missing feature
+          <textarea name="missing_feature" rows="2"></textarea>
+        </label>
+        <label>Main concern or risk
+          <textarea name="concern" rows="2"></textarea>
+        </label>
+        <label>Final comment
+          <textarea name="final_comment" rows="3"></textarea>
+        </label>
+      </fieldset>
+
+      <button type="submit">Submit feedback</button>
+      <p id="feedback-status"></p>
+    </form>
+  </section>
+</main>
+<script>
+document.getElementById("pid").textContent = sessionStorage.getItem("pid") || "—";
+document.getElementById("feedback").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const status = document.getElementById("feedback-status");
+  const payload = Object.fromEntries(new FormData(e.target).entries());
+  payload.pid = sessionStorage.getItem("pid");
+  payload.usefulness = Number(payload.usefulness);
+  const res = await fetch("/api/submit_feedback", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify(payload),
+  });
+  if (res.ok) {
+    status.textContent = "Thank you. Your feedback has been recorded.";
+    e.target.querySelector("button").disabled = true;
+  } else {
+    status.textContent = "Could not submit feedback. Please try again.";
+  }
+});
+</script>
+</body>
+</html>

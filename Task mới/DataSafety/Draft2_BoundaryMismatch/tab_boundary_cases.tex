@@ -1,0 +1,24 @@
+\begin{table}[!htbp]
+\centering\small
+\caption{The nine Google Play boundary cases tested in the survey. Cases $b_1$--$b_4$
+are exceptions to \emph{collection}; cases $b_5$--$b_9$ are exceptions to \emph{sharing}.
+Wording is paraphrased from the Google Play Console Help documentation~\citep{google:data:safety:2022}.}
+\label{tab:boundary-cases}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{c p{0.27\linewidth} p{0.55\linewidth}}
+\toprule
+\textbf{Code} & \textbf{Case} & \textbf{Platform-policy claim (paraphrased)} \\
+\midrule
+$b_1$ & On-device only & Data is accessed only on the device and is not sent off. \\
+$b_2$ & End-to-end encryption & Data is sent off-device using E2E encryption. \\
+$b_3$ & Off-device ephemeral & Data leaves the device but is processed ephemerally. \\
+$b_4$ & Redirect to service & The app redirects the user to a different service to complete an action. \\
+\midrule
+$b_5$ & User-initiated transfer & Transfer is triggered by a user action and the user reasonably expects it. \\
+$b_6$ & Prominent consent & Transfer is prominently disclosed and consent is collected to platform standards. \\
+$b_7$ & Service-provider transfer & Transfer to a service provider acting on the developer's behalf. \\
+$b_8$ & Legal transfer & Transfer for specified legal purposes. \\
+$b_9$ & Anonymised transfer & Transfer of fully anonymised data not linkable to an individual. \\
+\bottomrule
+\end{tabular}
+\end{table}

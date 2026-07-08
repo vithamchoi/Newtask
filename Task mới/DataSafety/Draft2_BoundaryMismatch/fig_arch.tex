@@ -1,0 +1,76 @@
+% Figure: two-layer architectural sketch — labels OUTSIDE boxes so they
+% never collide with content; arrows are single straight lines.
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily,
+  layerbox/.style={draw=bmInk,rounded corners=4pt,minimum width=130mm,
+                   inner sep=2.5mm,
+                   blur shadow={shadow blur steps=4,shadow yshift=-0.4mm}},
+  layerlbl/.style={font=\footnotesize\bfseries,anchor=south west,inner sep=0pt},
+  drawer/.style={draw=bmAmber!90,rounded corners=3pt,fill=white,
+                 minimum width=58mm,minimum height=17mm,
+                 font=\footnotesize,align=left,inner sep=2.2mm,
+                 anchor=center},
+  cellG/.style={draw=bmGreen!70,rounded corners=2pt,top color=bmGreen!10,
+                bottom color=bmGreen!28,minimum width=20mm,minimum height=6.5mm,
+                font=\scriptsize,anchor=center},
+  cellR/.style={draw=bmRed!70,rounded corners=2pt,top color=bmRed!10,
+                bottom color=bmRed!28,minimum width=20mm,minimum height=6.5mm,
+                font=\scriptsize,anchor=center},
+  arr/.style={-{Latex[length=2.6mm]},line width=0.9pt,draw=bmInk!85}]
+
+% ===== LAYER 1 — label above, box below =====
+\node[layerlbl] (lb1) at (-6.5,5) {\textcolor{tierLabel!85!black}{Layer 1 (existing)} \;$\cdot$\; Data Safety summary view};
+\node[layerbox,top color=tierLabel!8,bottom color=tierLabel!22,draw=tierLabel,
+      anchor=north west,minimum height=11mm] (L1) at ($(lb1.south west)+(0,-1mm)$) {};
+% Cells inside L1
+\node[cellG] at ($(L1.center)+(-4.5,0)$) {Location};
+\node[cellR] (cB) at ($(L1.center)+(-1.5,0)$) {Device IDs};
+\node[cellR] at ($(L1.center)+(1.5,0)$)  {App activity};
+\node[cellG] (cD) at ($(L1.center)+(4.5,0)$) {Photos};
+
+% ===== LAYER 2 — label above, box below containing drawers =====
+\node[layerlbl,anchor=north west] at ($(L1.south west)+(0,-12mm)$)
+   (lb2) {\textcolor{bmAmber!85!black}{Layer 2 (new)} \;$\cdot$\; Boundary-Layer Explainer drawer};
+\node[layerbox,top color=bmCream!50,bottom color=bmCream,draw=bmInk!50,
+      anchor=north west,minimum height=22mm] (L2) at ($(lb2.south west)+(0,-1mm)$) {};
+% Two drawers inside L2, side by side, in the center
+\node[drawer,top color=bmAmber!8,bottom color=bmAmber!18] (d1)
+   at ($(L2.center)+(-3.2,0)$)
+   {\textbf{Drawer: Device IDs shared}\\
+    Boundary: $b_7$ (Service provider)\\
+    51.7\% accept $\,\cdot\,$ 19.5\% unsure};
+\node[drawer,top color=bmAmber!8,bottom color=bmAmber!18] (d2)
+   at ($(L2.center)+(3.2,0)$)
+   {\textbf{Drawer: Photos collected}\\
+    Boundary: $b_1$ (On-device only)\\
+    62.1\% accept $\,\cdot\,$ 14.9\% unsure};
+
+% Arrows from cells (L1) to drawers (L2)
+\draw[arr,draw=tierLabel!90] (cB.south) to[out=-90,in=90] (d1.north);
+\draw[arr,draw=tierLabel!90] (cD.south) to[out=-90,in=90] (d2.north);
+
+% ===== LAYER 3 — toggle box =====
+\node[layerlbl,anchor=north west] at ($(L2.south west)+(0,-12mm)$)
+   (lb3) {\textcolor{tierUser!85!black}{Boundary toggle (one-tap)}};
+\node[layerbox,top color=tierUser!8,bottom color=tierUser!22,draw=tierUser,
+      anchor=north west,minimum height=11mm] (L3) at ($(lb3.south west)+(0,-1mm)$) {};
+\node[font=\footnotesize\itshape,align=center] at (L3.center)
+   {``What would the label say if $b_i$ did not apply?''};
+
+% Arrows from drawers down to L3
+\draw[arr,draw=tierUser!90,dashed] (d1.south) to[out=-90,in=90] ($(L3.north)+(-32mm,0)$);
+\draw[arr,draw=tierUser!90,dashed] (d2.south) to[out=-90,in=90] ($(L3.north)+(32mm,0)$);
+\end{tikzpicture}
+\caption{Architectural sketch of a two-layer Data Safety renderer.
+Each layer has its title rendered \emph{above} its box so the title
+never collides with content. Layer~1 (top) is the unchanged Data
+Safety summary view that Google Play already ships. Layer~2 (middle)
+hosts a per-cell drawer that surfaces the boundary case which
+produced the cell value and the community signal estimated from our
+data. The boundary toggle (bottom) re-renders the flag under the
+counter-factual that the boundary case did not apply, giving the
+user a one-tap view of the inference rule's effect on the visible
+label.}
+\label{fig:two-layer-arch}
+\end{figure}

@@ -1,0 +1,110 @@
+{
+  "artifact_type": "release_feedback",
+  "feedback_authored_by_codex": true,
+  "project": "DataGuard Evidence Corpus",
+  "reviewers": [
+    {
+      "id": "EC-TOOLBUILDER-01",
+      "persona": "privacy NLP / HCI tool-builder",
+      "experience_years": 8,
+      "primary_use_case": "evidence retrieval and evidence-grounded audit interface prototyping",
+      "overall_score_1_to_5": 5,
+      "summary": "The corpus is most useful for finding and ranking the policy passages that auditors should inspect, not for automatically deciding app compliance."
+    },
+    {
+      "id": "EC-DATAETHICS-02",
+      "persona": "data ethics / research governance reviewer",
+      "experience_years": 10,
+      "primary_use_case": "release risk assessment and responsible dataset governance",
+      "overall_score_1_to_5": 4,
+      "summary": "Release is acceptable if reviewer judgments are not framed as legal compliance findings and if discouraged uses are explicit."
+    }
+  ],
+  "schema_feedback": {
+    "required_fields": [
+      "row_id",
+      "app_id_or_package_pseudonym",
+      "google_play_category",
+      "data_safety_claim_axis",
+      "structured_claim_json",
+      "human_verdict",
+      "evidence_excerpt",
+      "rationale",
+      "annotator_pseudonym",
+      "policy_capture_date",
+      "label_capture_date"
+    ],
+    "strongly_recommended_fields": [
+      "excerpt_start_offset_if_available",
+      "excerpt_end_offset_if_available",
+      "policy_language",
+      "policy_url_domain",
+      "release_redaction_status",
+      "split_id_app_level",
+      "split_id_annotator_aware",
+      "split_id_category_balanced"
+    ],
+    "comment": "The evidence excerpt must remain paired with the structured claim; otherwise users will misinterpret sentence-level evidence."
+  },
+  "benchmark_feedback": {
+    "recommended_tasks": [
+      "claim-conditioned evidence retrieval",
+      "top-K evidence candidate ranking",
+      "claim-plus-evidence verdict prediction",
+      "uncertainty calibration for evidence suggestions",
+      "annotator-style robustness evaluation"
+    ],
+    "official_splits_required": true,
+    "splits": [
+      "app-level split",
+      "annotator-aware split",
+      "category-balanced split"
+    ],
+    "baseline_expectation": "Simple lexical baselines are appropriate as floors; LLM systems should beat top-K retrieval and show calibrated uncertainty before UI deployment."
+  },
+  "ethical_release_feedback": {
+    "release_supported": true,
+    "conditions": [
+      "annotator pseudonymisation",
+      "developer/app reputational risk statement",
+      "redaction of accidental contact details",
+      "clear discouraged-use section",
+      "versioned release with changelog",
+      "maintenance contact and correction/takedown process"
+    ],
+    "discouraged_uses": [
+      "public app compliance ranking",
+      "developer blacklists",
+      "regulatory enforcement without independent adjudication",
+      "training end-to-end compliance classifiers without annotator-aware evaluation"
+    ],
+    "preferred_wording": "trained-reviewer audit verdict",
+    "wording_to_avoid": "ground truth compliance label"
+  },
+  "ui_feedback": {
+    "supported_affordances": [
+      "hedging highlighter as subtle cue",
+      "no-data scope confirmation prompt",
+      "third-party recipient panel",
+      "top-K evidence candidate list"
+    ],
+    "affordances_to_avoid": [
+      "single authoritative top-1 highlight",
+      "automatic red mismatch badge from keyword hits",
+      "uncalibrated confidence display",
+      "silent verdict override"
+    ]
+  },
+  "paper_framing_feedback": {
+    "best_framing": "The corpus is an HCI record of citation behaviour by trained reviewers.",
+    "secondary_framing": "The corpus is a benchmark for evidence-locator models.",
+    "weak_framing": "The corpus is a compliance ground truth dataset.",
+    "recommended_claim": "The corpus supports evidence-grounded review interfaces by showing what policy text human auditors cite for each structured disclosure claim."
+  },
+  "direct_quotes": [
+    "I would use this corpus primarily for evidence retrieval and interface prototyping, not for end-to-end compliance classification.",
+    "The biggest risk is that external users treat a human audit verdict as a legal finding.",
+    "The evidence excerpt must remain paired with the structured claim; a sentence alone is not enough."
+  ]
+}
+

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Trial — DataGuard study</title>
+<link rel="stylesheet" href="/css/study.css">
+</head>
+<body>
+<header class="bar">
+  <div>App <span id="trial-order">-</span> / <span id="trial-total">-</span>
+       &nbsp;·&nbsp; Condition <span id="cond">–</span></div>
+  <progress id="prog" max="1" value="0"></progress>
+</header>
+
+<main>
+  <section id="header">
+    <h1 id="app-name">—</h1>
+    <div class="meta">
+      <span id="app-cat"></span>
+      &nbsp;·&nbsp; <a id="play-link" target="_blank">Open Google Play</a>
+      &nbsp;·&nbsp; <a id="policy-link" target="_blank">Open original policy</a>
+    </div>
+  </section>
+
+  <section id="panels"></section>
+
+  <section id="judgments">
+    <h2>Your judgments</h2>
+    <div class="four-axes">
+      <fieldset>
+        <legend>Sharing — Correctness</legend>
+        <label><input type="radio" name="j_share_corr" value="Correct">Correct</label>
+        <label><input type="radio" name="j_share_corr" value="Incorrect">Incorrect</label>
+        <label><input type="radio" name="j_share_corr" value="Ambig">Ambiguous</label>
+        <label>Confidence (0–100):
+          <input type="range" name="conf_share_corr" min="0" max="100" value="50"
+                 oninput="this.nextElementSibling.textContent=this.value">
+          <output>50</output></label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Sharing — Completeness</legend>
+        <label><input type="radio" name="j_share_comp" value="Complete">Complete</label>
+        <label><input type="radio" name="j_share_comp" value="Incomplete">Incomplete</label>
+        <label><input type="radio" name="j_share_comp" value="Ambig">Ambiguous</label>
+        <label>Confidence:
+          <input type="range" name="conf_share_comp" min="0" max="100" value="50"
+                 oninput="this.nextElementSibling.textContent=this.value">
+          <output>50</output></label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Collection — Correctness</legend>
+        <label><input type="radio" name="j_coll_corr" value="Correct">Correct</label>
+        <label><input type="radio" name="j_coll_corr" value="Incorrect">Incorrect</label>
+        <label><input type="radio" name="j_coll_corr" value="Ambig">Ambiguous</label>
+        <label>Confidence:
+          <input type="range" name="conf_coll_corr" min="0" max="100" value="50"
+                 oninput="this.nextElementSibling.textContent=this.value">
+          <output>50</output></label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Collection — Completeness</legend>
+        <label><input type="radio" name="j_coll_comp" value="Complete">Complete</label>
+        <label><input type="radio" name="j_coll_comp" value="Incomplete">Incomplete</label>
+        <label><input type="radio" name="j_coll_comp" value="Ambig">Ambiguous</label>
+        <label>Confidence:
+          <input type="range" name="conf_coll_comp" min="0" max="100" value="50"
+                 oninput="this.nextElementSibling.textContent=this.value">
+          <output>50</output></label>
+      </fieldset>
+    </div>
+
+    <fieldset>
+      <legend>Rationale (1–2 sentences)</legend>
+      <textarea name="rationale" rows="2"></textarea>
+    </fieldset>
+    <fieldset>
+      <legend>Evidence: paste the policy passage you used</legend>
+      <textarea name="evidence_paste" rows="2"></textarea>
+    </fieldset>
+
+    <button id="submit">Submit and continue</button>
+  </section>
+</main>
+
+<script src="/js/conditions/c0_raw.js"></script>
+<script src="/js/conditions/c1_structured.js"></script>
+<script src="/js/conditions/c2_evidence.js"></script>
+<script src="/js/instruments/nasa_tlx.js"></script>
+<script src="/js/instruments/trust.js"></script>
+<script src="/js/trial_engine.js"></script>
+</body>
+</html>

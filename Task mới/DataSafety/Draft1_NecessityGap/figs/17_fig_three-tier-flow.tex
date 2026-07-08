@@ -1,0 +1,64 @@
+\begin{figure*}[!tbp]
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[font=\sffamily\footnotesize,
+    src/.style={draw=#1, top color=#1!10, bottom color=#1!28,
+                rounded corners=3pt, align=center, minimum height=8mm},
+    arr/.style={-{Latex[length=2.5mm]}, line width=0.8pt, draw=ngSlate}]
+% TIER 1
+\node[src=tierA, minimum width=38mm] (s1a) at (0, 4.4)
+   {Personal (Y) --- 60.7\%};
+\node[src=tierA, minimum width=22mm] (s1m) at (0, 3.2)
+   {Maybe --- 11.3\%};
+\node[src=tierA, minimum width=30mm] (s1n) at (0, 1.8)
+   {Not personal (N) --- 28.0\%};
+
+% TIER 2
+\node[src=tierB, minimum width=38mm] (s2a) at (6, 4.4)
+   {Boundary clear --- 58.0\%};
+\node[src=tierB, minimum width=30mm] (s2m) at (6, 3.2)
+   {Contested --- 22.4\%};
+\node[src=tierB, minimum width=28mm] (s2n) at (6, 1.8)
+   {Confused --- 19.6\%};
+
+% TIER 3
+\node[src=tierC, minimum width=32mm] (s3a) at (12, 4.4)
+   {Necess.\ Agree --- 44.3\%};
+\node[src=tierC, minimum width=22mm] (s3m) at (12, 3.2)
+   {Neutral --- 24.4\%};
+\node[src=tierC, minimum width=30mm] (s3n) at (12, 1.8)
+   {Disagree --- 31.2\%};
+
+% Flow lines (representative, widths roughly proportional)
+\foreach \a/\b/\w in {s1a/s2a/0.7,s1a/s2m/0.4,s1a/s2n/0.3,
+                      s1m/s2a/0.3,s1m/s2m/0.3,s1m/s2n/0.2,
+                      s1n/s2a/0.45,s1n/s2m/0.3,s1n/s2n/0.3,
+                      s2a/s3a/0.7,s2a/s3m/0.4,s2a/s3n/0.35,
+                      s2m/s3a/0.35,s2m/s3m/0.35,s2m/s3n/0.4,
+                      s2n/s3a/0.3,s2n/s3m/0.3,s2n/s3n/0.45}
+   \draw[->,line width=\w pt,draw=ngSlate!55,opacity=0.7] (\a.east) -- (\b.west);
+
+% Tier headers
+\node[font=\bfseries\small,color=tierA] at (0,5.6) {Tier 1};
+\node[font=\bfseries\small,color=tierB] at (6,5.6) {Tier 2};
+\node[font=\bfseries\small,color=tierC] at (12,5.6) {Tier 3};
+
+% Gap annotations
+\node[draw=ngRed, dashed, rounded corners=3pt,
+      fill=ngRed!8, font=\scriptsize\itshape, align=center,
+      minimum width=22mm, minimum height=6mm] at (3,0.4)
+      {Boundary gap};
+\node[draw=ngRed, dashed, rounded corners=3pt,
+      fill=ngRed!8, font=\scriptsize\itshape, align=center,
+      minimum width=22mm, minimum height=6mm] at (9,0.4)
+      {Necessity gap};
+
+\end{tikzpicture}%
+}
+\caption{Three-tier mismatch represented as flow widths. Personalness
+classifications (Tier~1) only partially condition boundary
+interpretations (Tier~2), which in turn only partially condition
+necessity judgments (Tier~3). The two ``gaps'' between adjacent tiers
+are what the empirical work in this paper measures.}
+\label{fig:three-tier-flow}
+\end{figure*}

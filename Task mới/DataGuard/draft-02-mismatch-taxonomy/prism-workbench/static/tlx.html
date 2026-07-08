@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><title>NASA-TLX — block survey</title>
+<style>
+body { font: 14px/1.5 -apple-system, system-ui, sans-serif;
+  max-width: 720px; margin: 32px auto; padding: 0 16px; color: #222; }
+h1 { font-size: 20px; }
+.scale { margin: 22px 0; }
+.scale label { font-weight: 600; }
+.scale .desc { color: #555; font-size: 12px; margin-bottom: 6px; }
+.scale .ends { display: flex; justify-content: space-between;
+  font-size: 11px; color: #777; }
+input[type=range] { width: 100%; }
+button { background: #163160; color: #fff; border: 0; padding: 10px 24px;
+  border-radius: 4px; font-weight: 600; cursor: pointer; font-size: 15px; }
+</style>
+</head><body>
+<h1>NASA-TLX — block survey</h1>
+<p>Please rate the audit task you just completed on each of the six dimensions.
+The scale runs from 0 (very low) to 100 (very high). Move each slider and click
+<em>Submit</em> when finished.</p>
+
+<form id="tlx-form">
+<input type="hidden" name="block" id="block" value="1">
+
+<div class="scale"><label>Mental demand</label>
+  <div class="desc">How mentally demanding was the audit?</div>
+  <input type="range" name="mental" min="0" max="100" step="5" value="50">
+  <div class="ends"><span>Very low</span><span>Very high</span></div></div>
+
+<div class="scale"><label>Physical demand</label>
+  <div class="desc">How physically demanding was the task?</div>
+  <input type="range" name="physical" min="0" max="100" step="5" value="50">
+  <div class="ends"><span>Very low</span><span>Very high</span></div></div>
+
+<div class="scale"><label>Temporal demand</label>
+  <div class="desc">How hurried or rushed was the pace?</div>
+  <input type="range" name="temporal" min="0" max="100" step="5" value="50">
+  <div class="ends"><span>Very low</span><span>Very high</span></div></div>
+
+<div class="scale"><label>Performance</label>
+  <div class="desc">How successful were you in accomplishing what you were asked?
+  (0 = perfect, 100 = failure)</div>
+  <input type="range" name="performance" min="0" max="100" step="5" value="50">
+  <div class="ends"><span>Perfect</span><span>Failure</span></div></div>
+
+<div class="scale"><label>Effort</label>
+  <div class="desc">How hard did you have to work to accomplish your level of performance?</div>
+  <input type="range" name="effort" min="0" max="100" step="5" value="50">
+  <div class="ends"><span>Very low</span><span>Very high</span></div></div>
+
+<div class="scale"><label>Frustration</label>
+  <div class="desc">How insecure, discouraged, irritated, stressed and annoyed were you?</div>
+  <input type="range" name="frustration" min="0" max="100" step="5" value="50">
+  <div class="ends"><span>Very low</span><span>Very high</span></div></div>
+
+<button id="submit" type="submit">Submit and continue</button>
+</form>
+
+<script>
+// Set block index by looking at how many TLX submissions are already logged.
+fetch("/api/session").then(r=>r.json()).then(s => {
+  // Use the participant's current audit index to decide block #
+  // 20 = end of block 1, 40 = end of block 2.
+  document.getElementById("block").value = s.index >= 40 ? 2 : 1;
+});
+
+document.getElementById("tlx-form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const data = Object.fromEntries(new FormData(e.target).entries());
+  for (const k of Object.keys(data)) if (k !== "block") data[k] = parseInt(data[k]);
+  data.block = parseInt(data.block);
+  await fetch("/api/tlx", {method:"POST",
+    headers:{"Content-Type":"application/json"}, body:JSON.stringify(data)});
+  // After TLX, route back to the audit (will route to /exit if done)
+  window.location.href = "/?build=" + (location.search.match(/build=(\w+)/)?.[1] || "legacy");
+});
+</script>
+</body></html>

@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.venv*/
+venv/
+
+# Data (de-identified release lives elsewhere)
+data/raw/*.db
+data/raw/*.sqlite
+data/processed/
+!data/processed/.gitkeep
+
+# Results
+analysis/results/
+analysis/power_curve.csv
+
+# Editor
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# OS
+Thumbs.db

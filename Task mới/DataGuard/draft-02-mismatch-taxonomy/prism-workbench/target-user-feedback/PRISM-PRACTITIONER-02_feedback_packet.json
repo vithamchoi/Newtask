@@ -1,0 +1,68 @@
+{
+  "artifact_type": "practitioner_feedback",
+  "feedback_authored_by_codex": true,
+  "project": "PRISM mismatch taxonomy and workbench",
+  "pid": "PRISM-PRACTITIONER-02",
+  "role_arm": "data_protection_practitioner",
+  "build_reviewed": "prism",
+  "profile": {
+    "role": "data protection officer / privacy compliance practitioner",
+    "experience_years": 7,
+    "mobile_app_audit_frequency": "monthly",
+    "technical_depth": "medium",
+    "primary_lens": "actionable remediation, audit-note quality, and developer communication"
+  },
+  "eligibility": {
+    "adult": true,
+    "privacy_compliance_experience_over_2_years": true,
+    "not_in_original_dataguard_annotation_pool": true,
+    "comfortable_with_english_policies": true
+  },
+  "taxonomy_overall": {
+    "usefulness_1_to_7": 6,
+    "clarity_1_to_7": 5,
+    "developer_remediation_value_1_to_7": 6,
+    "would_use_for_triage": true,
+    "would_use_for_final_decision_without_human_review": false,
+    "summary": "The taxonomy would make audit notes more actionable, especially when communicating with developers. It should include severity and suggested remediation for each code."
+  },
+  "practitioner_code_comments": {
+    "M1": "Useful for explaining missing sharing disclosures. I need to know whether the third party is an independent recipient, ad network, analytics provider, or processor.",
+    "M2": "Very useful for developer feedback. Developers often do not realise that advertising ID or Android ID belongs under Device or other IDs.",
+    "M3": "Useful as a warning that the policy is too vague, but I would not cite it alone as a compliance issue.",
+    "M4": "Most actionable. If the label says no data and the policy says otherwise, this is easy to explain and should be prioritised.",
+    "M5": "Useful but less common. Needs examples because precise vs approximate location can be subtle.",
+    "M6": "Could be useful in audit training, but I would need a very clear rule to avoid confusing security statements with data disclosures.",
+    "M7": "Important when policies push users to third-party policies instead of disclosing app data flows. Needs care because many policies include this language legitimately."
+  },
+  "severity_matrix_requested": {
+    "likely_contradiction": ["M2", "M4"],
+    "likely_omission_or_under_disclosure": ["M1", "M5"],
+    "ambiguity_or_scope_warning": ["M3", "M7"],
+    "training_or_manual_review_warning": ["M6"],
+    "comment": "A severity matrix would make PRISM much easier to use in a real compliance workflow."
+  },
+  "affordance_ratings_1_to_7": {
+    "D1_third_party_recipient_panel": 7,
+    "D2_identifier_to_category_mapping": 7,
+    "D3_hedge_highlighter": 4,
+    "D4_no_data_audit_prompt": 7,
+    "D5_location_grain_overlay": 5,
+    "D6_security_data_tab": 4,
+    "D7_responsibility_scope_chip": 5,
+    "D8_ambiguity_badge": 6
+  },
+  "workflow_feedback": {
+    "best_use_case": "triage and audit-note drafting",
+    "second_best_use_case": "developer remediation checklist",
+    "poor_use_case": "automatic public compliance ranking",
+    "desired_output": "For each flagged code, show evidence sentence, reason, severity, and suggested developer fix.",
+    "developer_facing_language_example": "The policy mentions Android Advertising ID, but the Data Safety label does not declare Device or other IDs. Please update the label or clarify the policy scope."
+  },
+  "exit_feedback": {
+    "would_recommend_to_team": true,
+    "condition_for_adoption": "The workbench must preserve human review and avoid presenting code triggers as final findings.",
+    "free_text": "PRISM is most valuable as a structured explanation layer. I would use it to triage cases and write clearer remediation requests. I would not use it as a standalone compliance decision system."
+  }
+}
+

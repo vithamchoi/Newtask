@@ -1,0 +1,43 @@
+% =========================================================================
+% Colourful TikZ / pgfplots figures for the Necessity Gap manuscript.
+% Required preamble in main.tex:
+%   \usepackage{tikz}
+%   \usepackage{pgfplots}
+%   \pgfplotsset{compat=1.18}
+%   \usetikzlibrary{arrows.meta, positioning, fit, calc,
+%                   shapes.geometric, shadows.blur, decorations.pathmorphing,
+%                   backgrounds, patterns}
+% =========================================================================
+
+% -----------------------------------------------------------------
+% Shared colour palette (vibrant but legible in print).
+% -----------------------------------------------------------------
+\definecolor{ngBlue}{RGB}{31,119,180}
+\definecolor{ngOrange}{RGB}{255,127,14}
+\definecolor{ngGreen}{RGB}{44,160,44}
+\definecolor{ngRed}{RGB}{214,39,40}
+\definecolor{ngPurple}{RGB}{148,103,189}
+\definecolor{ngBrown}{RGB}{140,86,75}
+\definecolor{ngTeal}{RGB}{23,190,207}
+\definecolor{ngPink}{RGB}{227,119,194}
+\definecolor{ngYellow}{RGB}{255,193,7}
+\definecolor{ngSlate}{RGB}{73,80,87}
+
+\definecolor{tierA}{RGB}{52,152,219}    % category recognition
+\definecolor{tierB}{RGB}{155,89,182}    % boundary comprehension
+\definecolor{tierC}{RGB}{231,76,60}     % contextual necessity
+\definecolor{tierBg}{RGB}{236,240,241}
+
+% Petal colours for the WWWCF rubric (referenced both in figures and
+% in the colourful mockup).
+\definecolor{petWhy}{RGB}{231,76,60}
+\definecolor{petWhere}{RGB}{52,152,219}
+\definecolor{petWho}{RGB}{155,89,182}
+\definecolor{petCtrl}{RGB}{46,204,113}
+\definecolor{petFlag}{RGB}{241,196,15}
+
+% =========================================================================
+% Figure 1: The Necessity Gap — three-tier conceptual architecture
+% =========================================================================
+% Figure blocks now inlined into main.tex; preamble (colours) left here
+% so the legacy \input{figures.tex} target is preserved but empty.

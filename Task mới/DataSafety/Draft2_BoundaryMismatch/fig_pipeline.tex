@@ -1,0 +1,70 @@
+% -----------------------------------------------------------------
+% Figure 1: The disclosure pipeline (Practice -> Boundary set -> Flag -> User).
+% Compact layout, fits \linewidth without aggressive resize.
+% -----------------------------------------------------------------
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily,
+  box/.style={draw=bmInk!80,rounded corners=3pt,minimum width=23mm,
+              minimum height=12mm,align=center,font=\footnotesize,
+              blur shadow={shadow blur steps=4,shadow yshift=-0.4mm}},
+  practice/.style={box,top color=bmBlue!12,bottom color=bmBlue!30,draw=bmBlue,
+                   minimum width=26mm,minimum height=14mm},
+  bgroup/.style={draw=bmAmber!75,thick,rounded corners=4pt,
+                 top color=bmAmber!8,bottom color=bmAmber!22,
+                 minimum width=44mm,minimum height=36mm,align=center,
+                 font=\footnotesize\itshape\bfseries,inner sep=0pt},
+  bcase/.style={draw=bmAmber!80,rounded corners=2pt,fill=white,
+                font=\scriptsize,minimum width=18mm,minimum height=4.5mm,
+                inner sep=1.5pt,align=center},
+  policy/.style={box,top color=tierPolicy!10,bottom color=tierPolicy!32,
+                 draw=tierPolicy,minimum width=26mm,minimum height=12mm},
+  user/.style={box,top color=tierUser!10,bottom color=tierUser!32,
+               draw=tierUser,minimum width=26mm,minimum height=12mm},
+  mm/.style={draw=bmRed,thick,dashed,rounded corners=3pt,fill=bmRed!8,
+             font=\footnotesize\itshape,align=center,
+             minimum width=30mm,minimum height=14mm},
+  arr/.style={-{Latex[length=2.4mm]},line width=0.7pt,draw=bmInk!85}]
+
+% Practice (left)
+\node[practice] (pi) at (0,0) {Practice $\pi$\\ \scriptsize what the app does};
+
+% Boundary group (center) with internal cases
+\node[bgroup,right=10mm of pi] (B) {};
+\node[font=\scriptsize\bfseries,anchor=north] at ($(B.north)+(0,-1.5mm)$)
+   {Boundary cases $\mathcal{B}$};
+\foreach \i/\name/\x/\y in {%
+  1/{$b_1$ on-device}/-10mm/4mm,
+  2/{$b_2$ E2E}/10mm/4mm,
+  3/{$b_3$ ephemeral}/-10mm/-2mm,
+  4/{$b_4$ redirect}/10mm/-2mm,
+  5/{$b_5$ user-init.}/-10mm/-8mm,
+  6/{$b_6$ consent}/10mm/-8mm,
+  7/{$b_7$ svc.\,prov.}/-10mm/-14mm}
+   \node[bcase] at ($(B.center)+(\x,\y)$) {\name};
+\node[bcase,minimum width=18mm] at ($(B.center)+(10mm,-14mm)$) {$b_8$ legal};
+\node[bcase,minimum width=42mm] at ($(B.center)+(0mm,-21mm)$) {$b_9$ anonymised};
+
+% Right column: two flags
+\node[policy,right=10mm of B,yshift=8mm]  (flag) {Declared flag\\ \scriptsize \textsc{policy} $b_i$};
+\node[user,right=10mm of B,yshift=-8mm]   (uflag) {User's flag\\ \scriptsize \textsc{user} $\tilde b_i$};
+
+% Mismatch
+\node[mm,right=8mm of flag,yshift=-8mm] (mmnode) {Boundary-case\\ mismatch};
+
+% Arrows
+\draw[arr] (pi.east) -- (B.west);
+\draw[arr,draw=tierPolicy!90,thick] (B.east |- flag) -- (flag.west);
+\draw[arr,draw=tierUser!90,thick]   (B.east |- uflag) -- (uflag.west);
+\draw[arr,draw=bmRed!90,dashed] (flag.east) -- (mmnode.west |- flag);
+\draw[arr,draw=bmRed!90,dashed] (uflag.east) -- (mmnode.west |- uflag);
+\end{tikzpicture}
+\caption{The disclosure pipeline. Each data-handling practice $\pi$
+passes through the set $\mathcal{B}$ of nine policy boundary cases.
+The platform applies the predicates $b_i$ to produce the declared
+flag; the user applies their own predicates $\tilde b_i$ to form a
+private user-side flag. When the two disagree, the result is a
+\emph{boundary-case mismatch}: a flag that is accurate under policy
+and wrong under the user's own theory of what the words mean.}
+\label{fig:pipeline}
+\end{figure}

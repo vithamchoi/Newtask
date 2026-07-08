@@ -1,0 +1,86 @@
+\begin{figure*}[!tbp]
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[
+    font=\sffamily,
+    pane/.style={draw=ngSlate, fill=tierBg, rounded corners=4pt,
+                 minimum width=78mm, minimum height=90mm,
+                 align=left, font=\footnotesize, inner sep=4pt,
+                 blur shadow={shadow blur steps=5}},
+    head/.style={font=\bfseries\small, anchor=north west},
+    chip/.style={draw=ngSlate!60, rounded corners=2pt,
+                 fill=white, inner sep=2pt, font=\scriptsize\sffamily}
+]
+% LEFT --- current Data Safety label
+\node[pane, top color=ngBlue!4, bottom color=ngBlue!16] (L) at (-4.5,0) {};
+\node[head] at (L.north west) {\hspace*{2mm}\textcolor{ngBlue!70!black}{Today: Google Play Data Safety}};
+
+\node[anchor=north west, font=\scriptsize,
+      text width=72mm] at ($(L.north west)+(2mm,-6mm)$) {%
+  \textbf{Data collected}\\
+  $\bullet$ Location (Analytics)\\
+  $\bullet$ Personal info (App functionality)\\
+  $\bullet$ Photos and videos (App functionality)\\
+  $\bullet$ App activity (Analytics)\\[3pt]
+  \textbf{Data shared}\\
+  $\bullet$ Device or other IDs (Advertising)\\
+  $\bullet$ App activity (Analytics)\\[3pt]
+  \textbf{Security practices}\\
+  $\bullet$ Data is encrypted in transit\\
+  $\bullet$ You can request data deletion\\[6pt]
+  \textcolor{ngRed!80!black}{\itshape What the user is left to infer:}\\
+  \textcolor{ngRed!80!black}{Why? \quad Where to? \quad Who exactly?}\\
+  \textcolor{ngRed!80!black}{What can I refuse?}};
+
+% RIGHT --- contextual label sketch
+\node[pane, top color=ngGreen!4, bottom color=ngGreen!18] (R) at (4.5,0) {};
+\node[head] at (R.north west) {\hspace*{2mm}\textcolor{ngGreen!50!black}{Proposed: contextual Data Safety}};
+
+\node[anchor=north west, font=\scriptsize,
+      text width=72mm] at ($(R.north west)+(2mm,-6mm)$) {%
+  \textbf{Location} \hfill\textcolor{petFlag!60!black}{\scriptsize used by 3 features}\\
+  \emph{Why}: Route planning $\to$ if denied,\\\hspace*{8mm}only address search works.\\
+  \emph{Where}: Sent off-device, processed by Google Maps Platform.\\
+  \emph{Who}: Map provider + analytics provider.\\
+  \emph{Control}: Refuse precise location (use approx.); revoke any time.\\
+  \emph{Flag}: \textcolor{petFlag!60!black}{None}.\\[4pt]
+  \textbf{Photos and videos}\\
+  \emph{Why}: Profile picture + post upload.\\
+  \emph{Where}: Uploaded to developer servers.\\
+  \emph{Who}: First party only.\\
+  \emph{Control}: You select files; full app remains usable if denied.\\
+  \emph{Flag}: \textcolor{petFlag!60!black}{None}.\\[4pt]
+  \textbf{App activity (shared)}\\
+  \emph{Why}: Behavioural analytics.\\
+  \emph{Where}: Sent to 4 third-party analytics SDKs.\\
+  \emph{Who}: \textcolor{ngRed!80!black}{Mixpanel, Branch, Adjust, Firebase}.\\
+  \emph{Control}: Opt out in Settings $\to$ Privacy.\\
+  \emph{Flag}: \textcolor{ngRed!80!black}{App info/perf.\ rated ambiguous by 54\% of users.}};
+
+% Connector / annotation, placed with more vertical clearance below the
+% two pane shadows so the converging arrows have room to breathe.
+\node[draw=ngOrange, top color=ngOrange!8, bottom color=ngOrange!28,
+      rounded corners=4pt, font=\scriptsize, align=center, minimum width=58mm,
+      minimum height=8mm] at (0,-6.2) (caption-annot)
+  {\textbf{WWWCF} addresses the gap between\\category $\times$ purpose and contextual necessity.};
+
+% Smooth Bezier connectors from each pane down to the annotation, with
+% horizontal offsets at the start so they leave the panes cleanly rather
+% than touching the pane outline.
+\draw[-{Latex[length=2.5mm]}, line width=0.7pt, draw=ngOrange!70]
+   ($(L.south) + (1.5,0.0)$)
+   .. controls +(0,-1.2) and +(-1.4,0.6) ..
+   (caption-annot.north west);
+\draw[-{Latex[length=2.5mm]}, line width=0.7pt, draw=ngOrange!70]
+   ($(R.south) + (-1.5,0.0)$)
+   .. controls +(0,-1.2) and +(1.4,0.6) ..
+   (caption-annot.north east);
+
+\end{tikzpicture}%
+}
+\caption{Side-by-side sketch: today's Google Play Data Safety section
+versus a contextual label implementing the WWWCF rubric. The sketch is
+illustrative; the empirical evaluation of a contextual label remains
+future work.}
+\label{fig:mockup-redesign}
+\end{figure*}

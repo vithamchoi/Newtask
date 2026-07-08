@@ -1,0 +1,34 @@
+\begin{figure}[!htbp]
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[font=\sffamily]
+% Centre hub
+\node[draw=ngSlate, top color=ngSlate!8, bottom color=ngSlate!28,
+      circle, minimum size=22mm, font=\bfseries\small, align=center,
+      blur shadow={shadow blur steps=5}] (hub) at (0,0)
+      {Necessity\\Gap\\rubric};
+
+\foreach \angle/\name/\colour/\desc/\rq in {
+   90/Why/petWhy/{Link practice to feature;\\state consequence if denied}/{RQ3, RQ5},
+   18/Where/petWhere/{Show processing boundary;\\does data leave the device?}/{RQ2},
+   -54/Who/petWho/{Name recipient category\\in plain user terms}/{RQ2, RQ4},
+   -126/Control/petCtrl/{Tell user what they can refuse\\and how to change scope}/{RQ2, RQ4},
+   162/Flag/petFlag/{Mark categories empirically\\ambiguous; gloss them}/{RQ1}}
+{
+  \node[draw=\colour, top color=\colour!10, bottom color=\colour!35,
+        rounded corners=3pt, minimum width=44mm, minimum height=15mm,
+        align=center, font=\footnotesize,
+        blur shadow={shadow blur steps=4}]
+        (n\name) at (\angle:48mm)
+        {\textbf{\name}\\\scriptsize \desc\\\scriptsize[\rq]};
+  \draw[-{Latex[length=2.5mm]}, line width=0.8pt, draw=\colour!75] (hub) -- (n\name);
+}
+
+\end{tikzpicture}%
+}
+\caption{Why--Where--Who--Control--Flag (\emph{WWWCF}) rubric. Each
+petal targets one of the empirical points at which the Necessity Gap is
+largest in our data; together they form a five-question template for
+contextual app-store disclosures.}
+\label{fig:wwwcf-radial}
+\end{figure}

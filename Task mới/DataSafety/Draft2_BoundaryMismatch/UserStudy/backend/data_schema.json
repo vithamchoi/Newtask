@@ -1,0 +1,21 @@
+{
+  "_doc": "Per-row schema written to the Google Sheet by google_apps_script.gs.",
+  "columns": [
+    { "name": "ts_iso",          "type": "string",  "doc": "Server-side timestamp of the submission, ISO-8601." },
+    { "name": "pid",             "type": "string",  "doc": "Prolific participant ID (or other recruitment identifier)." },
+    { "name": "study_id",        "type": "string",  "doc": "STUDY_ID constant from study.js. Useful when running multiple waves." },
+    { "name": "study_ver",       "type": "string",  "doc": "STUDY_VER constant from study.js. Bumped per prototype change." },
+    { "name": "condition",       "type": "string",  "enum": ["current", "ble"], "doc": "Assigned renderer condition." },
+    { "name": "last_phase",      "type": "string",  "doc": "Last phase the participant reached. 'debrief' = full completion." },
+    { "name": "started_at",      "type": "string",  "doc": "ISO-8601 of phase=landing acknowledgement." },
+    { "name": "submitted_at",    "type": "string",  "doc": "ISO-8601 of phase=submit." },
+    { "name": "completion_code", "type": "string",  "doc": "Code shown to the participant on debrief; pasted into the platform." },
+    { "name": "attention_pass",  "type": "string",  "enum": ["pass", "fail"], "doc": "Result of the embedded attention check." },
+    { "name": "apps_assigned",   "type": "string",  "doc": "Comma-separated list of app IDs the participant saw, in order." },
+    { "name": "per_app_json",    "type": "string",  "doc": "JSON object keyed by app_id with mcq, L3_2, L3_3, L3_4, T3_5, condition, idx." },
+    { "name": "posttask_json",   "type": "string",  "doc": "JSON object with Q5_1, L5_2, T5_3, Q6_1, T6_2, age, gender, edu, it_bg." },
+    { "name": "pretask_json",    "type": "string",  "doc": "JSON object with q21, q22, q23." },
+    { "name": "events_json",     "type": "string",  "doc": "JSON array of interaction events (view_app, ble_toggle_open/close, etc.) with timestamps." },
+    { "name": "user_agent",      "type": "string",  "doc": "Raw User-Agent at submission." }
+  ]
+}

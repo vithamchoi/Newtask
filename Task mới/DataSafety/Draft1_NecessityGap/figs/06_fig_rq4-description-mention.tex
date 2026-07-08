@@ -1,0 +1,29 @@
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    ybar,
+    width=0.88\linewidth, height=0.46\linewidth,
+    ymin=0, ymax=65,
+    ylabel={Agreement with necessity (\%)},
+    symbolic x coords={CYes,CNo,SYes,SNo},
+    xtick=data,
+    xticklabels={Collection\\mention,Collection\\no mention,Sharing\\mention,Sharing\\no mention},
+    tick label style={align=center,font=\footnotesize},
+    nodes near coords, point meta=y,
+    nodes near coords={\pgfmathprintnumber[fixed,precision=1]{\pgfplotspointmeta}},
+    every node near coord/.append style={font=\scriptsize,color=ngSlate},
+    bar width=30pt,
+    axis line style={ngSlate}, tick style={ngSlate},
+    grid=major, grid style={ngSlate!18}
+]
+\addplot+[fill=ngBlue!70, draw=ngBlue] coordinates {
+    (CYes,47.2)(CNo,42.5)(SYes,48.0)(SNo,53.5)
+};
+\end{axis}
+\end{tikzpicture}
+\caption{Agreement with necessity by app-description mention. For sharing, the
+mention group is \emph{less} accepting than the no-mention group: notice does
+not equal justification.}
+\label{fig:rq4-description-mention}
+\end{figure}

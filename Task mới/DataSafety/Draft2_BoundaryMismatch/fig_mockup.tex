@@ -1,0 +1,73 @@
+% Figure: side-by-side mock-up of existing vs BLE-enhanced Data Safety.
+% Pure TikZ nodes — no inline \tikz inside text. Two side-by-side
+% phone-style panels with consistent widths and no overlap.
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[font=\sffamily,
+  panel/.style={draw=bmInk!50,rounded corners=4pt,fill=white,
+                minimum width=66mm,minimum height=98mm,anchor=north,
+                blur shadow={shadow blur steps=4,shadow yshift=-0.4mm}},
+  header/.style={font=\footnotesize\bfseries,text=white,
+                 rounded corners=2pt,inner sep=2.5pt,
+                 minimum width=58mm,anchor=north,align=center},
+  rownorm/.style={draw=bmInk!25,rounded corners=2pt,fill=bmCream!60,
+              font=\scriptsize,minimum width=58mm,minimum height=6mm,
+              anchor=north,align=left,inner sep=1.8mm},
+  rowflag/.style={draw=bmRed!50,rounded corners=2pt,fill=bmRed!10,
+              font=\scriptsize,minimum width=58mm,minimum height=6mm,
+              anchor=north,align=left,inner sep=1.8mm},
+  drawer/.style={draw=bmAmber!85,thick,rounded corners=2pt,fill=bmAmber!10,
+              font=\scriptsize,minimum width=58mm,minimum height=15mm,
+              anchor=north,align=left,inner sep=1.8mm},
+  pill/.style={rounded corners=1.5pt,inner sep=1.5pt,
+               font=\tiny\bfseries,text=white,anchor=east},
+  btn/.style={draw=bmInk!60,rounded corners=2pt,fill=white,
+              font=\tiny\bfseries,inner sep=2pt}]
+
+% ===== LEFT PANEL: Current view =====
+\node[panel,anchor=north west] (L) at (0,0) {};
+\node[header,fill=tierLabel!85!black] at ($(L.north)+(0,-3mm)$)
+   {Current Data Safety view};
+\node[rownorm] (l1) at ($(L.north)+(0,-13mm)$) {Personal info $\,\cdot\,$ \emph{collected}};
+\node[rownorm] (l2) at ($(l1.south)+(0,-1.2mm)$) {Location $\,\cdot\,$ \emph{collected}};
+\node[rowflag] (l3) at ($(l2.south)+(0,-1.2mm)$) {Device IDs $\,\cdot\,$ \emph{shared}};
+\node[rownorm] (l4) at ($(l3.south)+(0,-1.2mm)$) {Photos \& videos $\,\cdot\,$ \emph{collected}};
+\node[rowflag] (l5) at ($(l4.south)+(0,-1.2mm)$) {App activity $\,\cdot\,$ \emph{shared}};
+\node[rownorm] (l6) at ($(l5.south)+(0,-1.2mm)$) {Contacts $\,\cdot\,$ \emph{collected}};
+\node[font=\tiny\itshape,align=center,anchor=north,text=bmInk!70,
+      text width=58mm,below=14mm of l6]
+   {Binary flags. No rule clause.\\ No community signal.};
+
+% ===== RIGHT PANEL: BLE-enhanced =====
+\node[panel,anchor=north west] (R) at ($(L.north east)+(8mm,0)$) {};
+\node[header,fill=tierUser!85!black] at ($(R.north)+(0,-3mm)$)
+   {With Boundary-Layer Explainers};
+\node[rownorm] (r1) at ($(R.north)+(0,-13mm)$) {Personal info $\,\cdot\,$ \emph{collected}};
+\node[rownorm] (r2) at ($(r1.south)+(0,-1.2mm)$) {Location $\,\cdot\,$ \emph{collected}};
+\node[rowflag] (r3) at ($(r2.south)+(0,-1.2mm)$) {Device IDs $\,\cdot\,$ \emph{shared}};
+\node[drawer]  (d3) at ($(r3.south)+(0,-1.2mm)$)
+   {\textbf{Boundary:} $b_7$ Service provider \\
+    Community: 51.7\% accept $\cdot$ 19.5\% unsure\\[2pt]};
+% pill + button overlaid on drawer
+\node[pill,fill=bmTeal!85!black] at ($(d3.north east)+(-1.8mm,-2mm)$) {Recipient};
+\node[btn,anchor=south west] at ($(d3.south west)+(1.8mm,1.8mm)$) {[\,Show counter-factual\,]};
+
+\node[rowflag] (r5) at ($(d3.south)+(0,-1.2mm)$) {App activity $\,\cdot\,$ \emph{shared}};
+\node[drawer]  (d5) at ($(r5.south)+(0,-1.2mm)$)
+   {\textbf{Boundary:} $b_9$ Anonymised \\
+    Community: 55.2\% accept $\cdot$ 21.8\% unsure\\[2pt]};
+\node[pill,fill=bmPurple!85] at ($(d5.north east)+(-1.8mm,-2mm)$) {Reversibility};
+\node[btn,anchor=south west] at ($(d5.south west)+(1.8mm,1.8mm)$) {[\,Show counter-factual\,]};
+
+\node[font=\tiny\itshape,align=center,anchor=north,text=bmInk!70,
+      text width=58mm,below=4mm of d5]
+   {Same flags. Rule + community signal added per contested cell.};
+\end{tikzpicture}
+\caption{A worked side-by-side mock-up of the Data Safety section for
+a fictional social app (\textsc{SocialNova}) under the current
+renderer (left) and a BLE-enhanced renderer (right). The right panel
+adds, per contested cell, the boundary case the policy applied, the
+community-accepted rate, and a one-tap counter-factual toggle. The
+unflagged categories remain collapsed to preserve scannability.}
+\label{fig:mockup}
+\end{figure}

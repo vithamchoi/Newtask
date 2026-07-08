@@ -1,0 +1,101 @@
+[
+  {
+    "app_id": "S1-001",
+    "app_name": "ReadAloud Books",
+    "category": "Books & Reference",
+    "stratum": "S1",
+    "play_url": "https://play.google.com/store/apps/details?id=example.readaloud",
+    "policy_url": "https://example.com/readaloud/privacy",
+    "captured_at": "2025-09-15",
+    "data_safety": {
+      "data_shared": [
+        {"category": "Device or other IDs",
+         "sub_info": [{"data_type":"Device or other IDs","purpose":"Analytics","optional":false}]}],
+      "data_collected": [
+        {"category": "App info and performance",
+         "sub_info": [{"data_type":"Crash logs","purpose":"Analytics","optional":false},
+                      {"data_type":"Diagnostics","purpose":"Analytics","optional":false}]},
+        {"category": "Personal info",
+         "sub_info": [{"data_type":"Email address","purpose":"Account management","optional":false}]}],
+      "security_practices": [
+        {"category":"Data is encrypted in transit","sub_info":[]}]
+    },
+    "policy_text": "We collect your email address when you create a ReadAloud account, used solely for account login and password recovery. We collect anonymous crash logs and diagnostic data through Google Firebase Crashlytics. Your device advertising identifier is shared with Google Analytics for app-usage analytics only. We do not sell personal data and we do not share any data with third parties for marketing.",
+    "section_share": "Your device advertising identifier is shared with Google Analytics for app-usage analytics only. We do not sell personal data and we do not share any data with third parties for marketing.",
+    "section_collect": "We collect your email address when you create a ReadAloud account, used solely for account login and password recovery. We collect anonymous crash logs and diagnostic data through Google Firebase Crashlytics.",
+    "evidence_share": [
+      {"axis":"share_corr","match":"device advertising identifier is shared with Google Analytics"}],
+    "evidence_collect": [
+      {"axis":"coll_corr","match":"We collect your email address when you create a ReadAloud account"},
+      {"axis":"coll_corr","match":"crash logs and diagnostic data through Google Firebase Crashlytics"}],
+    "ai_suggestion": {
+      "share_corr": {"label":"Correct","uncertainty":0.18},
+      "share_comp": {"label":"Complete","uncertainty":0.22},
+      "coll_corr":  {"label":"Correct","uncertainty":0.15},
+      "coll_comp":  {"label":"Complete","uncertainty":0.20}
+    },
+    "gold": {"share_corr":"Supported","share_comp":"Supported","coll_corr":"Supported","coll_comp":"Supported"},
+    "kappa_pre_consensus": 0.71
+  },
+  {
+    "app_id": "S2-001",
+    "app_name": "PocketBeauty Mirror",
+    "category": "Beauty",
+    "stratum": "S2",
+    "play_url": "https://play.google.com/store/apps/details?id=example.pocketbeauty",
+    "policy_url": "https://example.com/pocketbeauty/privacy",
+    "captured_at": "2025-09-15",
+    "data_safety": {
+      "data_shared": [],
+      "data_collected": [
+        {"category":"Photos and videos","sub_info":[{"data_type":"Photos","purpose":"App functionality","optional":false}]}],
+      "security_practices": [{"category":"Data is encrypted in transit","sub_info":[]}]
+    },
+    "policy_text": "PocketBeauty Mirror may share usage information with our analytics service providers, including but not limited to AppsFlyer and similar third parties, for service-improvement purposes. We may also use advertising partners. We do not knowingly collect personal data from children under 13. We use cookies and similar technologies. Your photos are processed on-device.",
+    "section_share": "PocketBeauty Mirror may share usage information with our analytics service providers, including but not limited to AppsFlyer and similar third parties, for service-improvement purposes. We may also use advertising partners.",
+    "section_collect": "We do not knowingly collect personal data from children under 13. We use cookies and similar technologies. Your photos are processed on-device.",
+    "evidence_share": [
+      {"axis":"share_corr","match":"may share usage information with our analytics service providers, including but not limited to AppsFlyer"},
+      {"axis":"share_comp","match":"We may also use advertising partners"}],
+    "evidence_collect": [
+      {"axis":"coll_comp","match":"We use cookies and similar technologies"}],
+    "ai_suggestion": {
+      "share_corr": {"label":"Incorrect","uncertainty":0.55},
+      "share_comp": {"label":"Incomplete","uncertainty":0.60},
+      "coll_corr":  {"label":"Correct","uncertainty":0.50},
+      "coll_comp":  {"label":"Incomplete","uncertainty":0.62}
+    },
+    "gold": {"share_corr":"Contradicted","share_comp":"Omitted","coll_corr":"Insufficient","coll_comp":"Omitted"},
+    "kappa_pre_consensus": -0.05
+  },
+  {
+    "app_id": "S3-001",
+    "app_name": "QuickFlash Light",
+    "category": "Tools",
+    "stratum": "S3",
+    "play_url": "https://play.google.com/store/apps/details?id=example.quickflash",
+    "policy_url": "https://example.com/quickflash/privacy",
+    "captured_at": "2025-09-15",
+    "data_safety": {
+      "data_shared": [],
+      "data_collected": [],
+      "security_practices": [{"category":"Data is encrypted in transit","sub_info":[]}]
+    },
+    "policy_text": "QuickFlash uses Google AdMob to display interstitial advertisements. AdMob may collect the Android Advertising ID, approximate location derived from IP, device information, and ad interaction events. We also use Firebase Analytics for app-event tracking. By using QuickFlash you consent to these third-party processing activities. We retain analytics data for 24 months.",
+    "section_share": "QuickFlash uses Google AdMob to display interstitial advertisements. AdMob may collect the Android Advertising ID, approximate location derived from IP, device information, and ad interaction events.",
+    "section_collect": "We also use Firebase Analytics for app-event tracking. We retain analytics data for 24 months.",
+    "evidence_share": [
+      {"axis":"share_corr","match":"QuickFlash uses Google AdMob to display interstitial advertisements"},
+      {"axis":"share_corr","match":"AdMob may collect the Android Advertising ID"}],
+    "evidence_collect": [
+      {"axis":"coll_corr","match":"We also use Firebase Analytics for app-event tracking"}],
+    "ai_suggestion": {
+      "share_corr": {"label":"Incorrect","uncertainty":0.10},
+      "share_comp": {"label":"Incomplete","uncertainty":0.12},
+      "coll_corr":  {"label":"Incorrect","uncertainty":0.10},
+      "coll_comp":  {"label":"Incomplete","uncertainty":0.10}
+    },
+    "gold": {"share_corr":"Contradicted","share_comp":"Omitted","coll_corr":"Contradicted","coll_comp":"Omitted"},
+    "kappa_pre_consensus": 0.18
+  }
+]

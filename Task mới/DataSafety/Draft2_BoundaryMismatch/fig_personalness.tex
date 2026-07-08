@@ -1,0 +1,76 @@
+% Figure: Category personalness rates (Part I)
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    xbar stacked,
+    width=0.82\linewidth, height=0.50\linewidth,
+    xmin=0,xmax=100,
+    xlabel={\footnotesize Response distribution (\%)},
+    symbolic y coords={
+        Calendar, Audio files, App info \& perf., App activity,
+        Files \& docs, Health \& fitness, Web browsing, Device or other IDs,
+        Photos \& videos, Contacts, Location, Financial info, Messages, Personal info},
+    ytick=data,
+    xtick={0,20,40,60,80,100},
+    yticklabel style={font=\footnotesize},
+    xticklabel style={font=\footnotesize},
+    legend style={at={(0.5,-0.22)},anchor=north,legend columns=3,draw=none,
+                  font=\footnotesize},
+    bar width=8pt,
+    enlarge y limits=0.04,
+    grid=major,grid style={bmInk!18},
+    nodes near coords={\pgfmathprintnumber[fixed,precision=1]{\pgfplotspointmeta}},
+    nodes near coords style={font=\tiny,color=white},
+    point meta=explicit symbolic
+]
+\addplot+[fill=bmGreen!75,draw=bmGreen]
+  coordinates {
+    (78.7,Calendar) [78.7]
+    (74.6,Audio files) [74.6]
+    (74.5,App info \& perf.) [74.5]
+    (72.7,App activity) [72.7]
+    (76.1,Files \& docs) [76.1]
+    (78.0,Health \& fitness) [78.0]
+    (80.3,Web browsing) [80.3]
+    (80.3,Device or other IDs) [80.3]
+    (81.1,Photos \& videos) [81.1]
+    (83.3,Contacts) [83.3]
+    (85.9,Location) [85.9]
+    (87.1,Financial info) [87.1]
+    (90.3,Messages) [90.3]
+    (93.2,Personal info) [93.2]
+  };
+\addplot+[fill=bmAmber!85,draw=bmAmber]
+  coordinates {
+    (21.3,Calendar) [21.3]
+    (25.4,Audio files) [25.4]
+    (25.5,App info \& perf.) [25.5]
+    (27.3,App activity) [27.3]
+    (23.9,Files \& docs) [23.9]
+    (22.0,Health \& fitness) [22.0]
+    (19.7,Web browsing) [19.7]
+    (19.7,Device or other IDs) [19.7]
+    (18.9,Photos \& videos) [18.9]
+    (16.7,Contacts) [16.7]
+    (14.1,Location) [14.1]
+    (12.9,Financial info) [12.9]
+    (9.7,Messages) [9.7]
+    (6.8,Personal info) [6.8]
+  };
+\addplot+[fill=bmRed!75,draw=bmRed]
+  coordinates {(0,Calendar)(0,Audio files)(0,App info \& perf.)
+    (0,App activity)(0,Files \& docs)(0,Health \& fitness)
+    (0,Web browsing)(0,Device or other IDs)(0,Photos \& videos)
+    (0,Contacts)(0,Location)(0,Financial info)(0,Messages)
+    (0,Personal info)};
+\legend{Yes (personal), Maybe, No}
+\end{axis}
+\end{tikzpicture}
+\caption{Category personalness from Part~I ($N{=}87$). No participant
+selected ``No'' for any of the 14 Data~Safety categories; uncertainty
+(yellow) is concentrated in app-introspection categories
+(\textsc{calendar}, \textsc{audio files}, \textsc{app info \& performance},
+\textsc{app activity}) rather than in core privacy categories.}
+\label{fig:personalness}
+\end{figure}

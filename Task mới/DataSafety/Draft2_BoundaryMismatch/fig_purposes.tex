@@ -1,0 +1,47 @@
+% Figure: Purpose acceptance (Part II)
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    xbar stacked,
+    width=0.82\linewidth, height=0.38\linewidth,
+    xmin=0,xmax=100,
+    xlabel={\footnotesize Response distribution (\%)},
+    symbolic y coords={
+        App functionality, Personalization, Account management,
+        Advertising/marketing, Developer communications,
+        Fraud/security/compliance, Analytics},
+    ytick=data,
+    xtick={0,20,40,60,80,100},
+    yticklabel style={font=\footnotesize},
+    xticklabel style={font=\footnotesize},
+    legend style={at={(0.5,-0.22)},anchor=north,legend columns=3,draw=none,
+                  font=\footnotesize},
+    bar width=10pt,
+    enlarge y limits=0.08,
+    grid=major,grid style={bmInk!18}]
+\addplot+[fill=bmTeal!75,draw=bmTeal]
+  coordinates {(81.4,App functionality)(82.2,Personalization)
+    (83.6,Account management)(84.6,Advertising/marketing)
+    (86.6,Developer communications)(88.0,Fraud/security/compliance)
+    (88.4,Analytics)};
+\addplot+[fill=bmAmber!85,draw=bmAmber]
+  coordinates {(18.6,App functionality)(17.8,Personalization)
+    (16.4,Account management)(15.4,Advertising/marketing)
+    (13.4,Developer communications)(12.0,Fraud/security/compliance)
+    (11.6,Analytics)};
+\addplot+[fill=bmRed!75,draw=bmRed]
+  coordinates {(0,App functionality)(0,Personalization)
+    (0,Account management)(0,Advertising/marketing)
+    (0,Developer communications)(0,Fraud/security/compliance)
+    (0,Analytics)};
+\legend{Essential, Maybe, Not essential}
+\end{axis}
+\end{tikzpicture}
+\caption{Purpose acceptance from Part~II ($N{=}87$). All seven Data~Safety
+purposes are accepted by $\geq 81\%$ of participants as a legitimate
+ground for collection or sharing. The acceptance is at the abstract
+purpose level, however; app-instance necessity ratings are markedly
+lower (Sec.~\ref{sec:results-app}).}
+\label{fig:purposes}
+\end{figure}

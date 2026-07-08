@@ -1,0 +1,75 @@
+\begin{figure}[!htbp]
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[
+    font=\sffamily\footnotesize, >=Latex,
+    src/.style={draw=ngBlue, top color=ngBlue!8, bottom color=ngBlue!28,
+                rounded corners=3pt, align=center, minimum width=28mm,
+                minimum height=11mm},
+    proc/.style={draw=ngPurple, top color=ngPurple!8, bottom color=ngPurple!28,
+                rounded corners=3pt, align=center, minimum width=28mm,
+                minimum height=11mm},
+    result/.style={draw=ngGreen, top color=ngGreen!8, bottom color=ngGreen!30,
+                rounded corners=3pt, align=center, minimum width=28mm,
+                minimum height=11mm},
+    impl/.style={draw=ngRed, top color=ngRed!10, bottom color=ngRed!30,
+                rounded corners=3pt, align=center, minimum width=36mm,
+                minimum height=22mm, font=\footnotesize},
+    arr/.style={-{Latex[length=2.5mm]}, line width=0.7pt, draw=ngSlate}
+]
+% Left column: three raw data sources
+\node[src] (s1) at (0,4) {Survey\\(\textit{N}=87, 33 cols)};
+\node[src] (s2) at (0,2) {Task ratings\\(\textit{N}=87, 615 cols)};
+\node[src] (s3) at (0,0) {App aggregates\\(\textit{N}=310)};
+
+% Second column: validation and linkage processes
+\node[proc] (p1) at (3.8,3) {Validation\\artefact removal};
+\node[proc] (p2) at (3.8,1) {Linkage by email\\\& anonymisation};
+
+% Third column: derived-variable hub
+\node[proc] (p3) at (7.6,2) {Derived variables\\(personal, necessity,\\mention)};
+
+% Fourth column: three RQ results
+\node[result] (r1) at (11.4,3.5) {RQ1\,/\,RQ2\\mental models};
+\node[result] (r2) at (11.4,2.0) {RQ3\,/\,RQ4\\task necessity};
+\node[result] (r3) at (11.4,0.5) {RQ5\\survey$\leftrightarrow$task link};
+
+% Fifth column: implications, placed to the RIGHT of the result column
+% so each result connects with a single horizontal-ish arrow and the
+% arrows do not cross one another.
+\node[impl] (i1) at (15.6,2.0)
+    {\textbf{Necessity Gap}\\\textbf{design implications}\\(WWWCF)};
+
+% Source -> processing arrows.
+\draw[arr] (s1) -- (p1);
+\draw[arr] (s2) -- (p1);
+\draw[arr] (s2) -- (p2);
+\draw[arr] (s3) -- (p2);
+
+% Processing -> derived-variable hub.
+\draw[arr] (p1) -- (p3);
+\draw[arr] (p2) -- (p3);
+
+% Hub -> three RQ results.
+\draw[arr] (p3) -- (r1);
+\draw[arr] (p3) -- (r2);
+\draw[arr] (p3) -- (r3);
+
+% Results -> implications.  Three direct arrows from each result box's
+% east edge to the implications box's west edge.  Because i1 sits to the
+% right of the result column at the same vertical centre as r2, the
+% three arrows fan in cleanly without crossing.
+\draw[arr] (r1.east) -- (i1.north west);
+\draw[arr] (r2.east) -- (i1.west);
+\draw[arr] (r3.east) -- (i1.south west);
+
+\end{tikzpicture}%
+}
+\caption{Analysis architecture. Raw survey and task files (left) feed
+the validation and linkage stages, which produce derived variables
+that are evaluated against the five research questions. The three RQ
+findings converge into the Necessity-Gap design implications (right),
+via three direct arrows that fan in from the result column without
+crossing any other box.}
+\label{fig:analysis-architecture}
+\end{figure}

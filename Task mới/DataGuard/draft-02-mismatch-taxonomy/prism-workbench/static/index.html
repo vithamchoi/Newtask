@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>PRISM workbench — Audit task</title>
+<style>
+:root {
+  --navy: #163160; --slate: #465874; --bg: #f7f8fb;
+  --blue: #2763b2; --blueL: #dae8f8;
+  --purple: #844cA2; --purpleL: #e9ddf2;
+  --green: #549c54; --greenL: #e1f3d9;
+  --orange: #e27b20; --orangeL: #fce5cd;
+  --gold: #daa520; --goldL: #fbecc4;
+  --red: #c84040; --redL: #f8d7da;
+  --teal: #268c8c; --tealL: #d3ecec;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--bg);
+  font: 14px/1.45 -apple-system, "Segoe UI", system-ui, sans-serif; color: #222; }
+.topbar { background: var(--navy); color: #fff; padding: 10px 18px;
+  display: flex; justify-content: space-between; align-items: center; }
+.topbar h1 { font-size: 14px; margin: 0; font-weight: 600; }
+.topbar .meta { font-size: 12px; opacity: .85; }
+.progress { background: rgba(255,255,255,.18); border-radius: 4px;
+  height: 6px; width: 220px; overflow: hidden; }
+.progress span { display: block; background: #6fbfff; height: 100%; }
+.tutorial-banner { background: var(--goldL); border-bottom: 1px solid var(--gold);
+  padding: 8px 18px; font-size: 13px; color: #6a4a00; }
+.layout { display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+  padding: 14px; }
+.pane { background: #fff; border: 1px solid #d8dde5; border-radius: 6px;
+  padding: 12px 14px; min-height: 320px; }
+.pane h2 { font-size: 13px; margin: 0 0 8px; color: var(--slate);
+  text-transform: uppercase; letter-spacing: .04em; }
+.ds-row { display: flex; justify-content: space-between; align-items: center;
+  padding: 6px 8px; margin-bottom: 4px; border-radius: 3px;
+  background: var(--blueL); }
+.ds-row .label { font-weight: 600; color: var(--navy); }
+.ds-row .meta { font-size: 11px; color: var(--slate); }
+.policy { font-size: 13px; line-height: 1.6; max-height: 520px; overflow-y: auto;
+  white-space: pre-wrap; padding: 6px 4px; }
+mark.M1 { background: var(--blueL); }
+mark.M2 { background: var(--orangeL); }
+mark.M3 { background: var(--redL); }
+mark.M4 { background: var(--purpleL); }
+mark.M5 { background: var(--greenL); }
+mark.M6 { background: var(--tealL); }
+mark.M7 { background: var(--goldL); }
+
+/* PRISM-only affordances */
+.prism .alert-m4 { background: var(--redL); border-left: 4px solid var(--red);
+  padding: 8px 10px; margin-bottom: 8px; font-size: 13px; color: #6a0000; }
+.prism .d1-panel { border: 1px solid var(--blue); background: var(--blueL);
+  padding: 8px 10px; border-radius: 4px; margin-top: 10px; }
+.prism .d1-panel h3 { font-size: 12px; margin: 0 0 6px; color: var(--navy); }
+.prism .d1-panel ul { margin: 0; padding-left: 18px; font-size: 12px; }
+.prism .d1-panel li { margin-bottom: 2px; }
+.prism .d1-panel .unlinked { color: var(--red); font-weight: 600; }
+.prism .chip { display: inline-block; padding: 1px 8px; border-radius: 10px;
+  font-size: 11px; font-weight: 600; margin-left: 6px; }
+.prism .chip.M5 { background: var(--greenL); color: #2c5d2c; }
+.prism .chip.M7 { background: var(--goldL); color: #6a4a00; }
+.prism .security-box { border: 1px dashed var(--teal); border-radius: 4px;
+  padding: 6px 8px; margin-top: 8px; background: var(--tealL); }
+.prism .security-box legend { color: var(--teal); font-weight: 600; font-size: 12px; }
+
+.verdict-bar { background: #fff; border-top: 1px solid #d8dde5;
+  padding: 12px 16px; }
+.verdict-bar .row { display: flex; gap: 18px; flex-wrap: wrap; margin-bottom: 8px; }
+.verdict-bar fieldset { border: 1px solid #d8dde5; border-radius: 4px;
+  padding: 6px 12px; margin: 0; }
+.verdict-bar legend { font-size: 12px; color: var(--slate); padding: 0 4px; }
+.verdict-bar textarea { width: 100%; min-height: 60px; padding: 6px 8px;
+  border: 1px solid #d8dde5; border-radius: 4px; font: inherit; }
+.verdict-bar button { background: var(--navy); color: #fff; border: 0;
+  border-radius: 4px; padding: 8px 18px; font-weight: 600; cursor: pointer; }
+.verdict-bar button:disabled { background: #aaa; cursor: not-allowed; }
+
+/* PRISM D8: ambiguity badge bar at the very bottom */
+.prism .badge-bar { background: #fff; border-top: 1px solid #d8dde5;
+  padding: 8px 16px; display: flex; gap: 10px; align-items: center;
+  font-size: 12px; }
+.prism .badge-bar .badge { padding: 3px 8px; border-radius: 4px;
+  font-weight: 600; font-size: 11px; }
+.prism .badge-bar .b-M1 { background: var(--redL);    color: #6a0000; }
+.prism .badge-bar .b-M4 { background: var(--purpleL); color: #3d2b50; }
+.prism .badge-bar .b-M5 { background: var(--greenL);  color: #2c5d2c; }
+.prism .badge-bar .b-M6 { background: var(--tealL);   color: #003a3a; }
+.prism .badge-bar .b-M3 { background: var(--redL);    color: #6a0000; }
+.prism .badge-bar .b-notobs { background: #ececec; color: #777; }
+.prism .badge-bar .hint { font-style: italic; color: var(--slate); margin-left: auto; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <h1>PRISM workbench — privacy-label audit</h1>
+  <div class="meta">
+    <span id="meta-app">App <span id="idx">--</span> of <span id="total">--</span></span>
+    <div class="progress" style="display:inline-block; vertical-align:middle; margin-left:12px;">
+      <span id="bar" style="width:0%"></span>
+    </div>
+  </div>
+</div>
+
+<div id="tutorial" class="tutorial-banner" hidden>
+  <strong>Tutorial app.</strong> Walk through the interface freely. No verdict will be saved.
+</div>
+
+<div class="layout">
+  <div class="pane">
+    <h2>Data Safety section</h2>
+    <div id="alert-m4-host"></div>
+    <div id="ds-rows"></div>
+    <div id="security-host"></div>
+    <div id="d1-host"></div>
+  </div>
+  <div class="pane">
+    <h2>Privacy policy (excerpt)</h2>
+    <div id="policy" class="policy"></div>
+  </div>
+</div>
+
+<form id="verdict" class="verdict-bar" autocomplete="off">
+  <div class="row">
+    <fieldset><legend>Sharing — correctness</legend>
+      <label><input type="radio" name="sharing_correct" value="Correct" required> Correct</label>
+      <label><input type="radio" name="sharing_correct" value="Incorrect"> Incorrect</label>
+    </fieldset>
+    <fieldset><legend>Sharing — completeness</legend>
+      <label><input type="radio" name="sharing_complete" value="Complete" required> Complete</label>
+      <label><input type="radio" name="sharing_complete" value="Incomplete"> Incomplete</label>
+    </fieldset>
+    <fieldset><legend>Collection — correctness</legend>
+      <label><input type="radio" name="collection_correct" value="Correct" required> Correct</label>
+      <label><input type="radio" name="collection_correct" value="Incorrect"> Incorrect</label>
+    </fieldset>
+    <fieldset><legend>Collection — completeness</legend>
+      <label><input type="radio" name="collection_complete" value="Complete" required> Complete</label>
+      <label><input type="radio" name="collection_complete" value="Incomplete"> Incomplete</label>
+    </fieldset>
+  </div>
+  <label for="rationale" style="font-size:12px;color:var(--slate);">Rationale (one or two sentences)</label>
+  <textarea id="rationale" name="rationale" placeholder="Briefly justify the verdict."></textarea>
+  <div style="margin-top:8px; display:flex; justify-content:space-between; align-items:center;">
+    <small style="color:var(--slate)" id="timer">Time on this app: 0s</small>
+    <button id="submit" type="submit">Submit verdict</button>
+  </div>
+</form>
+
+<div id="badge-bar" class="badge-bar" hidden></div>
+
+<script>
+// ---- session bootstrap ----
+let session, currentApp, openMs;
+const isPrism = location.search.includes("build=prism");
+document.body.classList.add(isPrism ? "prism" : "legacy");
+
+async function init() {
+  session = await fetch("/api/session").then(r => r.json());
+  document.getElementById("total").textContent = session.total;
+  if (isPrism) renderBadgeBar(session.ambiguity);
+  next();
+}
+
+function renderBadgeBar(ambig) {
+  const bar = document.getElementById("badge-bar");
+  bar.hidden = false;
+  const order = ["M6","M1","M4","M5","M3","M2","M7"];
+  const items = order.map(c => {
+    const v = ambig[c];
+    if (v == null) {
+      return `<span class="badge b-notobs">${c} • not observed</span>`;
+    }
+    return `<span class="badge b-${c}">${c} • ${v.toFixed(1)}% pair-disagreement</span>`;
+  }).join("");
+  bar.innerHTML = items +
+    `<span class="hint">D8 ambiguity badges — codes with ≥70% historical pair-disagreement are surfaced; record reasoning.</span>`;
+}
+
+function escapeHtml(s) {
+  return (s||"").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]));
+}
+
+function highlightHits(text, hits) {
+  if (!hits) return escapeHtml(text);
+  // Build a list of (start, end, code) spans.
+  const spans = [];
+  for (const [code, list] of Object.entries(hits)) {
+    for (const m of list) spans.push({s: m[0], e: m[1], c: code});
+  }
+  spans.sort((a,b) => a.s - b.s);
+  let html = "", cur = 0;
+  for (const sp of spans) {
+    if (sp.s < cur) continue; // skip overlaps
+    html += escapeHtml(text.substring(cur, sp.s));
+    html += `<mark class="${sp.c}">` + escapeHtml(text.substring(sp.s, sp.e)) + "</mark>";
+    cur = sp.e;
+  }
+  html += escapeHtml(text.substring(cur));
+  return html;
+}
+
+function renderDS(ds) {
+  // ds is a list of {row, value, code?} objects
+  return ds.map(r => {
+    const meta = r.code ? `<span class="meta">${r.code}</span>` : "";
+    return `<div class="ds-row"><span><span class="label">${escapeHtml(r.row)}:</span> ${escapeHtml(r.value)}</span>${meta}</div>`;
+  }).join("");
+}
+
+function renderD1(recipients) {
+  if (!isPrism) return "";
+  if (!recipients || !recipients.length) return "";
+  const items = recipients.map(r =>
+    `<li>${escapeHtml(r.name)} <span class="unlinked">→ ${r.linked ? "linked" : "unlinked"}</span></li>`
+  ).join("");
+  return `<div class="d1-panel">
+    <h3>D1 — Third-party recipients extracted from policy</h3>
+    <ul>${items}</ul>
+  </div>`;
+}
+
+function renderSecurity(stim) {
+  if (!isPrism) return "";
+  // Render security rows in their own fieldset (D6)
+  const sec = (stim.data_safety || []).filter(r => /security/i.test(r.row));
+  if (!sec.length) return "";
+  const rows = sec.map(r => `<div class="ds-row">${escapeHtml(r.row)}: ${escapeHtml(r.value)}</div>`).join("");
+  return `<fieldset class="security-box"><legend>D6 — Security practices</legend>${rows}</fieldset>`;
+}
+
+function renderAlertM4(codes_fired, ds) {
+  if (!isPrism) return "";
+  const hasM4 = codes_fired.includes("M4");
+  const hasOver = codes_fired.includes("M1") || codes_fired.includes("M2");
+  if (hasM4 && hasOver) {
+    return `<div class="alert-m4"><strong>D4 alert.</strong>
+      The label declares "no data" while the policy mentions third-party
+      recipients or persistent identifiers. Flag potential overclaim.</div>`;
+  }
+  return "";
+}
+
+async function next() {
+  const stim = await fetch("/api/next-app").then(r => r.json());
+  if (stim.done) {
+    window.location.href = "/exit";
+    return;
+  }
+  currentApp = stim;
+  openMs = Date.now();
+  document.getElementById("idx").textContent = (stim.index+1);
+  document.getElementById("bar").style.width = ((stim.index+1) * 100 / session.total) + "%";
+  document.getElementById("tutorial").hidden = !stim.is_tutorial;
+  // Data Safety rows
+  document.getElementById("ds-rows").innerHTML = renderDS(stim.data_safety || []);
+  document.getElementById("security-host").innerHTML = renderSecurity(stim);
+  document.getElementById("alert-m4-host").innerHTML = renderAlertM4(stim.codes_fired || [], stim.data_safety || []);
+  document.getElementById("d1-host").innerHTML = renderD1(stim.third_parties || []);
+  document.getElementById("policy").innerHTML = highlightHits(stim.policy_excerpt || "", isPrism ? stim.lexicon_hits : null);
+  // Reset form
+  document.getElementById("verdict").reset();
+  document.getElementById("submit").disabled = !!stim.is_tutorial;
+  document.getElementById("rationale").focus();
+  startTimer();
+}
+
+let timerHandle;
+function startTimer() {
+  clearInterval(timerHandle);
+  const start = Date.now();
+  timerHandle = setInterval(() => {
+    document.getElementById("timer").textContent =
+      "Time on this app: " + Math.floor((Date.now() - start)/1000) + "s";
+  }, 1000);
+}
+
+document.getElementById("verdict").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  if (currentApp.is_tutorial) { next(); return; }
+  const form = new FormData(e.target);
+  const data = Object.fromEntries(form.entries());
+  data.app_id = currentApp.app_id;
+  data.time_on_app_ms = Date.now() - openMs;
+  const resp = await fetch("/api/submit-verdict", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify(data),
+  }).then(r => r.json());
+  if (resp.next === "tlx") window.location.href = "/tlx";
+  else if (resp.next === "exit") window.location.href = "/exit";
+  else next();
+});
+
+// Click-stream logging for affordance interactions (PRISM only)
+document.addEventListener("click", (e) => {
+  if (!isPrism) return;
+  const tgt = e.target.closest(".d1-panel, .alert-m4, .security-box, .chip, .badge-bar");
+  if (!tgt) return;
+  const panel = tgt.className.split(/\s+/)[0] || "unknown";
+  fetch("/api/click-panel", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({app_id: currentApp?.app_id, panel}),
+  });
+});
+
+init();
+</script>
+</body>
+</html>

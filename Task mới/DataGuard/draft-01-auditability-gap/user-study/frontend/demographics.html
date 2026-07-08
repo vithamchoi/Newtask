@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Demographics — DataGuard study</title>
+<link rel="stylesheet" href="/css/study.css">
+</head>
+<body>
+<main class="card">
+  <h1>About you</h1>
+  <p>A few short questions. Nothing here can identify you.</p>
+
+  <form id="demo">
+    <fieldset>
+      <legend>Age band</legend>
+      <select name="age_band" required>
+        <option value="">— select —</option>
+        <option>18-24</option><option>25-34</option><option>35-44</option>
+        <option>45-54</option><option>55+</option>
+      </select>
+    </fieldset>
+
+    <fieldset>
+      <legend>How do you rate your English reading at college level?
+              (1 = struggle, 5 = very comfortable)</legend>
+      <input type="range" name="english_self" min="1" max="5" value="3"
+             oninput="this.nextElementSibling.textContent=this.value">
+      <output>3</output>
+    </fieldset>
+
+    <fieldset>
+      <legend>How often do you use an Android smartphone?</legend>
+      <select name="android_use" required>
+        <option value="">— select —</option>
+        <option>daily</option><option>weekly</option><option>monthly</option>
+        <option>rarely</option><option>never</option>
+      </select>
+    </fieldset>
+
+    <fieldset>
+      <legend>How often do you read app privacy policies?</legend>
+      <select name="policy_read" required>
+        <option value="">— select —</option>
+        <option>always</option><option>sometimes</option>
+        <option>rarely</option><option>never</option>
+      </select>
+    </fieldset>
+
+    <fieldset>
+      <legend>Have you worked professionally in mobile-app development or
+              developer relations?</legend>
+      <label><input type="radio" name="developer_exp" value="0" checked> No</label>
+      <label><input type="radio" name="developer_exp" value="1"> Yes</label>
+    </fieldset>
+
+    <button type="submit">Continue to tutorial</button>
+  </form>
+</main>
+<script>
+document.getElementById("demo").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const fd = new FormData(e.target);
+  const body = Object.fromEntries(fd.entries());
+  body.pid = sessionStorage.getItem("pid");
+  body.english_self = +body.english_self;
+  body.developer_exp = +body.developer_exp;
+  const r = await fetch("/api/demographics", {
+    method:"POST", headers:{"Content-Type":"application/json"},
+    body: JSON.stringify(body)
+  });
+  if (r.ok) location.href = "/tutorial.html";
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+% Figure: Three-family typology of mismatch — leaves don't overlap.
+\begin{figure}[!htbp]
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[font=\sffamily,
+  T/.style={draw=bmInk,rounded corners=4pt,minimum width=46mm,
+            minimum height=16mm,align=center,font=\footnotesize,
+            blur shadow={shadow blur steps=4}},
+  C/.style={draw=bmInk!70,rounded corners=2.5pt,fill=white,
+            font=\scriptsize,inner sep=2.5pt,
+            minimum width=18mm,minimum height=6mm,align=center}]
+
+\node[T,top color=bmRed!10,bottom color=bmRed!40,draw=bmRed]
+   (A) at (0,0) {\textbf{Type A. Reversibility}\\
+                 \emph{will the claim hold over time?}};
+\node[T,top color=bmPurple!10,bottom color=bmPurple!40,draw=bmPurple,
+      right=8mm of A]
+   (B) {\textbf{Type B. Recipient}\\
+        \emph{who has it, on what contract?}};
+\node[T,top color=bmTeal!10,bottom color=bmTeal!40,draw=bmTeal,
+      right=8mm of B]
+   (C) {\textbf{Type C. Consent}\\
+        \emph{is the expectation real?}};
+
+% Leaves for A — two only, side by side
+\node[C,below=8mm of A,xshift=-11mm] (a1) {$b_3$ ephemeral};
+\node[C,below=8mm of A,xshift=11mm]  (a2) {$b_9$ anonymised};
+
+% Leaves for B — three, stacked vertically to avoid overlap
+\node[C,below=8mm of B,xshift=-18mm]                 (b1) {$b_4$ redirect};
+\node[C,right=2mm of b1]                              (b2) {$b_7$ svc.\,prov.};
+\node[C,right=2mm of b2]                              (b3) {$b_8$ legal};
+
+% Leaves for C — two
+\node[C,below=8mm of C,xshift=-11mm] (c1) {$b_5$ user-init.};
+\node[C,below=8mm of C,xshift=11mm]  (c2) {$b_6$ prom.\,consent};
+
+\draw[draw=bmRed!60,thick,dashed] (A.south) -- (a1.north);
+\draw[draw=bmRed!60,thick,dashed] (A.south) -- (a2.north);
+\draw[draw=bmPurple!60,thick,dashed] (B.south) -- (b1.north);
+\draw[draw=bmPurple!60,thick,dashed] (B.south) -- (b2.north);
+\draw[draw=bmPurple!60,thick,dashed] (B.south) -- (b3.north);
+\draw[draw=bmTeal!60,thick,dashed] (C.south) -- (c1.north);
+\draw[draw=bmTeal!60,thick,dashed] (C.south) -- (c2.north);
+
+\node[below=10mm of b2,draw=bmInk!30,rounded corners,fill=bmCream,
+      font=\footnotesize,align=center,minimum width=120mm,inner sep=3pt]
+  {\emph{Cross-type cases:} $b_1$ on-device-only (Reversibility\,$\cup$\,Capability), $b_2$ E2E encryption (Recipient).};
+\end{tikzpicture}}
+\caption{A three-family typology of the boundary-case mismatch. Cases
+in each family are contested for the same underlying reason; design
+remedies can be planned at the family level rather than case by case.}
+\label{fig:mismatch-typology}
+\end{figure}

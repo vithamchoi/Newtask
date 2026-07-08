@@ -1,0 +1,27 @@
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    ybar,
+    width=0.84\linewidth, height=0.46\linewidth,
+    ymin=0, ymax=95,
+    ylabel={Number of apps},
+    xlabel={App-level agreement with reported necessity (\%)},
+    symbolic x coords={0--10,10--20,20--30,30--40,40--50},
+    xtick=data,
+    nodes near coords, point meta=y,
+    nodes near coords={\pgfmathprintnumber[fixed,precision=0]{\pgfplotspointmeta}},
+    every node near coord/.append style={font=\scriptsize,color=ngSlate},
+    bar width=28pt,
+    axis line style={ngSlate}, tick style={ngSlate},
+    grid=major, grid style={ngSlate!18}
+]
+\addplot+[fill=ngPurple!70, draw=ngPurple] coordinates {
+    (0--10,51)(10--20,54)(20--30,69)(30--40,80)(40--50,56)
+};
+\end{axis}
+\end{tikzpicture}
+\caption{App-level agreement across 310 social apps. No app exceeded 50\%
+agreement; almost half ($n$\,=\,148) fell at or below 25\%.}
+\label{fig:app-level-agreement}
+\end{figure}

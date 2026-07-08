@@ -1,0 +1,157 @@
+{
+  "artifact_type": "target_user_feedback",
+  "feedback_authored_by_codex": true,
+  "project": "DataGuard controlled audit study",
+  "created_for": "draft-01-auditability-gap/user-study",
+  "pid": "DG-COMPLIANCE-01",
+  "persona": {
+    "role": "privacy and compliance analyst",
+    "sector": "mobile-app privacy review / internal compliance",
+    "experience_years": 6,
+    "privacy_policy_review_frequency": "weekly",
+    "data_safety_familiarity": "moderate",
+    "legal_training": "not a lawyer; trained in privacy compliance workflows",
+    "ai_tool_familiarity": "uses search and summarisation tools, but does not rely on them for final compliance judgments"
+  },
+  "consent_like_fields": {
+    "read_consent": true,
+    "age_18_or_older": true,
+    "voluntary_participation": true,
+    "consent_to_deidentified_release": true,
+    "notes": "Consent-style fields mirror the study flow and are included as authored feedback metadata."
+  },
+  "demographics": {
+    "age_band": "35-44",
+    "english_self": 5,
+    "android_use": "daily",
+    "policy_read": "always",
+    "developer_exp": 0
+  },
+  "tutorial_check": {
+    "q1_data_safety_author": "the app developer",
+    "q2_ad_sdk_no_sharing": "Incorrect",
+    "q3_c2_ai_behavior": "inspect the highlighted evidence before deciding",
+    "q4_confidence_slider": "how confident you are in your judgment",
+    "q5_vague_policy": "mark Ambiguous and explain in the rationale",
+    "score": 5,
+    "passed": true,
+    "tutorial_comment": "The tutorial is directionally clear, but I would add one worked example separating correctness from completeness. That distinction is where a trained reviewer will still slow down."
+  },
+  "condition_order": ["C0", "C1", "C2"],
+  "trial_feedback_exemplars": [
+    {
+      "trial_order": 1,
+      "condition": "C0",
+      "app_id": "S1-001",
+      "app_name": "ReadAloud Books",
+      "stratum": "S1",
+      "j_share_corr": "Correct",
+      "j_share_comp": "Complete",
+      "j_coll_corr": "Correct",
+      "j_coll_comp": "Complete",
+      "conf_share_corr": 82,
+      "conf_share_comp": 76,
+      "conf_coll_corr": 84,
+      "conf_coll_comp": 79,
+      "rationale": "The Data Safety label names device identifiers for analytics and the policy explicitly states that the advertising identifier is shared with Google Analytics. Collection of email and crash diagnostics is also described.",
+      "evidence_paste": "Your device advertising identifier is shared with Google Analytics for app-usage analytics only. We collect your email address when you create a ReadAloud account.",
+      "user_comment": "This was a good high-confidence case. The policy language mapped cleanly to the Data Safety categories."
+    },
+    {
+      "trial_order": 9,
+      "condition": "C1",
+      "app_id": "S2-001",
+      "app_name": "PocketBeauty Mirror",
+      "stratum": "S2",
+      "j_share_corr": "Incorrect",
+      "j_share_comp": "Incomplete",
+      "j_coll_corr": "Ambig",
+      "j_coll_comp": "Ambig",
+      "conf_share_corr": 73,
+      "conf_share_comp": 69,
+      "conf_coll_corr": 48,
+      "conf_coll_comp": 44,
+      "rationale": "The label declares no sharing, but the policy mentions analytics service providers and advertising partners. Collection is harder because the policy says photos are processed on-device while also mentioning cookies and similar technologies.",
+      "evidence_paste": "PocketBeauty Mirror may share usage information with our analytics service providers, including but not limited to AppsFlyer and similar third parties, for service-improvement purposes. We may also use advertising partners.",
+      "user_comment": "The extracted sections helped more than the raw policy, but I still wanted a mapping note for cookies/usage information versus the Data Safety taxonomy."
+    },
+    {
+      "trial_order": 17,
+      "condition": "C2",
+      "app_id": "S3-001",
+      "app_name": "QuickFlash Light",
+      "stratum": "S3",
+      "j_share_corr": "Incorrect",
+      "j_share_comp": "Incomplete",
+      "j_coll_corr": "Incorrect",
+      "j_coll_comp": "Incomplete",
+      "conf_share_corr": 88,
+      "conf_share_comp": 84,
+      "conf_coll_corr": 86,
+      "conf_coll_comp": 83,
+      "rationale": "The no-data label is contradicted by explicit AdMob and Firebase Analytics language. The highlighted evidence was useful because it put the advertising ID, IP-derived location, device information, and analytics data in one visible passage.",
+      "evidence_paste": "AdMob may collect the Android Advertising ID, approximate location derived from IP, device information, and ad interaction events. We also use Firebase Analytics for app-event tracking.",
+      "ai_suggestion_accepted": true,
+      "ai_overridden_axes": 0,
+      "user_comment": "This is the kind of no-data case where AI evidence highlighting is genuinely useful. The AI should still be described as an evidence locator, not as the final judge."
+    }
+  ],
+  "nasa_tlx": [
+    {
+      "condition": "C0",
+      "mental": 82,
+      "physical": 15,
+      "temporal": 68,
+      "performance": 43,
+      "effort": 78,
+      "frustration": 62,
+      "tlx_global": 58.0,
+      "block_comment": "Raw review was the most tiring. I spent time scanning the policy and worrying that I had missed a relevant sentence."
+    },
+    {
+      "condition": "C1",
+      "mental": 64,
+      "physical": 12,
+      "temporal": 54,
+      "performance": 34,
+      "effort": 59,
+      "frustration": 41,
+      "tlx_global": 44.0,
+      "block_comment": "The extracted Data Share and Data Collect sections reduced the search burden. It did not solve ambiguity, but it made the work feel more auditable."
+    },
+    {
+      "condition": "C2",
+      "mental": 53,
+      "physical": 10,
+      "temporal": 46,
+      "performance": 29,
+      "effort": 48,
+      "frustration": 35,
+      "tlx_global": 36.8,
+      "block_comment": "The highlighted candidate evidence helped most on no-data cases. I still checked the surrounding text before trusting the suggestion."
+    }
+  ],
+  "trust_after_c2": {
+    "t1_reliable": 5,
+    "t2_evidence": 6,
+    "t3_overrely": 3,
+    "t4_intent": 6,
+    "t5_understand": 5,
+    "trust_global_reverse_scored_t3": 5.4,
+    "trust_comment": "I would use the AI assistant to find passages, not to make compliance determinations. The evidence click-before-accept rule is important."
+  },
+  "post_study_feedback": {
+    "overall_usefulness_1_to_5": 5,
+    "preferred_condition": "C2 for evidence location, C1 for independent manual review",
+    "most_helpful_feature": "Side-by-side Data Safety and policy evidence with highlighted candidate passages.",
+    "least_helpful_or_riskiest_feature": "AI labels could create over-trust if the uncertainty indicator is subtle or if the suggested verdict is visually stronger than the evidence.",
+    "main_confusion": "Correctness versus completeness requires more examples. I understood it conceptually, but in real policies the difference becomes difficult.",
+    "missing_feature": "A direct text-selection tool for attaching evidence to a verdict, plus a glossary mapping policy phrases to Data Safety data types.",
+    "final_free_text": "The study captures a real audit workflow. The strongest claim is that evidence-grounded interfaces make review more defensible, not that they automatically decide app compliance. I would recommend keeping Ambiguous as a first-class response and reporting how often it appears."
+  },
+  "researcher_use_notes": [
+    "Use this packet to refine tutorial language around correctness vs completeness.",
+    "Do not use this packet in inferential analysis.",
+    "The persona strongly supports framing C2 as evidence-location support rather than automated judgment."
+  ]
+}
