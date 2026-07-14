@@ -18,7 +18,7 @@
 const STUDY_ID    = "2024-bcm-bleeval";
 const STUDY_VER   = "1.0.0";
 const N_APPS      = 4;
-const BACKEND_URL = ""; // ← set after deploying backend/google_apps_script.gs
+const BACKEND_URL = "https://script.google.com/macros/s/AKfycbw_vr7DxyW8YG3D1t6UXOZ5cJn8VPE2Y0_xCloMYtll2glO_Keq5zuG0iBStcJQsWt8/exec";
 const FALLBACK_DOWNLOAD = true;
 
 // =====================================================================
