@@ -596,9 +596,10 @@ function submitStudy() {
   if (BACKEND_URL) {
     fetch(BACKEND_URL, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      mode: "no-cors",
+      headers: { "Content-Type": "text/plain" },
       body: payload
-    }).then(r => { serverOk = r.ok; }).catch(() => {});
+    }).then(r => { serverOk = true; }).catch(() => {});
   }
   // Show debrief
   go("debrief");
