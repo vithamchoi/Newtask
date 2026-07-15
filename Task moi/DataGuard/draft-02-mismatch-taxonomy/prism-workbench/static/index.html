@@ -261,7 +261,8 @@ async function next() {
   document.getElementById("policy").innerHTML = highlightHits(stim.policy_excerpt || "", isPrism ? stim.lexicon_hits : null);
   // Reset form
   document.getElementById("verdict").reset();
-  document.getElementById("submit").disabled = !!stim.is_tutorial;
+  document.getElementById("submit").disabled = false;
+  document.getElementById("submit").textContent = stim.is_tutorial ? "Next (Tutorial)" : "Submit verdict";
   document.getElementById("rationale").focus();
   startTimer();
 }
