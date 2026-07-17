@@ -279,7 +279,6 @@ function startTimer() {
 
 document.getElementById("verdict").addEventListener("submit", async (e) => {
   e.preventDefault();
-  if (currentApp.is_tutorial) { next(); return; }
   const form = new FormData(e.target);
   const data = Object.fromEntries(form.entries());
   data.app_id = currentApp.app_id;
