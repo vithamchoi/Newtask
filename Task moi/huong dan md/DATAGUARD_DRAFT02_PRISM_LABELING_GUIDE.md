@@ -44,4 +44,15 @@ Bạn phải tích vào 4 ô tròn trước khi nhấn **Submit verdict**:
 | **Collection - completeness** (Tính đầy đủ thu thập) | Khai báo đủ tất cả các mục dữ liệu bị thu thập. | Khai báo thiếu các mục dữ liệu bị thu thập mà chính sách có nhắc tới. |
 
 ---
-*Lưu ý: 5 ứng dụng đầu tiên là bản Tutorial (Dùng thử). Hãy làm nhanh để kích hoạt các ứng dụng chính thức tiếp theo!*
+
+## ⚠️ LƯU Ý QUAN TRỌNG KHI LÀM NHIỆM VỤ
+
+### 1. Cách vượt qua các bài hướng dẫn (Tutorial apps)
+* **5 ứng dụng đầu tiên (App 1 đến App 5)** là các ứng dụng dùng thử (Tutorial).
+* Tại 5 ứng dụng này, nút bấm ở góc phải sẽ hiển thị là **`Next (Tutorial)`**. Bạn chỉ cần chọn nhanh các đánh giá phán quyết và nhấn nút này để chuyển trang (kết quả bài hướng dẫn sẽ không được lưu vào cơ sở dữ liệu).
+* Từ **ứng dụng thứ 6 trở đi**, nút sẽ tự động chuyển thành **`Submit verdict`** để ghi nhận kết quả dán nhãn chính thức của bạn vào hệ thống.
+
+### 2. Tránh mở 2 giao diện song song trên cùng một trình duyệt
+* **Không mở** link `?build=prism` và `?build=legacy` trên cùng một cửa sổ trình duyệt (ví dụ cùng mở 2 tab trên Chrome bình thường). Do hệ thống dùng chung Session (Cookie), khi bạn làm và chuyển trang ở tab này thì tab kia cũng sẽ tự động bị nhảy trang theo.
+* **Cách khắc phục:** Nếu muốn mở song song cả 2 giao diện để đối chiếu và làm độc lập, hãy mở một link ở trình duyệt thường và link còn lại ở **Cửa sổ ẩn danh (Incognito - Ctrl + Shift + N)** hoặc mở bằng **một trình duyệt khác** (như Microsoft Edge, Firefox).
+
