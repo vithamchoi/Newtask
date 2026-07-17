@@ -1,18 +1,21 @@
-DATAGUARD_DRAFT01_USERSTUDY
-link label:https://dataguard-user-study.onrender.com/
-Link kết quả:https://dataguard-user-study.onrender.com/api/export?token=tung0903
-
+====================================================
+1. DATAGUARD - DRAFT 01 - USER STUDY (C0/C1/C2)
+====================================================
+- Link làm khảo sát: https://dataguard-user-study.onrender.com/
+- Link kết quả (Admin): https://dataguard-user-study.onrender.com/api/export?token=tung0903
+- File hướng dẫn dán nhãn: huong dan md/DATAGUARD_DRAFT01_USERSTUDY_GUIDE.md
 
 ====================================================
-
-DATASAFETY_DRAFT02_USERSTUDY
-link label:
-(1)https://prism-workbench.onrender.com/?build=legacy
-(2)https://prism-workbench.onrender.com/?build=prism
-Link kết quả:https://prism-workbench.onrender.com/api/export.csv
+2. DATAGUARD - DRAFT 02 - PRISM WORKBENCH (Legacy vs PRISM)
+====================================================
+- Link dán nhãn (Legacy): https://prism-workbench.onrender.com/?build=legacy
+- Link dán nhãn (PRISM): https://prism-workbench.onrender.com/?build=prism
+- Link kết quả (Admin): https://prism-workbench.onrender.com/api/export.csv
+- File hướng dẫn dán nhãn: huong dan md/DATAGUARD_DRAFT02_PRISM_LABELING_GUIDE.md
 
 ====================================================
-
-DATAGUARD_DRAFT01_USERSTUDY
-link label:https://boundary-mismatch-survey.vercel.app/
-Link kết  quả:  https://docs.google.com/spreadsheets/d/1j8Xi_cUBtw1VSO8e9MkiplPWdjlwnXvftmT6THHWVlU/edit?usp=sharing
+3. DATASAFETY - DRAFT 02 - USER STUDY (BLE)
+====================================================
+- Link làm khảo sát: https://boundary-mismatch-survey.vercel.app/
+- Link kết quả (Admin - Google Sheet): https://docs.google.com/spreadsheets/d/1j8Xi_cUBtw1VSO8e9MkiplPWdjlwnXvftmT6THHWVlU/edit?usp=sharing
+- File hướng dẫn dán nhãn: huong dan md/DATASAFETY_DRAFT02_USERSTUDY_GUIDE.md
